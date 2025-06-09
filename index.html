@@ -1,80 +1,234 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>スケベな日常</title>
-  <style>
-    body { font-family: sans-serif; margin: 0; background: #fff; color: #111; }
-    header { background: #ffcc00; padding: 1em; font-size: 1.5em; text-align: center; font-weight: bold; }
-    nav { background: #333; padding: 0.5em; color: white; display: flex; justify-content: center; flex-wrap: wrap; }
-    nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
-    .main-layout { display: flex; padding: 1em; }
-    .sidebar { width: 250px; margin-right: 1em; }
-    .ad-space { background: #eee; padding: 1em; text-align: center; margin: 1em 0; border: 1px dashed #999; font-size: 0.9em; }
-    .recommend { background: #f9f9f9; padding: 1em; border: 1px solid #ccc; margin-top: 1em; }
-    .recommend h3 { font-size: 1em; margin-top: 0; }
-    .recommend ul { padding-left: 1em; list-style: square; font-size: 0.9em; }
-    .container { flex: 1; display: flex; flex-wrap: wrap; justify-content: center; }
-    .card { width: 300px; margin: 1em; border: 1px solid #ccc; box-shadow: 2px 2px 4px rgba(0,0,0,0.1); background: white; }
-    .card img { width: 100%; }
-    .card .title { font-size: 1em; font-weight: bold; padding: 0.5em; }
-    .comment { background: #f8f8f8; color: green; font-size: 0.9em; padding: 0.5em; border-top: 1px solid #ccc; }
-    .pagination { text-align: center; margin: 2em auto; font-size: 0.9em; }
-    .pagination a { margin: 0 0.3em; text-decoration: none; color: #0077cc; }
-    footer { text-align: center; padding: 1em; background: #eee; margin-top: 2em; font-size: 0.8em; }
-  </style>
+    <meta charset="UTF-8">
+    <title>スケベな日常</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; background: #f8f8f8; color: #111; }
+        header { background: #ffcc00; padding: 1em; font-size: 1.5em; text-align: center; font-weight: bold; }
+        nav { background: #333; padding: 0.5em; color: white; display: flex; justify-content: center; flex-wrap: wrap; }
+        nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
+        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 1em; }
+        .card { width: 300px; margin: 1em; border: 1px solid #ccc; box-shadow: 2px 2px 4px rgba(0,0,0,0.1); background: white; }
+        .card img { width: 100%; }
+        .card .title { font-size: 1em; font-weight: bold; padding: 0.5em; }
+        .comment { background: #f8f8f8; color: green; font-size: 0.9em; padding: 0.5em; border-top: 1px solid #ccc; }
+        footer { text-align: center; padding: 1em; background: #eee; margin-top: 2em; font-size: 0.8em; }
+    </style>
 </head>
 <body>
-
-  <header>スケベな日常</header>
-  <nav>
+<header>スケベな日常</header>
+<nav>
+    <a href="#">三次元</a>
+    <a href="#">二次元</a>
     <a href="#">巨乳</a>
-    <a href="#">美尻</a>
     <a href="#">GIF</a>
     <a href="#">コスプレ</a>
     <a href="#">素人</a>
-  </nav>
+</nav>
+<div class="container">
 
-  <div class="main-layout">
-    <aside class="sidebar">
-      <div class="ad-space">[広告枠]</div>
-      <div class="recommend">
-        <h3>おすすめ記事</h3>
-        <ul>
-          <li><a href="nekomimi.html">猫耳フードで完全に化け猫な女子あらわるｗｗｗ</a></li>
-          <li><a href="shibainu_smile.html">笑顔が完璧すぎる柴犬くんｗｗｗ</a></li>
-          <li><a href="chaina.html">チャイナコスで召喚術試してみた結果ｗｗｗ</a></li>
-        </ul>
-      </div>
-    </aside>
-
-    <div class="container">
-      <div class="card">
-        <a href="chaina.html">
-          <img src="farm_mimi1-748x997.webp" alt="チャイナコス召喚式中の女性">
-        </a>
-        <div class="title">
-          <a href="chaina.html">【画像】チャイナコスで召喚術を試みた結果ｗｗｗ</a>
-        </div>
-        <div class="comment">
-          1: 名無しさんのギガリすと<br>
-          布の存在がミスリードすぎる
-        </div>
-      </div>
-      <!-- 他の記事カードもここに続けて書く -->
+  <div class="card">
+    <a href="articles/article01.html">
+      <img src="images/thumb01.jpg" alt="記事01">
+    </a>
+    <div class="title">
+      <a href="articles/article01.html">【画像】これは記事01のタイトルですｗｗｗ</a>
     </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント01がここに入ります</div>
   </div>
 
-  <div class="pagination">
-    <a href="#">« 前へ</a>
-    <a href="#">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">次へ »</a>
+  <div class="card">
+    <a href="articles/article02.html">
+      <img src="images/thumb02.jpg" alt="記事02">
+    </a>
+    <div class="title">
+      <a href="articles/article02.html">【画像】これは記事02のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント02がここに入ります</div>
   </div>
 
-  <footer>© 2025 スケベな日常</footer>
+  <div class="card">
+    <a href="articles/article03.html">
+      <img src="images/thumb03.jpg" alt="記事03">
+    </a>
+    <div class="title">
+      <a href="articles/article03.html">【画像】これは記事03のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント03がここに入ります</div>
+  </div>
 
+  <div class="card">
+    <a href="articles/article04.html">
+      <img src="images/thumb04.jpg" alt="記事04">
+    </a>
+    <div class="title">
+      <a href="articles/article04.html">【画像】これは記事04のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント04がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article05.html">
+      <img src="images/thumb05.jpg" alt="記事05">
+    </a>
+    <div class="title">
+      <a href="articles/article05.html">【画像】これは記事05のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント05がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article06.html">
+      <img src="images/thumb06.jpg" alt="記事06">
+    </a>
+    <div class="title">
+      <a href="articles/article06.html">【画像】これは記事06のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント06がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article07.html">
+      <img src="images/thumb07.jpg" alt="記事07">
+    </a>
+    <div class="title">
+      <a href="articles/article07.html">【画像】これは記事07のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント07がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article08.html">
+      <img src="images/thumb08.jpg" alt="記事08">
+    </a>
+    <div class="title">
+      <a href="articles/article08.html">【画像】これは記事08のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント08がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article09.html">
+      <img src="images/thumb09.jpg" alt="記事09">
+    </a>
+    <div class="title">
+      <a href="articles/article09.html">【画像】これは記事09のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント09がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article10.html">
+      <img src="images/thumb10.jpg" alt="記事10">
+    </a>
+    <div class="title">
+      <a href="articles/article10.html">【画像】これは記事10のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント10がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article11.html">
+      <img src="images/thumb11.jpg" alt="記事11">
+    </a>
+    <div class="title">
+      <a href="articles/article11.html">【画像】これは記事11のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント11がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article12.html">
+      <img src="images/thumb12.jpg" alt="記事12">
+    </a>
+    <div class="title">
+      <a href="articles/article12.html">【画像】これは記事12のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント12がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article13.html">
+      <img src="images/thumb13.jpg" alt="記事13">
+    </a>
+    <div class="title">
+      <a href="articles/article13.html">【画像】これは記事13のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント13がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article14.html">
+      <img src="images/thumb14.jpg" alt="記事14">
+    </a>
+    <div class="title">
+      <a href="articles/article14.html">【画像】これは記事14のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント14がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article15.html">
+      <img src="images/thumb15.jpg" alt="記事15">
+    </a>
+    <div class="title">
+      <a href="articles/article15.html">【画像】これは記事15のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント15がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article16.html">
+      <img src="images/thumb16.jpg" alt="記事16">
+    </a>
+    <div class="title">
+      <a href="articles/article16.html">【画像】これは記事16のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント16がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article17.html">
+      <img src="images/thumb17.jpg" alt="記事17">
+    </a>
+    <div class="title">
+      <a href="articles/article17.html">【画像】これは記事17のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント17がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article18.html">
+      <img src="images/thumb18.jpg" alt="記事18">
+    </a>
+    <div class="title">
+      <a href="articles/article18.html">【画像】これは記事18のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント18がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article19.html">
+      <img src="images/thumb19.jpg" alt="記事19">
+    </a>
+    <div class="title">
+      <a href="articles/article19.html">【画像】これは記事19のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント19がここに入ります</div>
+  </div>
+
+  <div class="card">
+    <a href="articles/article20.html">
+      <img src="images/thumb20.jpg" alt="記事20">
+    </a>
+    <div class="title">
+      <a href="articles/article20.html">【画像】これは記事20のタイトルですｗｗｗ</a>
+    </div>
+    <div class="comment">1: 名無しさんのギガリすと<br>コメント20がここに入ります</div>
+  </div>
+
+</div>
+<footer>© 2025 スケベな日常</footer>
 </body>
 </html>
-
