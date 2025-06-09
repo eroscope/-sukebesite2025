@@ -2,77 +2,68 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>スケベな日常</title>
-    <style>
-        body { font-family: sans-serif; margin: 0; background: #f5f5f5; color: #111; }
-        header { background: #ffcc00; padding: 1em; text-align: center; font-weight: bold; font-size: 1.5em; }
-        nav { background: #333; padding: 0.5em; color: white; display: flex; justify-content: center; }
-        nav a { color: white; margin: 0 1em; text-decoration: none; font-weight: bold; }
-        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 1em; }
-        .card { width: 300px; margin: 1em; border: 1px solid #ccc; background: white; box-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
-        .card img { width: 100%; }
-        .card .title { font-size: 1em; font-weight: bold; padding: 0.5em; }
-        .comment { background: #f8f8f8; color: green; font-size: 0.9em; padding: 0.5em; border-top: 1px solid #ccc; }
-        footer { text-align: center; padding: 1em; background: #eee; margin-top: 2em; font-size: 0.8em; }
-    </style>
+  <meta charset="UTF-8">
+  <title>スケベな日常</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; background: #fff; color: #111; }
+    header { background: #ffcc00; padding: 1em; font-size: 1.5em; text-align: center; font-weight: bold; }
+    nav { background: #333; padding: 0.5em; color: white; display: flex; justify-content: center; }
+    nav a { color: white; margin: 0 1em; text-decoration: none; font-weight: bold; }
+    .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 1em; }
+    .card { width: 300px; margin: 1em; border: 1px solid #ccc; box-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+    .card img { width: 100%; }
+    .card .title { font-size: 1em; font-weight: bold; padding: 0.5em; }
+    .comment { background: #f8f8f8; color: green; font-size: 0.9em; padding: 0.5em; border-top: 1px solid #ccc; }
+    footer { text-align: center; padding: 1em; margin-top: 2em; font-size: 0.8em; background: #eee; }
+    aside { width: 200px; margin: 1em; font-size: 0.9em; }
+    .flex-wrap { display: flex; justify-content: center; flex-wrap: wrap; }
+    .pagination { text-align: center; margin: 2em 0; }
+    .pagination a { margin: 0 0.5em; text-decoration: none; color: #333; }
+  </style>
 </head>
 <body>
-    <header>スケベな日常</header>
-    <nav>
-        <a href="#">三次元</a>
-        <a href="#">二次元</a>
-        <a href="#">巨乳</a>
-        <a href="#">GIF</a>
-        <a href="#">コスプレ</a>
-        <a href="#">素人</a>
-    </nav>
-    <div class="container">
-        <div class="card">
-            <a href="記事20250608.html">
-                <img src="20250608.jpg" alt="sample">
-                <div class="title">【画像】変な角度から猫撮ったらジワるｗｗｗ</div>
-            </a>
-            <div class="comment">
-                1: 名無しギガリすと<br>
-                おなかの主張が強い
-            </div>
-        </div>
-    </div>
-    <footer>© 2025 スケベな日常</footer>
-</body>
-</html>
 
-    <a href="#">二次元</a>
-    <a href="#">巨乳</a>
-    <a href="#">GIF</a>
-    <a href="#">コスプレ</a>
-    <a href="#">素人</a>
-  </nav>
-  <div class="main-content">
-    <div class="sidebar">
-      <div class="search-box">
-        <input type="text" placeholder="検索...">
-      </div>
-      <div class="ad">[広告枠]</div>
-      <div class="recommend">おすすめ記事（ランダム）</div>
-    </div>
-    <div class="container">
-      <!-- ここに記事カードを追加 -->
-      <div class="card">
-        <img src="https://placehold.jp/300x200.png" alt="sample">
-        <div class="title">【画像】爆乳コスプレイヤーさん、お尻がはち切れそうｗｗｗ</div>
-        <div class="comment">1: 名無しのギガリすと 顔よりお尻のインパクトがすごい</div>
+<header>スケベな日常</header>
+
+<nav>
+  <a href="#">三次元</a>
+  <a href="#">二次元</a>
+  <a href="#">巨乳</a>
+  <a href="#">GIF</a>
+  <a href="#">コスプレ</a>
+  <a href="#">素人</a>
+</nav>
+
+<div class="flex-wrap">
+  <aside>
+    <input type="text" placeholder="検索..." style="width:100%;"><br><br>
+    [広告枠]<br>
+    おすすめ記事（ランダム）
+  </aside>
+
+  <div class="container">
+    <div class="card">
+      <a href="記事20250608.html">
+        <img src="20250608.jpg" alt="猫画像">
+        <div class="title">【画像】変な角度から猫撮ったらジワるｗｗｗ</div>
+      </a>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        おなかの主張が強い
       </div>
     </div>
   </div>
-  <div class="pagination">
-    <a href="#">« 前へ</a>
-    <a href="#">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">次へ »</a>
-  </div>
-  <footer>© 2025 スケベな日常</footer>
+</div>
+
+<div class="pagination">
+  <a href="#">« 前へ</a>
+  <a href="#">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">次へ »</a>
+</div>
+
+<footer>© 2025 スケベな日常</footer>
+
 </body>
 </html>
