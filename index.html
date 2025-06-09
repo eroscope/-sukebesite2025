@@ -16,7 +16,7 @@
     .recommend ul { padding-left: 1em; list-style: square; font-size: 0.9em; }
     .container { flex: 1; display: flex; flex-wrap: wrap; justify-content: center; }
     .card { width: 300px; margin: 1em; border: 1px solid #ccc; box-shadow: 2px 2px 4px rgba(0,0,0,0.1); background: white; }
-    .card img { width: 100%; }
+    .card img { width: 100%; height: auto; }
     .card .title { font-size: 1em; font-weight: bold; padding: 0.5em; }
     .comment { background: #f8f8f8; color: green; font-size: 0.9em; padding: 0.5em; border-top: 1px solid #ccc; }
     .pagination { text-align: center; margin: 2em auto; font-size: 0.9em; }
@@ -61,7 +61,23 @@
           布の存在がミスリードすぎる
         </div>
       </div>
-      <!-- 他の記事カードもここに続けて書く -->
+
+      <!-- 以下、20記事を表示するループ -->
+      <!-- 開始例 -->
+      <div class="card">
+        <a href="article_01.html">
+          <img src="article01.jpg" alt="記事1のサムネイル">
+        </a>
+        <div class="title">
+          <a href="article_01.html">【画像】柴犬がカメラ目線でニッコリｗｗｗ</a>
+        </div>
+        <div class="comment">
+          1: 名無しさんのギガリすと<br>
+          笑顔で癒されすぎてやばい
+        </div>
+      </div>
+      <!-- ... article_02.html から article_20.html まで同様のカードが続く ... -->
+
     </div>
   </div>
 
