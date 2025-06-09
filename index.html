@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -6,90 +7,308 @@
   <style>
     body { font-family: sans-serif; margin: 0; background: #fff; color: #111; }
     header { background: #ffcc00; padding: 1em; font-size: 1.5em; text-align: center; font-weight: bold; }
-    nav { background: #333; padding: 0.5em; color: white; display: flex; justify-content: center; flex-wrap: wrap; }
-    nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
-    .main-layout { display: flex; padding: 1em; }
-    .sidebar { width: 250px; margin-right: 1em; }
-    .ad-space { background: #eee; padding: 1em; text-align: center; margin: 1em 0; border: 1px dashed #999; font-size: 0.9em; }
-    .recommend { background: #f9f9f9; padding: 1em; border: 1px solid #ccc; margin-top: 1em; }
-    .recommend h3 { font-size: 1em; margin-top: 0; }
-    .recommend ul { padding-left: 1em; list-style: square; font-size: 0.9em; }
-    .container { flex: 1; display: flex; flex-wrap: wrap; justify-content: center; }
-    .card { width: 300px; margin: 1em; border: 1px solid #ccc; box-shadow: 2px 2px 4px rgba(0,0,0,0.1); background: white; }
-    .card img { width: 100%; height: auto; }
+    nav { background: #333; padding: 0.5em; color: white; display: flex; justify-content: center; }
+    nav a { color: white; margin: 0 1em; text-decoration: none; font-weight: bold; }
+    .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 1em; }
+    .card { width: 300px; margin: 1em; border: 1px solid #ccc; box-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+    .card img { width: 100%; }
     .card .title { font-size: 1em; font-weight: bold; padding: 0.5em; }
     .comment { background: #f8f8f8; color: green; font-size: 0.9em; padding: 0.5em; border-top: 1px solid #ccc; }
-    .pagination { text-align: center; margin: 2em auto; font-size: 0.9em; }
-    .pagination a { margin: 0 0.3em; text-decoration: none; color: #0077cc; }
     footer { text-align: center; padding: 1em; background: #eee; margin-top: 2em; font-size: 0.8em; }
   </style>
 </head>
 <body>
-
   <header>スケベな日常</header>
   <nav>
+    <a href="#">三次元</a>
+    <a href="#">二次元</a>
     <a href="#">巨乳</a>
-    <a href="#">美尻</a>
     <a href="#">GIF</a>
     <a href="#">コスプレ</a>
     <a href="#">素人</a>
   </nav>
+  <div class="container">
 
-  <div class="main-layout">
-    <aside class="sidebar">
-      <div class="ad-space">[広告枠]</div>
-      <div class="recommend">
-        <h3>おすすめ記事</h3>
-        <ul>
-          <li><a href="nekomimi.html">猫耳フードで完全に化け猫な女子あらわるｗｗｗ</a></li>
-          <li><a href="shibainu_smile.html">笑顔が完璧すぎる柴犬くんｗｗｗ</a></li>
-          <li><a href="chaina.html">チャイナコスで召喚術試してみた結果ｗｗｗ</a></li>
-        </ul>
+    <div class="card">
+      <a href="article_01.html">
+        <img src="images/thumb_01.jpg" alt="thumb01">
+      </a>
+      <div class="title">
+        <a href="article_01.html">【画像】自動生成されたネタ 1</a>
       </div>
-    </aside>
-
-    <div class="container">
-      <div class="card">
-        <a href="chaina.html">
-          <img src="farm_mimi1-748x997.webp" alt="チャイナコス召喚式中の女性">
-        </a>
-        <div class="title">
-          <a href="chaina.html">【画像】チャイナコスで召喚術を試みた結果ｗｗｗ</a>
-        </div>
-        <div class="comment">
-          1: 名無しさんのギガリすと<br>
-          布の存在がミスリードすぎる
-        </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 1
       </div>
-
-      <!-- 以下、20記事を表示するループ -->
-      <!-- 開始例 -->
-      <div class="card">
-        <a href="article_01.html">
-          <img src="article01.jpg" alt="記事1のサムネイル">
-        </a>
-        <div class="title">
-          <a href="article_01.html">【画像】柴犬がカメラ目線でニッコリｗｗｗ</a>
-        </div>
-        <div class="comment">
-          1: 名無しさんのギガリすと<br>
-          笑顔で癒されすぎてやばい
-        </div>
-      </div>
-      <!-- ... article_02.html から article_20.html まで同様のカードが続く ... -->
-
     </div>
-  </div>
+    
 
-  <div class="pagination">
-    <a href="#">« 前へ</a>
-    <a href="#">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">次へ »</a>
-  </div>
+    <div class="card">
+      <a href="article_02.html">
+        <img src="images/thumb_02.jpg" alt="thumb02">
+      </a>
+      <div class="title">
+        <a href="article_02.html">【画像】自動生成されたネタ 2</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 2
+      </div>
+    </div>
+    
 
+    <div class="card">
+      <a href="article_03.html">
+        <img src="images/thumb_03.jpg" alt="thumb03">
+      </a>
+      <div class="title">
+        <a href="article_03.html">【画像】自動生成されたネタ 3</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 3
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_04.html">
+        <img src="images/thumb_04.jpg" alt="thumb04">
+      </a>
+      <div class="title">
+        <a href="article_04.html">【画像】自動生成されたネタ 4</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 4
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_05.html">
+        <img src="images/thumb_05.jpg" alt="thumb05">
+      </a>
+      <div class="title">
+        <a href="article_05.html">【画像】自動生成されたネタ 5</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 5
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_06.html">
+        <img src="images/thumb_06.jpg" alt="thumb06">
+      </a>
+      <div class="title">
+        <a href="article_06.html">【画像】自動生成されたネタ 6</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 6
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_07.html">
+        <img src="images/thumb_07.jpg" alt="thumb07">
+      </a>
+      <div class="title">
+        <a href="article_07.html">【画像】自動生成されたネタ 7</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 7
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_08.html">
+        <img src="images/thumb_08.jpg" alt="thumb08">
+      </a>
+      <div class="title">
+        <a href="article_08.html">【画像】自動生成されたネタ 8</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 8
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_09.html">
+        <img src="images/thumb_09.jpg" alt="thumb09">
+      </a>
+      <div class="title">
+        <a href="article_09.html">【画像】自動生成されたネタ 9</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 9
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_10.html">
+        <img src="images/thumb_10.jpg" alt="thumb10">
+      </a>
+      <div class="title">
+        <a href="article_10.html">【画像】自動生成されたネタ 10</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 10
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_11.html">
+        <img src="images/thumb_11.jpg" alt="thumb11">
+      </a>
+      <div class="title">
+        <a href="article_11.html">【画像】自動生成されたネタ 11</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 11
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_12.html">
+        <img src="images/thumb_12.jpg" alt="thumb12">
+      </a>
+      <div class="title">
+        <a href="article_12.html">【画像】自動生成されたネタ 12</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 12
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_13.html">
+        <img src="images/thumb_13.jpg" alt="thumb13">
+      </a>
+      <div class="title">
+        <a href="article_13.html">【画像】自動生成されたネタ 13</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 13
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_14.html">
+        <img src="images/thumb_14.jpg" alt="thumb14">
+      </a>
+      <div class="title">
+        <a href="article_14.html">【画像】自動生成されたネタ 14</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 14
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_15.html">
+        <img src="images/thumb_15.jpg" alt="thumb15">
+      </a>
+      <div class="title">
+        <a href="article_15.html">【画像】自動生成されたネタ 15</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 15
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_16.html">
+        <img src="images/thumb_16.jpg" alt="thumb16">
+      </a>
+      <div class="title">
+        <a href="article_16.html">【画像】自動生成されたネタ 16</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 16
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_17.html">
+        <img src="images/thumb_17.jpg" alt="thumb17">
+      </a>
+      <div class="title">
+        <a href="article_17.html">【画像】自動生成されたネタ 17</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 17
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_18.html">
+        <img src="images/thumb_18.jpg" alt="thumb18">
+      </a>
+      <div class="title">
+        <a href="article_18.html">【画像】自動生成されたネタ 18</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 18
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_19.html">
+        <img src="images/thumb_19.jpg" alt="thumb19">
+      </a>
+      <div class="title">
+        <a href="article_19.html">【画像】自動生成されたネタ 19</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 19
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <a href="article_20.html">
+        <img src="images/thumb_20.jpg" alt="thumb20">
+      </a>
+      <div class="title">
+        <a href="article_20.html">【画像】自動生成されたネタ 20</a>
+      </div>
+      <div class="comment">
+        1: 名無しさんのギガリすと<br>
+        これはコメント 20
+      </div>
+    </div>
+    
+  </div>
   <footer>© 2025 スケベな日常</footer>
-
 </body>
 </html>
