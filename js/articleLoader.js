@@ -39,3 +39,40 @@ document.addEventListener("DOMContentLoaded", function () {
 window.addEventListener("hashchange", () => {
   location.reload(); // ハッシュ変更でリロードして再描画
 });
+// ★ ページネーション自動生成（記事数に応じて）
+fetch("data/articles.json")
+  .then((res) => res.json())
+  .then((articles) => {
+    const totalPages = Math.ceil(articles.length / 20);
+    const pagination = document.getElementById("pagination");
+    if (!pagination) return;
+
+    const page = Number(location.hash.replace("#", "")) || 1;
+
+    if (totalPages <= 1) return; // 1ページだけなら非表示
+
+    // 前へ
+    if (page > 1) {
+      const prev = document.createElement("a");
+      prev.href = `#${page - 1}`;
+      prev.textContent = "« 前へ";
+      pagination.appendChild(prev);
+    }
+
+    // ページ番号リンク
+    for (let i = 1; i <= totalPages; i++) {
+      const link = document.createElement("a");
+      link.href = `#${i}`;
+      link.textContent = `${i}`;
+      if (i === page) link.style.fontWeight = "bold";
+      pagination.appendChild(link);
+    }
+
+    // 次へ
+    if (page < totalPages) {
+      const next = document.createElement("a");
+      next.href = `#${page + 1}`;
+      next.textContent = "次へ »";
+      pagination.appendChild(next);
+    }
+  });
