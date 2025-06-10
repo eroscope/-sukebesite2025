@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const container = document.querySelector(".container");
       if (!container) return;
 
+      // ★ ページ番号をURLハッシュから取得（例：#2 → ページ2）
       const page = Number(location.hash.replace("#", "")) || 1;
       const pageSize = 20;
       const startIndex = (page - 1) * pageSize;
@@ -37,3 +38,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.addEventListener("hashchange", () => {
   location.reload(); // ハッシュ変更でリロードして再描画
+});
