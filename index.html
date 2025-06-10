@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>スケベな日常 | トップページ</title>
+  <title>スケベな日常</title>
   <meta name="description" content="バズるエロまとめが満載の『スケベな日常』！GIF・コスプレ・素人など多彩なカテゴリで毎日更新！">
   <meta property="og:title" content="スケベな日常 | トップページ">
   <meta property="og:description" content="毎日バズる！GIF・コスプレ・素人系まで完全網羅のエロまとめ。">
@@ -21,13 +21,10 @@
     .main-layout { display: flex; flex-wrap: nowrap; max-width: 1200px; margin: auto; padding: 1em; }
     .sidebar { width: 260px; margin-right: 1em; }
     .ad-space { background: #eee; padding: 1em; text-align: center; margin-bottom: 1em; border: 1px dashed #999; }
-    .recommend, .carousel { background: #f9f9f9; padding: 1em; border: 1px solid #ccc; margin-top: 1em; }
-    .recommend h3, .carousel h3 { margin-top: 0; font-size: 1em; }
+    .recommend { background: #f9f9f9; padding: 1em; border: 1px solid #ccc; }
+    .recommend h3 { margin-top: 0; font-size: 1em; }
     .recommend ul { list-style: none; padding: 0; }
     .recommend li { margin-bottom: 0.5em; }
-
-    .carousel-list { display: flex; overflow-x: auto; gap: 1em; padding-top: 0.5em; }
-    .carousel-item { min-width: 150px; flex-shrink: 0; }
 
     .container { flex: 1; display: flex; flex-wrap: wrap; justify-content: center; }
     .card { width: 280px; margin: 0.5em; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #ccc; }
@@ -73,35 +70,23 @@
         <li><a href="Article_003.html">GIFで見る美尻の神作画ｗｗｗ</a></li>
       </ul>
     </div>
-    <div class="carousel">
-      <h3>次に読むべき記事</h3>
-      <div class="carousel-list">
-        <div class="carousel-item"><a href="Article_004.html"><img src="images/sample.jpg" alt="次記事"><br>続編！？</a></div>
-        <div class="carousel-item"><a href="Article_005.html"><img src="images/sample.jpg" alt="次記事"><br>GIF連発</a></div>
-        <div class="carousel-item"><a href="Article_006.html"><img src="images/sample.jpg" alt="次記事"><br>召喚2弾</a></div>
-      </div>
-    </div>
   </aside>
 
   <div class="container">
-    <!-- JSでここに記事が20件ずつ読み込まれます -->
+    <!-- ここにJSで動的に記事カードを追加（articles.json読み込み） -->
   </div>
 </div>
 
 <div class="pagination">
-  <a href="#2">« 前へ</a>
+  <a href="#1">« 前へ</a>
   <a href="#1">1</a>
   <a href="#2">2</a>
   <a href="#3">3</a>
-  <a href="#3">次へ »</a>
+  <a href="#2">次へ »</a>
 </div>
-
 
 <footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
 
 <script src="js/articleLoader.js"></script>
-
 </body>
-</html>
-
 </html>
