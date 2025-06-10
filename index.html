@@ -32,6 +32,7 @@
     .card .title { padding: 0.5em; font-weight: bold; font-size: 1em; }
     .card .comment { background: #f8f8f8; padding: 0.5em; font-size: 0.85em; color: #333; border-top: 1px solid #ddd; }
     .card .meta { font-size: 0.75em; color: #999; margin-top: 0.3em; }
+    .review-preview { background: #fcfcfc; padding: 0.5em; font-size: 0.8em; color: #666; border-top: 1px dashed #ccc; }
 
     .pagination { text-align: center; margin: 2em 0; }
     .pagination a { margin: 0 0.3em; text-decoration: none; color: #0077cc; }
@@ -73,7 +74,24 @@
   </aside>
 
   <div class="container">
-    <!-- ここにJSで動的に記事カードを追加（articles.json読み込み） -->
+    <!-- JSで動的にカード挿入（例） -->
+    <div class="card">
+      <a href="Article_001.html">
+        <img src="images/sample.jpg" alt="チャイナ服で召喚術">
+      </a>
+      <div class="title">
+        <a href="Article_001.html">【画像】チャイナ服で召喚術を試みた結果ｗｗｗ</a>
+      </div>
+      <div class="comment">
+        1: 名無しさん<br>
+        これは召喚ミスじゃなくて大成功
+        <div class="meta">👍 124 | 🔥バズ中</div>
+      </div>
+      <div class="review-preview">
+        💬 最新レビュー：「この布は布じゃない（哲学）」
+      </div>
+    </div>
+    <!-- 他の記事カードも同様に追加 -->
   </div>
 </div>
 
