@@ -1,190 +1,181 @@
 [
   {
-    "link": "Article_sample.html",
-    "image": "images/sample.jpg",
-    "title": "【画像】これはサンプル記事です",
-    "comment": "これはコメントのサンプルです"
-  }
-]
-[
-  {
     "link": "Article_001.html",
-    "image": "images/img001.jpg",
-    "title": "【画像】これが理想の朝食風景らしい",
-    "comment": "これ毎日出てきたら結婚する"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事001です",
+    "comment": "コメント001：これはテストです"
   },
   {
     "link": "Article_002.html",
-    "image": "images/img002.jpg",
-    "title": "【動画】開けたら即バカンスのドア",
-    "comment": "旅先のテンションってこういうこと"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事002です",
+    "comment": "コメント002：これはテストです"
   },
   {
     "link": "Article_003.html",
-    "image": "images/img003.jpg",
-    "title": "【GIF】無限ループの神業チャレンジ",
-    "comment": "これはもう芸術の領域"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事003です",
+    "comment": "コメント003：これはテストです"
   },
   {
     "link": "Article_004.html",
-    "image": "images/img004.jpg",
-    "title": "【画像】あまりにも表情がよすぎた一枚",
-    "comment": "全人類に見せたいこの顔"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事004です",
+    "comment": "コメント004：これはテストです"
   },
   {
     "link": "Article_005.html",
-    "image": "images/img005.jpg",
-    "title": "【画像】寝起き5秒でもう笑ったｗ",
-    "comment": "これは寝起きで撮っちゃだめなやつ"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事005です",
+    "comment": "コメント005：これはテストです"
   },
   {
     "link": "Article_006.html",
-    "image": "images/img006.jpg",
-    "title": "【動画】この動き…見覚えがあるぞｗｗ",
-    "comment": "たぶん地元の駅前で見た"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事006です",
+    "comment": "コメント006：これはテストです"
   },
   {
     "link": "Article_007.html",
-    "image": "images/img007.jpg",
-    "title": "【画像】誰がこんなシーンを撮れとｗ",
-    "comment": "カメラマン天才かよ"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事007です",
+    "comment": "コメント007：これはテストです"
   },
   {
     "link": "Article_008.html",
-    "image": "images/img008.jpg",
-    "title": "【GIF】人類の進化を感じる瞬間",
-    "comment": "これは文明の勝利"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事008です",
+    "comment": "コメント008：これはテストです"
   },
   {
     "link": "Article_009.html",
-    "image": "images/img009.jpg",
-    "title": "【動画】この発想はなかった選手権1位",
-    "comment": "思いついたやつ天才"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事009です",
+    "comment": "コメント009：これはテストです"
   },
   {
     "link": "Article_010.html",
-    "image": "images/img010.jpg",
-    "title": "【画像】背景の破壊力がすごいｗｗｗ",
-    "comment": "主役より目立ってるやん"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事010です",
+    "comment": "コメント010：これはテストです"
   },
   {
     "link": "Article_011.html",
-    "image": "images/img011.jpg",
-    "title": "【動画】撮ってる方も爆笑してそうｗ",
-    "comment": "一緒に笑ってもうた"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事011です",
+    "comment": "コメント011：これはテストです"
   },
   {
     "link": "Article_012.html",
-    "image": "images/img012.jpg",
-    "title": "【GIF】表情と動きが完璧に一致",
-    "comment": "これぞプロの顔芸"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事012です",
+    "comment": "コメント012：これはテストです"
   },
   {
     "link": "Article_013.html",
-    "image": "images/img013.jpg",
-    "title": "【画像】何気ない仕草が刺さる",
-    "comment": "なんでこんなに尊いんや"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事013です",
+    "comment": "コメント013：これはテストです"
   },
   {
     "link": "Article_014.html",
-    "image": "images/img014.jpg",
-    "title": "【動画】ゆるすぎるダンスに中毒ｗ",
-    "comment": "頭から離れんｗｗ"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事014です",
+    "comment": "コメント014：これはテストです"
   },
   {
     "link": "Article_015.html",
-    "image": "images/img015.jpg",
-    "title": "【画像】この並び順、偶然じゃないだろ",
-    "comment": "完全に狙ってるやん"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事015です",
+    "comment": "コメント015：これはテストです"
   },
   {
     "link": "Article_016.html",
-    "image": "images/img016.jpg",
-    "title": "【GIF】こんな日常ある？ｗｗｗ",
-    "comment": "ドラマ超えてる"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事016です",
+    "comment": "コメント016：これはテストです"
   },
   {
     "link": "Article_017.html",
-    "image": "images/img017.jpg",
-    "title": "【画像】背後にうつる“何か”が話題に",
-    "comment": "よく見たら…あれ！？"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事017です",
+    "comment": "コメント017：これはテストです"
   },
   {
     "link": "Article_018.html",
-    "image": "images/img018.jpg",
-    "title": "【動画】こういうの待ってたｗ",
-    "comment": "一生見てられるやつ"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事018です",
+    "comment": "コメント018：これはテストです"
   },
   {
     "link": "Article_019.html",
-    "image": "images/img019.jpg",
-    "title": "【画像】色使いがもはや魔法",
-    "comment": "センスが爆発してる"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事019です",
+    "comment": "コメント019：これはテストです"
   },
   {
     "link": "Article_020.html",
-    "image": "images/img020.jpg",
-    "title": "【GIF】一瞬のミラクルが永久保存に",
-    "comment": "その瞬間をありがとう"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事020です",
+    "comment": "コメント020：これはテストです"
   },
   {
     "link": "Article_021.html",
-    "image": "images/img021.jpg",
-    "title": "【画像】どうしてこうなった写真集",
-    "comment": "なにが起きてるんやｗｗｗ"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事021です",
+    "comment": "コメント021：これはテストです"
   },
   {
     "link": "Article_022.html",
-    "image": "images/img022.jpg",
-    "title": "【動画】全てが計算された偶然",
-    "comment": "偶然（計画）"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事022です",
+    "comment": "コメント022：これはテストです"
   },
   {
     "link": "Article_023.html",
-    "image": "images/img023.jpg",
-    "title": "【GIF】たった3秒で笑わせてくる",
-    "comment": "笑う準備して見て"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事023です",
+    "comment": "コメント023：これはテストです"
   },
   {
     "link": "Article_024.html",
-    "image": "images/img024.jpg",
-    "title": "【画像】背景がジワる系の決定版",
-    "comment": "あとで気づく系"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事024です",
+    "comment": "コメント024：これはテストです"
   },
   {
     "link": "Article_025.html",
-    "image": "images/img025.jpg",
-    "title": "【動画】このテンポ感クセになるｗ",
-    "comment": "気づいたら何回も見てた"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事025です",
+    "comment": "コメント025：これはテストです"
   },
   {
     "link": "Article_026.html",
-    "image": "images/img026.jpg",
-    "title": "【画像】目線の先に注目",
-    "comment": "気づいてしまった…"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事026です",
+    "comment": "コメント026：これはテストです"
   },
   {
     "link": "Article_027.html",
-    "image": "images/img027.jpg",
-    "title": "【GIF】日常の中に潜む非日常",
-    "comment": "これぞ奇跡の1コマ"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事027です",
+    "comment": "コメント027：これはテストです"
   },
   {
     "link": "Article_028.html",
-    "image": "images/img028.jpg",
-    "title": "【動画】なぜか元気が出る映像",
-    "comment": "不思議と元気出るｗ"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事028です",
+    "comment": "コメント028：これはテストです"
   },
   {
     "link": "Article_029.html",
-    "image": "images/img029.jpg",
-    "title": "【画像】同じポーズで全員ずっこけてるｗ",
-    "comment": "仲良しかｗ"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事029です",
+    "comment": "コメント029：これはテストです"
   },
   {
     "link": "Article_030.html",
-    "image": "images/img030.jpg",
-    "title": "【動画】シンプルに爆笑したやつ",
-    "comment": "これ以上ないオチｗ"
+    "image": "images/sample.jpg",
+    "title": "【画像】これは記事030です",
+    "comment": "コメント030：これはテストです"
   }
-]
