@@ -1,4 +1,4 @@
-o<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,7 @@ o<!DOCTYPE html>
     header { background: #ffcc00; padding: 1em; font-size: 1.5em; text-align: center; font-weight: bold; }
     nav { background: #333; padding: 0.5em; color: white; display: flex; justify-content: center; flex-wrap: wrap; }
     nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
-    .main-layout { display: flex; padding: 1em; }
+    .main-layout { display: flex; padding: 1em; max-width: 1200px; margin: auto; }
     .sidebar { width: 250px; margin-right: 1em; }
     .ad-space { background: #eee; padding: 1em; text-align: center; margin: 1em 0; border: 1px dashed #999; font-size: 0.9em; }
     .recommend { background: #f9f9f9; padding: 1em; border: 1px solid #ccc; margin-top: 1em; }
@@ -16,7 +16,7 @@ o<!DOCTYPE html>
     .recommend ul { padding-left: 1em; list-style: square; font-size: 0.9em; }
     .container { flex: 1; display: flex; flex-wrap: wrap; justify-content: center; }
     .card { width: 300px; margin: 1em; border: 1px solid #ccc; box-shadow: 2px 2px 4px rgba(0,0,0,0.1); background: white; }
-    .card img { width: 100%; }
+    .card img, .card video { width: 100%; }
     .card .title { font-size: 1em; font-weight: bold; padding: 0.5em; }
     .comment { background: #f8f8f8; color: green; font-size: 0.9em; padding: 0.5em; border-top: 1px solid #ccc; }
     .pagination { text-align: center; margin: 2em auto; font-size: 0.9em; }
@@ -48,89 +48,22 @@ o<!DOCTYPE html>
       </div>
     </aside>
 
-    <div class="container">
-      <div class="card">
-        <a href="chaina.html">
-          <img src="farm_mimi1-748x997.webp" alt="チャイナコス召喚式中の女性">
-        </a>
-        <div class="title">
-          <a href="chaina.html">【画像】チャイナコスで召喚術を試みた結果ｗｗｗ</a>
-        </div>
-        <div class="comment">
-          1: 名無しさんのギガリすと<br>
-          布の存在がミスリードすぎる
-        </div>
-      </div>
-    <div class="card">
-  <a href="Article_Fnekm_Xla.html">
-    <img src="FnekmXLaMAASkGj.jpg" alt="ヘルシーグラビア">
-  </a>
-  <div class="title">
-    <a href="Article_Fnekm_Xla.html">【画像】ナチュラルなのに破壊力抜群な1枚ｗｗｗ</a>
-  </div>
-  <div class="comment">
-    1: 名無しさんのギガリすと<br>
-    これは見てるこっちが息止まるって…
-  </div>
-</div><div class="card">
-  <a href="Article_YIDQM9l3.html">
-    <video src="YIDQM9l3hELBPCqp.mp4" muted autoplay loop style="width: 100%;"></video>
-  </a>
-  <div class="title">
-    <a href="Article_YIDQM9l3.html">【動画】○○すぎて逆に健全に見えてくる1本ｗｗｗ</a>
-  </div>
-  <div class="comment">
-    1: 名無しさんのギガリすと<br>
-    これは健康にいいやつ
-  </div>
-</div><div class="card">
-  <a href="Article_FppXk_X6a.html">
-    <img src="FppXkX6aYAIPANa.jpg" alt="SNS映えグラビア">
-  </a>
-  <div class="title">
-    <a href="Article_FppXk_X6a.html">【画像】SNSで話題の“映えすぎ注意”な1枚ｗｗｗ</a>
-  </div>
-  <div class="comment">
-    1: 名無しさんのギガリすと<br>
-    これ、まじでタイムラインで3度見したやつ…
-  </div>
-</div><div class="card">
-  <a href="Article_7Wgzhn_YuwZq.html">
-    <video src="7WgzhnY-uwZq9kaH.mp4" muted autoplay loop style="width: 100%;"></video>
-  </a>
-  <div class="title">
-    <a href="Article_7Wgzhn_YuwZq.html">【動画】ちょっと動きが妖艶すぎる日常ｗｗｗ</a>
-  </div>
-  <div class="comment">
-    1: 名無しさんのギガリすと<br>
-    カーテンの隙間からの光すら計算されてる説
-  </div>
-</div><div class="card">
-  <a href="Article_EC0AE6_ljB3O.html">
-   <video src="EC0AE6ljB3O3rsmP.mp4" muted autoplay loop style="width: 50%;"></video>
-  </a>
-  <div class="title">
-    <a href="Article_EC0AE6_ljB3O.html">【動画】この角度…いろいろ見えすぎて草ｗｗｗ</a>
-  </div>
-  <div class="comment">
-    1: 名無しさんのギガリすと<br>
-    一時停止してもブレない説ある
-  </div>
-</div>
-
-    </div>
+    <!-- JSONから動的にカードが読み込まれる領域 -->
     <div class="container"></div>
   </div>
 
- <div class="pagination">
-  <a href="#1">« 前へ</a>
-  <a href="#1">1</a>
-  <a href="#2">2</a>
-  <a href="#3">3</a>
-  <a href="#2">次へ »</a>
-</div>
-A
+  <!-- ページネーションリンク（ハッシュで制御） -->
+  <div class="pagination">
+    <a href="#1">« 前へ</a>
+    <a href="#1">1</a>
+    <a href="#2">2</a>
+    <a href="#3">3</a>
+    <a href="#2">次へ »</a>
+  </div>
+
   <footer>© 2025 スケベな日常</footer>
 
+  <!-- JSON読み込み＆描画用スクリプト -->
+  <script src="js/articleLoader.js"></script>
 </body>
 </html>
