@@ -16,14 +16,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
-          <a href="${article.link}">
-            <img src="${article.image}" alt="${article.title}">
-          </a>
-          <div class="title">
-            <a href="${article.link}">${article.title}</a>
-          </div>
-          <div class="comment">
-            1: 名無しさんのギガリすと<br>${article.comment}
+          <div class="card-inner">
+            <a href="${article.link}">
+              <img src="${article.image}" alt="${article.title}">
+            </a>
+            <div class="title">
+              <a href="${article.link}">${article.title}</a>
+            </div>
+            <div class="comment">
+              1: 名無しさんのギガリすと<br>${article.comment}
+            </div>
           </div>
         `;
         container.appendChild(card);
@@ -43,11 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         for (let i = 1; i <= totalPages; i++) {
-          const link = document.createElement("a");
-          link.href = `#${i}`;
-          link.textContent = i;
-          if (i === page) link.style.fontWeight = "bold";
-          pagination.appendChild(link);
+          const pageLink = document.createElement("a");
+          pageLink.href = `#${i}`;
+          pageLink.textContent = i;
+          if (i === page) pageLink.style.fontWeight = "bold";
+          pagination.appendChild(pageLink);
         }
 
         if (page < totalPages) {
