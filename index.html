@@ -5,31 +5,58 @@
   <title>スケベな日常 | トップページ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: sans-serif; color: #111; }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      color: #111;
+    }
 
     header {
-      background: #ffcc00; padding: 1em; font-size: 1.8em;
-      text-align: center; font-weight: bold;
+      background: #ffcc00;
+      padding: 1em;
+      font-size: 1.8em;
+      text-align: center;
+      font-weight: bold;
     }
+
     .news-ticker {
-      background: #ff6666; color: white; padding: 0.5em;
-      text-align: center; font-size: 0.9em;
+      background: #ff6666;
+      color: white;
+      padding: 0.5em;
+      text-align: center;
+      font-size: 0.9em;
     }
+
     nav {
-      background: #333; color: white;
-      display: flex; justify-content: center; padding: 0.5em;
+      background: #333;
+      color: white;
+      display: flex;
       flex-wrap: wrap;
+      justify-content: center;
+      padding: 0.5em;
     }
+
     nav a {
-      color: white; margin: 0.5em; text-decoration: none; font-weight: bold;
+      color: white;
+      margin: 0.5em;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     .trending-tags {
-      background: #f0f0f0; padding: 0.5em; text-align: center;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 0.5em;
     }
+
     .trending-tags a {
-      margin: 0.3em; color: #0077cc; text-decoration: none;
+      margin: 0.3em;
+      color: #0077cc;
+      text-decoration: none;
     }
 
     .main-layout {
@@ -37,32 +64,46 @@
       max-width: 1200px;
       margin: auto;
       padding: 1em;
+      gap: 1em;
     }
 
     .sidebar {
       width: 33.3333%;
-      padding-right: 1em;
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+      align-self: flex-start;
     }
+
     .container {
       width: 66.6666%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 1em;
     }
 
     .card {
-      width: 48%;
-      min-width: 220px;
-      background: white;
       border: 1px solid #ccc;
+      background: #fff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .card img { width: 100%; display: block; }
-    .title { padding: 0.5em; font-weight: bold; font-size: 1em; }
+
+    .card img {
+      width: 100%;
+      display: block;
+    }
+
+    .title {
+      padding: 0.5em;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
     .comment {
-      background: #f8f8f8; padding: 0.5em;
-      font-size: 0.85em; border-top: 1px solid #ddd;
+      background: #f8f8f8;
+      padding: 0.5em;
+      font-size: 0.85em;
+      border-top: 1px solid #ddd;
     }
 
     .box {
@@ -71,17 +112,27 @@
       border: 1px solid #ccc;
       margin-bottom: 1em;
     }
+
     .box h3 {
-      margin-bottom: 0.5em;
       font-size: 1em;
+      margin-bottom: 0.5em;
     }
-    .box ul { list-style: none; padding: 0; font-size: 0.9em; }
-    .box li { margin-bottom: 0.4em; }
+
+    .box ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.9em;
+    }
+
+    .box li {
+      margin-bottom: 0.4em;
+    }
 
     .pagination {
       text-align: center;
       margin: 2em auto;
     }
+
     .pagination a {
       margin: 0 0.4em;
       color: #0077cc;
@@ -94,8 +145,25 @@
       background: #eee;
       padding: 1em;
       font-size: 0.8em;
+      color: #555;
     }
 
+    @media (max-width: 768px) {
+      .main-layout {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .sidebar {
+        width: 100%;
+        position: relative;
+      }
+
+      .container {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   </style>
 </head>
 <body>
@@ -104,21 +172,28 @@
 <div class="news-ticker">🔥 最新更新: 本日も記事を大量追加中！</div>
 
 <nav>
-  <a href="#">巨乳</a><a href="#">美尻</a><a href="#">GIF</a><a href="#">コスプレ</a><a href="#">素人</a>
+  <a href="#">巨乳</a>
+  <a href="#">美尻</a>
+  <a href="#">GIF</a>
+  <a href="#">コスプレ</a>
+  <a href="#">素人</a>
 </nav>
 
 <div class="trending-tags">
   <strong>🔥 トレンドタグ:</strong>
-  <a href="#">#異世界転生</a> <a href="#">#猫耳</a> <a href="#">#召喚術</a> <a href="#">#チャイナ服</a>
+  <a href="#">#異世界転生</a>
+  <a href="#">#猫耳</a>
+  <a href="#">#召喚術</a>
+  <a href="#">#チャイナ服</a>
 </div>
 
 <div class="main-layout">
   <aside class="sidebar">
-    <div class="box ad-space">[広告スペース]</div>
+    <div class="box">[広告スペース]</div>
     <div class="box">
       <h3>おすすめ記事</h3>
       <ul>
-        <li><a href="#">チャイナ服で召喚術試してみた結果</a></li>
+        <li><a href="#">チャイナ服で召喚術してみた</a></li>
         <li><a href="#">猫耳で変身</a></li>
         <li><a href="#">美尻GIFまとめ</a></li>
       </ul>
@@ -139,13 +214,6 @@
       <ul>
         <li><a href="#">今日の話題GIF</a></li>
         <li><a href="#">編集部が選ぶ注目記事</a></li>
-      </ul>
-    </div>
-    <div class="box">
-      <h3>月別アーカイブ</h3>
-      <ul>
-        <li><a href="#">2025年6月</a></li>
-        <li><a href="#">2025年5月</a></li>
       </ul>
     </div>
   </aside>
