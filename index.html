@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>スケベな日常 | トップページ</title>
+  <meta name="description" content="バズるエロまとめが満載の『スケベな日常』！GIF・コスプレ・素人など多彩なカテゴリで毎日更新！">
+  <meta property="og:title" content="スケベな日常 | トップページ">
+  <meta property="og:description" content="毎日バズる！GIF・コスプレ・素人系まで完全網羅のエロまとめ。">
+  <meta property="og:image" content="images/ogp.jpg">
+  <meta property="og:type" content="website">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body { font-family: sans-serif; margin: 0; background: #fff; color: #111; }
@@ -10,23 +15,38 @@
     .news-ticker { background: #ff6666; color: white; padding: 0.5em; text-align: center; font-size: 0.9em; }
     nav { background: #333; color: white; display: flex; flex-wrap: wrap; justify-content: center; padding: 0.5em; }
     nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
+    .trending-tags { text-align: center; background: #f0f0f0; padding: 0.5em; font-size: 0.9em; }
+    .trending-tags a { margin: 0.3em; color: #0077cc; text-decoration: none; }
+
     .main-layout { display: flex; max-width: 1200px; margin: auto; padding: 1em; }
     .sidebar { width: 260px; margin-right: 1em; position: sticky; top: 100px; height: fit-content; }
     .ad-space, .ad-inline { background: #eee; padding: 1em; text-align: center; margin-bottom: 1em; border: 1px dashed #999; }
+
+    .recommend { background: #f9f9f9; padding: 1em; border: 1px solid #ccc; }
+    .recommend h3 { margin-top: 0; font-size: 1em; }
+    .recommend ul { list-style: none; padding: 0; }
+    .recommend li { margin-bottom: 0.5em; }
+
     .container { flex: 1; display: flex; flex-wrap: wrap; justify-content: center; }
     .card { width: 280px; margin: 0.5em; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #ccc; }
     .card img, .card video { width: 100%; display: block; }
     .card .title { padding: 0.5em; font-weight: bold; font-size: 1em; }
     .card .comment { background: #f8f8f8; padding: 0.5em; font-size: 0.85em; color: #333; border-top: 1px solid #ddd; }
+
     .pagination { text-align: center; margin: 2em 0; }
-    .pagination a { margin: 0 0.3em; text-decoration: none; color: #0077cc; }
+    .pagination a { margin: 0 0.4em; text-decoration: none; color: #0077cc; font-weight: bold; }
+
+    .related-carousel { background: #f4f4f4; padding: 1em; margin-top: 2em; }
+    .related-carousel h3 { font-size: 1em; }
+    .carousel-track a { margin-right: 1em; color: #0077cc; text-decoration: none; }
+
     footer { text-align: center; background: #eee; padding: 1em; font-size: 0.8em; color: #555; }
   </style>
 </head>
 <body>
 
 <header>スケベな日常</header>
-<div class="news-ticker">🔥 最新更新: 本日も記事を大量追加中！</div>
+<div class="news-ticker">🔥 最新更新: [2025/06/11] 本日も記事を大量追加中！</div>
 
 <nav>
   <a href="#">巨乳</a>
@@ -35,6 +55,14 @@
   <a href="#">コスプレ</a>
   <a href="#">素人</a>
 </nav>
+
+<div class="trending-tags">
+  <strong>🔥 トレンドタグ:</strong>
+  <a href="#">#異世界転生</a>
+  <a href="#">#猫耳</a>
+  <a href="#">#召喚術</a>
+  <a href="#">#チャイナ服</a>
+</div>
 
 <div class="main-layout">
   <aside class="sidebar">
@@ -49,13 +77,25 @@
     </div>
   </aside>
 
-  <div class="container" id="card-container"></div>
+  <div class="container" id="card-container">
+    <!-- JSで記事カードがここに表示されます -->
+  </div>
 </div>
 
 <div class="pagination" id="pagination"></div>
+
 <div class="ad-inline">[インライン広告枠]</div>
 
-<footer>© 2025 スケベな日常</footer>
+<div class="related-carousel">
+  <h3>🔁 次に読むべき記事</h3>
+  <div class="carousel-track">
+    <a href="Article_004.html">▶ 新着：GIFまとめ</a>
+    <a href="Article_005.html">▶ 人気：コスプレ特集</a>
+    <a href="Article_006.html">▶ 編集部おすすめ</a>
+  </div>
+</div>
+
+<footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
 <script src="js/articleLoader.js"></script>
 </body>
 </html>
