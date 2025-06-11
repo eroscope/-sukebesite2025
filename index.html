@@ -21,7 +21,10 @@
     .trending-tags a { margin: 0.3em; color: #0077cc; text-decoration: none; }
 
     .main-layout { display: flex; flex-wrap: nowrap; max-width: 1200px; margin: auto; padding: 1em; }
-    .sidebar { width: 260px; margin-right: 1em; }
+    .sidebar {
+      position: sticky;
+      top: 1em;
+      align-self: flex-start; width: 260px; margin-right: 1em; }
     .ad-space, .ad-inline { background: #eee; padding: 1em; text-align: center; margin-bottom: 1em; border: 1px dashed #999; }
 
     .recommend { background: #f9f9f9; padding: 1em; border: 1px solid #ccc; }
@@ -71,7 +74,24 @@
 <div class="main-layout">
   <aside class="sidebar">
     <div class="ad-space">[広告スペース]</div>
-    <div class="recommend">
+    
+    <div class="popular">
+      <h3>人気記事</h3>
+      <ul>
+        <li><a href="#">【GIF】止まらない腰使いｗ</a></li>
+        <li><a href="#">【コスプレ】この完成度ｗｗ</a></li>
+        <li><a href="#">【素人】え、これ本物？</a></li>
+      </ul>
+    </div>
+    <div class="tags">
+      <h3>タグ一覧</h3>
+      <div style="line-height: 1.8em;">
+        <a href="#">#美乳</a> <a href="#">#変身</a> <a href="#">#アングル</a><br>
+        <a href="#">#ギャル</a> <a href="#">#照明</a> <a href="#">#もふもふ</a>
+      </div>
+    </div>
+
+<div class="recommend">
       <h3>おすすめ記事</h3>
       <ul>
         <li><a href="Article_001.html">チャイナ服で召喚術試してみた結果ｗｗｗ</a></li>
@@ -83,8 +103,12 @@
 
   <div class="container">
     <!-- JSでarticles.jsonから20件ずつ表示 -->
-  </div>
-</div>
+  
+    <div class="ad-space" style="margin-top: 2em;">[記事下の広告スペース]</div>
+    <div class="pagination" id="pagination"></div>
+    </div>
+    </div>
+    
 
 <div class="ad-inline">[インライン広告枠]</div>
 
@@ -94,8 +118,12 @@
     <a href="Article_004.html">▶ 新着：GIFまとめ</a>
     <a href="Article_005.html">▶ 人気：コスプレ特集</a>
     <a href="Article_006.html">▶ 編集部おすすめ</a>
-  </div>
-</div>
+  
+    <div class="ad-space" style="margin-top: 2em;">[記事下の広告スペース]</div>
+    <div class="pagination" id="pagination"></div>
+    </div>
+    </div>
+    
 
 <div class="pagination" id="pagination">
   <!-- JSが自動でページ数表示 -->
