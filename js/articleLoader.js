@@ -61,5 +61,4 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(err => console.error("記事の読み込み失敗", err));
 });
 
-// ハッシュ変更時に再読み込み
 window.addEventListener("hashchange", () => location.reload());
