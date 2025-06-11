@@ -3,53 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <title>スケベな日常 | トップページ</title>
-  <meta name="description" content="バズるエロまとめが満載の『スケベな日常』！GIF・コスプレ・素人など多彩なカテゴリで毎日更新！">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
+    * { box-sizing: border-box; }
     body { margin: 0; font-family: sans-serif; background: #fff; color: #111; }
 
-    header { background: #ffcc00; padding: 1em; text-align: center; font-size: 1.8em; font-weight: bold; }
+    header {
+      background: #ffcc00;
+      padding: 1em;
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: bold;
+    }
 
-    .news-ticker { background: #ff6666; color: white; padding: 0.5em; text-align: center; font-size: 0.9em; }
+    .news-ticker {
+      background: #ff6666;
+      color: white;
+      padding: 0.5em;
+      text-align: center;
+      font-size: 0.9em;
+    }
 
-    nav { background: #333; color: white; display: flex; flex-wrap: wrap; justify-content: center; padding: 0.5em; }
-    nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
+    nav {
+      background: #333;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0.5em;
+    }
+    nav a {
+      color: white;
+      margin: 0.5em;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-    .trending-tags { text-align: center; background: #f0f0f0; padding: 0.5em; font-size: 0.9em; }
-    .trending-tags a { margin: 0.3em; color: #0077cc; text-decoration: none; }
+    .trending-tags {
+      text-align: center;
+      background: #f0f0f0;
+      padding: 0.5em;
+      font-size: 0.9em;
+    }
+    .trending-tags a {
+      margin: 0.3em;
+      color: #0077cc;
+      text-decoration: none;
+    }
 
-    .main-layout { display: flex; flex-direction: row; max-width: 1200px; margin: auto; }
+    .main-layout {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      max-width: 1200px;
+      margin: auto;
+    }
 
     .sidebar {
       width: 33.33%;
-      max-width: 260px;
+      max-width: 300px;
       position: sticky;
       top: 100px;
       align-self: flex-start;
       padding: 1em 0.5em;
+      flex-shrink: 0;
     }
-
-    .container {
-      flex: 1;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 1em;
-      box-sizing: border-box;
-    }
-
-    .card {
-      box-sizing: border-box;
-      width: calc(50% - 1em);
-      margin-bottom: 1em;
-      background: #fff;
-      border: 1px solid #ccc;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .card img { width: 100%; display: block; }
-    .card .title { padding: 0.5em; font-weight: bold; font-size: 1em; }
-    .card .comment { background: #f8f8f8; padding: 0.5em; font-size: 0.9em; }
 
     .sidebar .box {
       background: #f9f9f9;
@@ -62,11 +80,35 @@
     .box ul { list-style: none; padding: 0; }
     .box li { margin-bottom: 0.4em; }
 
+    .container {
+      width: 66.66%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 1em;
+    }
+
+    .card {
+      width: calc(50% - 1em);
+      margin-bottom: 1em;
+      background: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card img { width: 100%; display: block; }
+    .card .title { padding: 0.5em; font-weight: bold; font-size: 1em; }
+    .card .comment {
+      background: #f8f8f8;
+      padding: 0.5em;
+      font-size: 0.9em;
+      color: #333;
+    }
+
     .pagination {
       text-align: center;
       padding: 1em;
     }
-
     .pagination a {
       margin: 0 0.3em;
       color: #0077cc;
@@ -82,17 +124,30 @@
       color: #555;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
+      body {
+        overflow-x: hidden;
+      }
+
       .main-layout {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        min-width: 768px; /* ←ここで横並びを維持 */
       }
+
       .sidebar {
-        width: 100%;
-        position: relative;
-        top: unset;
+        width: 33.33%;
+        max-width: 260px;
       }
+
+      .container {
+        width: 66.66%;
+      }
+
       .card {
-        width: 100%;
+        width: calc(50% - 1em);
       }
     }
   </style>
@@ -103,25 +158,17 @@
 <div class="news-ticker">🔥 最新更新: 本日も記事を大量追加中！</div>
 
 <nav>
-  <a href="#">巨乳</a>
-  <a href="#">美尻</a>
-  <a href="#">GIF</a>
-  <a href="#">コスプレ</a>
-  <a href="#">素人</a>
+  <a href="#">巨乳</a><a href="#">美尻</a><a href="#">GIF</a><a href="#">コスプレ</a><a href="#">素人</a>
 </nav>
 
 <div class="trending-tags">
   <strong>🔥 トレンドタグ:</strong>
-  <a href="#">#異世界転生</a>
-  <a href="#">#猫耳</a>
-  <a href="#">#召喚術</a>
-  <a href="#">#チャイナ服</a>
+  <a href="#">#異世界転生</a><a href="#">#猫耳</a><a href="#">#召喚術</a><a href="#">#チャイナ服</a>
 </div>
 
 <div class="main-layout">
   <aside class="sidebar">
     <div class="box ad-space">[広告スペース]</div>
-
     <div class="box">
       <h3>おすすめ記事</h3>
       <ul>
@@ -130,7 +177,6 @@
         <li><a href="#">美尻GIFまとめ</a></li>
       </ul>
     </div>
-
     <div class="box">
       <h3>人気記事</h3>
       <ul>
@@ -139,12 +185,7 @@
         <li><a href="#">【素人】え、これ本物？</a></li>
       </ul>
     </div>
-
-    <div class="box">
-      <h3>タグ一覧</h3>
-      <p>#美尻 #ギャル #もふもふ #異世界</p>
-    </div>
-
+    <div class="box"><h3>タグ一覧</h3><p>#美尻 #ギャル #もふもふ #異世界</p></div>
     <div class="box">
       <h3>新着記事</h3>
       <ul>
@@ -152,7 +193,6 @@
         <li><a href="#">（必見）今日の人気GIFまとめ</a></li>
       </ul>
     </div>
-
     <div class="box">
       <h3>月別アーカイブ</h3>
       <ul>
@@ -163,14 +203,12 @@
   </aside>
 
   <div class="container" id="card-container">
-    <!-- JSがここに記事カードを挿入 -->
+    <!-- JSがここに挿入 -->
   </div>
 </div>
 
 <div class="pagination" id="pagination"></div>
-
 <footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
-
 <script src="js/articleLoader.js"></script>
 </body>
 </html>
