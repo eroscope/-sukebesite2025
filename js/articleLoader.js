@@ -9,15 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const pageSize = 20;
       const startIndex = (page - 1) * pageSize;
       const endIndex = startIndex + pageSize;
+
       const sliced = articles.slice(startIndex, endIndex);
-
-      container.innerHTML = ""; // 初期化
-
-      if (sliced.length === 0) {
-        container.innerHTML = "<p>記事が見つかりませんでした。</p>";
-        document.getElementById("pagination").style.display = "none";
-        return;
-      }
 
       sliced.forEach(article => {
         const card = document.createElement("div");
@@ -30,9 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
             <a href="${article.link}">${article.title}</a>
           </div>
           <div class="card-meta">
+            <span class="date">🕒 ${article.date}</span> |
             <span class="category">#${article.category}</span> |
-            <span class="date">${article.date}</span> |
-            <span class="buzz">${getBuzzIcon(article.buzz)}</span>
+            <span class="buzz">🔥 ${article.buzz}</span>
           </div>
           <div class="comment">
             1: 名無しさんのギガリすと<br>${article.comment}
@@ -41,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         container.appendChild(card);
       });
 
-      // ページネーション表示
+      // ページネーション
       const pagination = document.getElementById("pagination");
       const totalPages = Math.ceil(articles.length / pageSize);
       if (pagination) {
@@ -69,19 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
           pagination.appendChild(next);
         }
       }
-
-      // スクロールを上に戻す
-      window.scrollTo({ top: 0, behavior: "smooth" });
     })
     .catch(err => console.error("記事の読み込み失敗", err));
 });
 
-// ハッシュ変更でリロード
+// ハッシュ変更時に再読み込み
 window.addEventListener("hashchange", () => location.reload());
-
-// バズアイコン関数
-function getBuzzIcon(level) {
-  if (level === "high") return "🔥バズ中";
-  if (level === "mid") return "🆕";
-  return "💤";
-}
