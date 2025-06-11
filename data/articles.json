@@ -178,14 +178,14 @@
     "image": "images/sample.jpg",
     "title": "【画像】これは記事030です",
     "comment": "コメント030：これはテストです"
-  } 
+  },
   {
     "link": "Article_031.html",
     "image": "images/sample.jpg",
     "title": "【画像】これは記事031です",
     "comment": "コメント031：これはテストです"
-  }
-   {
+  },
+  {
     "link": "Article_032.html",
     "image": "images/sample.jpg",
     "title": "【画像】これは記事032です",
@@ -194,7 +194,7 @@
   {
     "link": "Article_033.html",
     "image": "images/sample.jpg",
-    "title": "【画像】これは記事0033です",
+    "title": "【画像】これは記事033です",
     "comment": "コメント033：これはテストです"
   },
   {
@@ -358,7 +358,7 @@
     "image": "images/sample.jpg",
     "title": "【画像】これは記事060です",
     "comment": "コメント060：これはテストです"
-  } 
+  },
   {
     "link": "Article_061.html",
     "image": "images/sample.jpg",
