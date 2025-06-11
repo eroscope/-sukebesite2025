@@ -15,7 +15,6 @@
     .news-ticker { background: #ff6666; color: white; padding: 0.5em; text-align: center; font-size: 0.9em; }
     nav { background: #333; color: white; display: flex; flex-wrap: wrap; justify-content: center; padding: 0.5em; }
     nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
-
     .trending-tags { text-align: center; background: #f0f0f0; padding: 0.5em; font-size: 0.9em; }
     .trending-tags a { margin: 0.3em; color: #0077cc; text-decoration: none; }
 
@@ -37,8 +36,6 @@
     .card img, .card video { width: 100%; display: block; }
     .card .title { padding: 0.5em; font-weight: bold; font-size: 1em; }
     .card .comment { background: #f8f8f8; padding: 0.5em; font-size: 0.85em; color: #333; border-top: 1px solid #ddd; }
-    .card-meta { font-size: 0.8em; color: #666; padding: 0.3em 0.5em; }
-    .card-meta .buzz { font-weight: bold; }
 
     .pagination { text-align: center; margin: 2em 0; }
     .pagination a { margin: 0 0.4em; text-decoration: none; color: #0077cc; font-weight: bold; }
@@ -46,8 +43,6 @@
     .related-carousel { background: #f4f4f4; padding: 1em; margin-top: 2em; }
     .related-carousel h3 { font-size: 1em; }
     .carousel-track a { margin-right: 1em; color: #0077cc; text-decoration: none; }
-
-    .featured-section { background:#f9f9f9; padding:1em; text-align:center; border-top:1px solid #ccc; margin-top:1em; }
 
     footer { text-align: center; background: #eee; padding: 1em; font-size: 0.8em; color: #555; }
   </style>
@@ -58,32 +53,76 @@
 <div class="news-ticker">🔥 最新更新: [2025/06/11] 本日も記事を大量追加中！</div>
 
 <nav>
-  <a href="#">巨乳</a><a href="#">美尻</a><a href="#">GIF</a><a href="#">コスプレ</a><a href="#">素人</a>
+  <a href="#">巨乳</a>
+  <a href="#">美尻</a>
+  <a href="#">GIF</a>
+  <a href="#">コスプレ</a>
+  <a href="#">素人</a>
 </nav>
 
 <div class="trending-tags">
   <strong>🔥 トレンドタグ:</strong>
-  <a href="#">#異世界転生</a> <a href="#">#猫耳</a> <a href="#">#召喚術</a> <a href="#">#チャイナ服</a>
+  <a href="#">#異世界転生</a>
+  <a href="#">#猫耳</a>
+  <a href="#">#召喚術</a>
+  <a href="#">#チャイナ服</a>
 </div>
 
 <div class="main-layout">
   <aside class="sidebar">
     <div class="ad-space">[広告スペース]</div>
-    <div class="recommend"><h3>おすすめ記事</h3><ul><li><a href="Article_001.html">チャイナ服で召喚術</a></li></ul></div>
-    <div class="ranking"><h3>人気記事</h3><ul><li><a href="#">[GIF] 止まらない</a></li></ul></div>
-    <div class="tags"><h3>タグ一覧</h3><p>#変身 #照明 #もふもふ</p></div>
-    <div class="latest"><h3>新着記事</h3><ul><li><a href="#">(速報) 新カテゴリ</a></li></ul></div>
-    <div class="archive"><h3>月別アーカイブ</h3><ul><li><a href="#">2025年6月</a></li></ul></div>
+
+    <div class="recommend">
+      <h3>おすすめ記事</h3>
+      <ul>
+        <li><a href="Article_001.html">チャイナ服で召喚術試してみた結果ｗｗｗ</a></li>
+        <li><a href="Article_002.html">猫耳フードで完全に化け猫女子ｗｗｗ</a></li>
+        <li><a href="Article_003.html">GIFで見る美尻の神作画ｗｗｗ</a></li>
+      </ul>
+    </div>
+
+    <div class="ranking">
+      <h3>人気記事</h3>
+      <ul>
+        <li><a href="#">[GIF] 止まらないギガリすと</a></li>
+        <li><a href="#">【コスプレ】この完成度ｗｗｗ</a></li>
+        <li><a href="#">【素人】え、これ本物？</a></li>
+      </ul>
+    </div>
+
+    <div class="tags">
+      <h3>タグ一覧</h3>
+      <p>#美尻 #変身 #アングル<br>#ギャル #照明 #もふもふ</p>
+    </div>
+
+    <div class="latest">
+      <h3>新着記事</h3>
+      <ul>
+        <li><a href="#">（速報）新カテゴリが追加された件ｗｗｗ</a></li>
+        <li><a href="#">（必見）今日の人気GIFまとめ</a></li>
+      </ul>
+    </div>
+
+    <div class="archive">
+      <h3>月別アーカイブ</h3>
+      <ul>
+        <li><a href="#">2025年6月</a></li>
+        <li><a href="#">2025年5月</a></li>
+      </ul>
+    </div>
   </aside>
 
-  <div class="container" id="card-container"></div>
+  <div class="container" id="card-container">
+    <!-- JSでここに記事カードが入る -->
+  </div>
 </div>
 
+<!-- ページネーション -->
 <div class="pagination" id="pagination"></div>
 
+<!-- インライン広告と注目エリア -->
 <div class="ad-inline">[インライン広告枠]</div>
-
-<div class="featured-section">
+<div class="featured-section" style="background:#f9f9f9; padding:1em; text-align:center; border-top:1px solid #ccc; margin-top:1em;">
   <h3>📌 注目のまとめ記事</h3>
   <p>話題のGIF・トレンドネタを一気に見たい方はこちら！</p>
   <a href="trending.html">▶ バズまとめを見る</a>
