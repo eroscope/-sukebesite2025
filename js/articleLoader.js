@@ -29,19 +29,17 @@ document.addEventListener("DOMContentLoaded", function () {
         container.appendChild(card);
       });
 
-      // ページネーション生成
+      // ページネーション表示
       const pagination = document.getElementById("pagination");
       const totalPages = Math.ceil(articles.length / pageSize);
       if (pagination) {
         pagination.innerHTML = "";
-
         if (page > 1) {
           const prev = document.createElement("a");
           prev.href = `#${page - 1}`;
           prev.textContent = "« 前へ";
           pagination.appendChild(prev);
         }
-
         for (let i = 1; i <= totalPages; i++) {
           const pageLink = document.createElement("a");
           pageLink.href = `#${i}`;
@@ -49,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
           if (i === page) pageLink.style.fontWeight = "bold";
           pagination.appendChild(pageLink);
         }
-
         if (page < totalPages) {
           const next = document.createElement("a");
           next.href = `#${page + 1}`;
