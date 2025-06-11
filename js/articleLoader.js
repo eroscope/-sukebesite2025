@@ -1,108 +1,78 @@
+console.log("JS読み込み成功！");
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>スケベな日常 | トップページ</title>
-  <meta name="description" content="バズるエロまとめが満載の『スケベな日常』！GIF・コスプレ・素人など多彩なカテゴリで毎日更新！">
-  <meta property="og:title" content="スケベな日常 | トップページ">
-  <meta property="og:description" content="毎日バズる！GIF・コスプレ・素人系まで完全網羅のエロまとめ。">
-  <meta property="og:image" content="images/ogp.jpg">
-  <meta property="og:type" content="website">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: sans-serif; margin: 0; background: #fff; color: #111; }
-    header { background: #ffcc00; padding: 1em; font-size: 1.8em; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 1000; }
-    .news-ticker { background: #ff6666; color: white; padding: 0.5em; text-align: center; font-size: 0.9em; }
-    nav { background: #333; color: white; display: flex; flex-wrap: wrap; justify-content: center; padding: 0.5em; }
-    nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("data/articles.json")
+    .then((res) => res.json())
+    .then((articles) => {
+      const container = document.querySelector(".container");
+      if (!container) return;
 
-    .trending-tags { text-align: center; background: #f0f0f0; padding: 0.5em; font-size: 0.9em; }
-    .trending-tags a { margin: 0.3em; color: #0077cc; text-decoration: none; }
+      // ★ ページ番号をURLハッシュから取得（例：#2 → ページ2）
+      const page = Number(location.hash.replace("#", "")) || 1;
+      const pageSize = 20;
+      const startIndex = (page - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
 
-    .main-layout { display: flex; flex-wrap: nowrap; max-width: 1200px; margin: auto; padding: 1em; }
-    .sidebar { width: 260px; margin-right: 1em; }
-    .ad-space, .ad-inline { background: #eee; padding: 1em; text-align: center; margin-bottom: 1em; border: 1px dashed #999; }
+      const sliced = articles.slice(startIndex, endIndex);
+      sliced.forEach((article) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <a href="${article.link}">
+            <img src="${article.image}" alt="${article.title}">
+          </a>
+          <div class="title">
+            <a href="${article.link}">${article.title}</a>
+          </div>
+          <div class="comment">
+            1: 名無しさんのギガリすと<br>${article.comment}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch((err) => {
+      console.error("記事の読み込みに失敗しました。", err);
+    });
+});
 
-    .recommend { background: #f9f9f9; padding: 1em; border: 1px solid #ccc; }
-    .recommend h3 { margin-top: 0; font-size: 1em; }
-    .recommend ul { list-style: none; padding: 0; }
-    .recommend li { margin-bottom: 0.5em; }
+window.addEventListener("hashchange", () => {
+  location.reload(); // ハッシュ変更でリロードして再描画
+});
+// ★ ページネーション自動生成（記事数に応じて）
+fetch("data/articles.json")
+  .then((res) => res.json())
+  .then((articles) => {
+    const totalPages = Math.ceil(articles.length / 20);
+    const pagination = document.getElementById("pagination");
+    if (!pagination) return;
 
-    .container { flex: 1; display: flex; flex-wrap: wrap; justify-content: center; }
-    .card { width: 280px; margin: 0.5em; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #ccc; position: relative; }
-    .card img, .card video { width: 100%; display: block; }
-    .card .title { padding: 0.5em; font-weight: bold; font-size: 1em; }
-    .card .comment { background: #f8f8f8; padding: 0.5em; font-size: 0.85em; color: #333; border-top: 1px solid #ddd; }
-    .sns-buttons { position: absolute; bottom: 5px; right: 5px; font-size: 0.8em; }
-    .sns-buttons a { margin-left: 5px; color: #666; }
+    const page = Number(location.hash.replace("#", "")) || 1;
 
-    .related-carousel { background: #f4f4f4; padding: 1em; margin-top: 2em; }
-    .related-carousel h3 { font-size: 1em; }
-    .carousel-track a { margin-right: 1em; color: #0077cc; text-decoration: none; }
+    if (totalPages <= 1) return; // 1ページだけなら非表示
 
-    .pagination { text-align: center; margin: 2em 0; }
-    .pagination a { margin: 0 0.3em; text-decoration: none; color: #0077cc; }
+    // 前へ
+    if (page > 1) {
+      const prev = document.createElement("a");
+      prev.href = `#${page - 1}`;
+      prev.textContent = "« 前へ";
+      pagination.appendChild(prev);
+    }
 
-    footer { text-align: center; background: #eee; padding: 1em; font-size: 0.8em; color: #555; }
-  </style>
-</head>
-<body>
+    // ページ番号リンク
+    for (let i = 1; i <= totalPages; i++) {
+      const link = document.createElement("a");
+      link.href = `#${i}`;
+      link.textContent = `${i}`;
+      if (i === page) link.style.fontWeight = "bold";
+      pagination.appendChild(link);
+    }
 
-<header>スケベな日常</header>
-<div class="news-ticker">🔥 最新更新: [2025/06/11] 本日も記事を大量追加中！</div>
-
-<nav>
-  <a href="#">巨乳</a>
-  <a href="#">美尻</a>
-  <a href="#">GIF</a>
-  <a href="#">コスプレ</a>
-  <a href="#">素人</a>
-</nav>
-
-<div class="trending-tags">
-  <strong>🔥 トレンドタグ:</strong>
-  <a href="#">#異世界転生</a>
-  <a href="#">#猫耳</a>
-  <a href="#">#召喚術</a>
-  <a href="#">#チャイナ服</a>
-</div>
-
-<div class="main-layout">
-  <aside class="sidebar">
-    <div class="ad-space">[広告スペース]</div>
-    <div class="recommend">
-      <h3>おすすめ記事</h3>
-      <ul>
-        <li><a href="Article_001.html">チャイナ服で召喚術試してみた結果ｗｗｗ</a></li>
-        <li><a href="Article_002.html">猫耳フードで完全に化け猫女子ｗｗｗ</a></li>
-        <li><a href="Article_003.html">GIFで見る美尻の神作画ｗｗｗ</a></li>
-      </ul>
-    </div>
-  </aside>
-
-  <div class="container">
-    <!-- JSでarticles.jsonから20件ずつ表示 -->
-  </div>
-</div>
-
-<div class="ad-inline">[インライン広告枠]</div>
-
-<div class="related-carousel">
-  <h3>🔁 次に読むべき記事</h3>
-  <div class="carousel-track">
-    <a href="Article_004.html">▶ 新着：GIFまとめ</a>
-    <a href="Article_005.html">▶ 人気：コスプレ特集</a>
-    <a href="Article_006.html">▶ 編集部おすすめ</a>
-  </div>
-</div>
-
-<div class="pagination" id="pagination">
-  <!-- JSが自動でページ数表示 -->
-</div>
-
-<footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
-
-<script src="js/articleLoader.js"></script>
-</body>
-</html>
+    // 次へ
+    if (page < totalPages) {
+      const next = document.createElement("a");
+      next.href = `#${page + 1}`;
+      next.textContent = "次へ »";
+      pagination.appendChild(next);
+    }
+  });
