@@ -9,31 +9,75 @@
   <meta property="og:image" content="images/ogp.jpg">
   <meta property="og:type" content="website">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: sans-serif; margin: 0; background: #fff; color: #111; }
-    header { background: #ffcc00; padding: 1em; font-size: 1.8em; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 1000; }
-    .news-ticker { background: #ff6666; color: white; padding: 0.5em; text-align: center; font-size: 0.9em; }
-    nav { background: #333; color: white; display: flex; flex-wrap: wrap; justify-content: center; padding: 0.5em; }
-    nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
 
-    .trending-tags { text-align: center; background: #f0f0f0; padding: 0.5em; font-size: 0.9em; }
-    .trending-tags a { margin: 0.3em; color: #0077cc; text-decoration: none; }
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: #fff;
+      color: #111;
+    }
+    header {
+      background: #ffcc00;
+      padding: 1em;
+      font-size: 1.8em;
+      text-align: center;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .news-ticker {
+      background: #ff6666;
+      color: white;
+      padding: 0.5em;
+      text-align: center;
+      font-size: 0.9em;
+    }
+    nav {
+      background: #333;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0.5em;
+    }
+    nav a {
+      color: white;
+      margin: 0.5em;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .trending-tags {
+      text-align: center;
+      background: #f0f0f0;
+      padding: 0.5em;
+      font-size: 0.9em;
+    }
+    .trending-tags a {
+      margin: 0.3em;
+      color: #0077cc;
+      text-decoration: none;
+    }
 
     .main-layout {
       display: flex;
       max-width: 1200px;
       margin: auto;
       padding: 1em;
-      align-items: flex-start; /* ← 左右の高さを揃える */
+      align-items: flex-start;
     }
 
     .sidebar {
       width: 260px;
       margin-right: 1em;
-      position: sticky;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar.fixed {
+      position: fixed;
       top: 100px;
-      max-height: calc(100vh - 120px);
-      overflow: auto;
     }
 
     .ad-space, .ad-inline {
@@ -50,20 +94,26 @@
       border: 1px solid #ccc;
       margin-bottom: 1em;
     }
+
     .recommend h3, .ranking h3, .tags h3, .latest h3, .archive h3 {
       margin-top: 0;
       font-size: 1em;
     }
+
     .recommend ul, .ranking ul, .latest ul, .archive ul {
       list-style: none;
       padding: 0;
       font-size: 0.9em;
     }
+
     .recommend li, .ranking li, .latest li, .archive li {
       margin-bottom: 0.4em;
     }
 
-    .tags p { font-size: 0.85em; color: #555; }
+    .tags p {
+      font-size: 0.85em;
+      color: #555;
+    }
 
     .container {
       flex: 1;
@@ -115,7 +165,6 @@
       padding: 1em;
       margin-top: 2em;
     }
-
     .related-carousel h3 {
       font-size: 1em;
     }
@@ -157,7 +206,7 @@
   </div>
 
   <div class="main-layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <div class="ad-space">[広告スペース①]</div>
 
       <div class="recommend">
@@ -203,7 +252,7 @@
     </aside>
 
     <div class="container" id="card-container">
-      <!-- JSで記事がここに出力されます -->
+      <!-- JSで記事カードをここに描画 -->
     </div>
   </div>
 
@@ -221,5 +270,18 @@
 
   <footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
   <script src="js/articleLoader.js"></script>
+  <script>
+    // JSでスクロールに応じて左を固定
+    const sidebar = document.getElementById('sidebar');
+    const topOffset = sidebar.offsetTop;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= topOffset - 100) {
+        sidebar.classList.add('fixed');
+      } else {
+        sidebar.classList.remove('fixed');
+      }
+    });
+  </script>
 </body>
 </html>
