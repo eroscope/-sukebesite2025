@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const pageSize = 20;
       const startIndex = (page - 1) * pageSize;
       const endIndex = startIndex + pageSize;
-
       const sliced = articles.slice(startIndex, endIndex);
 
       sliced.forEach(article => {
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         container.appendChild(card);
       });
 
-      // ページネーション表示
+      // ページネーション生成
       const pagination = document.getElementById("pagination");
       const totalPages = Math.ceil(articles.length / pageSize);
       if (pagination) {
@@ -58,4 +57,5 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(err => console.error("記事の読み込み失敗", err));
 });
 
+// ハッシュ変更時に再読み込み
 window.addEventListener("hashchange", () => location.reload());
