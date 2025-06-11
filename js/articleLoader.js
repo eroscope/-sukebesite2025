@@ -3,14 +3,16 @@ document.addEventListener("DOMContentLoaded", function () {
     .then(res => res.json())
     .then(articles => {
       const container = document.querySelector(".container");
-      if (!container) return;
+      const pagination = document.getElementById("pagination");
+      if (!container || !pagination) return;
 
-      const page = Number(location.hash.replace("#", "")) || 1;
       const pageSize = 20;
+      const page = Number(location.hash.replace("#", "")) || 1;
       const startIndex = (page - 1) * pageSize;
-      const endIndex = startIndex + pageSize;
+      const sliced = articles.slice(startIndex, startIndex + pageSize);
+      const totalPages = Math.ceil(articles.length / pageSize);
 
-      const sliced = articles.slice(startIndex, endIndex);
+      container.innerHTML = "";
       sliced.forEach(article => {
         const card = document.createElement("div");
         card.className = "card";
@@ -21,25 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="title">
             <a href="${article.link}">${article.title}</a>
           </div>
-          <div class="card-meta">
-            <span class="category">#${article.category || "GIF"}</span> |
-            <span class="date">${article.date || "2025-06-11"}</span> |
-            <span class="buzz">🔥 ${article.buzz || "ZZZ"}</span>
-          </div>
           <div class="comment">
             1: 名無しさんのギガリすと<br>${article.comment}
-          </div>
-        `;
+          </div>`;
         container.appendChild(card);
       });
 
-      const pagination = document.getElementById("pagination");
-      if (!pagination) return;
-
       pagination.innerHTML = "";
-
-      const totalPages = Math.ceil(articles.length / pageSize);
-      if (totalPages <= 1) return;
 
       if (page > 1) {
         const prev = document.createElement("a");
@@ -49,11 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       for (let i = 1; i <= totalPages; i++) {
-        const link = document.createElement("a");
-        link.href = `#${i}`;
-        link.textContent = i;
-        if (i === page) link.style.fontWeight = "bold";
-        pagination.appendChild(link);
+        const pageLink = document.createElement("a");
+        pageLink.href = `#${i}`;
+        pageLink.textContent = i;
+        if (i === page) pageLink.style.fontWeight = "bold";
+        pagination.appendChild(pageLink);
       }
 
       if (page < totalPages) {
@@ -66,4 +56,5 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(err => console.error("記事の読み込み失敗", err));
 });
 
+// ページ番号変更で再描画
 window.addEventListener("hashchange", () => location.reload());
