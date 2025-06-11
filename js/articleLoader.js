@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const pageSize = 20;
       const startIndex = (page - 1) * pageSize;
       const endIndex = startIndex + pageSize;
-
       const sliced = articles.slice(startIndex, endIndex);
 
       sliced.forEach(article => {
@@ -32,8 +31,19 @@ document.addEventListener("DOMContentLoaded", function () {
       // ページネーション
       const pagination = document.getElementById("pagination");
       const totalPages = Math.ceil(articles.length / pageSize);
+
       if (pagination) {
         pagination.innerHTML = "";
+
+        // 前へ
+        if (page > 1) {
+          const prevLink = document.createElement("a");
+          prevLink.href = `#${page - 1}`;
+          prevLink.textContent = "« 前へ";
+          pagination.appendChild(prevLink);
+        }
+
+        // 数字リンク
         for (let i = 1; i <= totalPages; i++) {
           const pageLink = document.createElement("a");
           pageLink.href = `#${i}`;
@@ -41,9 +51,17 @@ document.addEventListener("DOMContentLoaded", function () {
           if (i === page) pageLink.style.fontWeight = "bold";
           pagination.appendChild(pageLink);
         }
+
+        // 次へ
+        if (page < totalPages) {
+          const nextLink = document.createElement("a");
+          nextLink.href = `#${page + 1}`;
+          nextLink.textContent = "次へ »";
+          pagination.appendChild(nextLink);
+        }
       }
     })
-    .catch(err => console.error("記事の読み込み失敗", err)); // ← ✅ これだけでOK
+    .catch(err => console.error("記事の読み込み失敗", err));
 });
 
 // ハッシュ変更時に再読み込み
