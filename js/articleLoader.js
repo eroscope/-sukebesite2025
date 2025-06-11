@@ -11,6 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const endIndex = startIndex + pageSize;
       const sliced = articles.slice(startIndex, endIndex);
 
+      container.innerHTML = ""; // 初期化
+
+      if (sliced.length === 0) {
+        container.innerHTML = "<p>記事が見つかりませんでした。</p>";
+        document.getElementById("pagination").style.display = "none";
+        return;
+      }
+
       sliced.forEach(article => {
         const card = document.createElement("div");
         card.className = "card";
@@ -21,6 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="title">
             <a href="${article.link}">${article.title}</a>
           </div>
+          <div class="card-meta">
+            <span class="category">#${article.category}</span> |
+            <span class="date">${article.date}</span> |
+            <span class="buzz">${getBuzzIcon(article.buzz)}</span>
+          </div>
           <div class="comment">
             1: 名無しさんのギガリすと<br>${article.comment}
           </div>
@@ -28,22 +41,19 @@ document.addEventListener("DOMContentLoaded", function () {
         container.appendChild(card);
       });
 
-      // ページネーション
+      // ページネーション表示
       const pagination = document.getElementById("pagination");
       const totalPages = Math.ceil(articles.length / pageSize);
-
       if (pagination) {
         pagination.innerHTML = "";
 
-        // 前へ
         if (page > 1) {
-          const prevLink = document.createElement("a");
-          prevLink.href = `#${page - 1}`;
-          prevLink.textContent = "« 前へ";
-          pagination.appendChild(prevLink);
+          const prev = document.createElement("a");
+          prev.href = `#${page - 1}`;
+          prev.textContent = "« 前へ";
+          pagination.appendChild(prev);
         }
 
-        // 数字リンク
         for (let i = 1; i <= totalPages; i++) {
           const pageLink = document.createElement("a");
           pageLink.href = `#${i}`;
@@ -52,17 +62,26 @@ document.addEventListener("DOMContentLoaded", function () {
           pagination.appendChild(pageLink);
         }
 
-        // 次へ
         if (page < totalPages) {
-          const nextLink = document.createElement("a");
-          nextLink.href = `#${page + 1}`;
-          nextLink.textContent = "次へ »";
-          pagination.appendChild(nextLink);
+          const next = document.createElement("a");
+          next.href = `#${page + 1}`;
+          next.textContent = "次へ »";
+          pagination.appendChild(next);
         }
       }
+
+      // スクロールを上に戻す
+      window.scrollTo({ top: 0, behavior: "smooth" });
     })
     .catch(err => console.error("記事の読み込み失敗", err));
 });
 
-// ハッシュ変更時に再読み込み
+// ハッシュ変更でリロード
 window.addEventListener("hashchange", () => location.reload());
+
+// バズアイコン関数
+function getBuzzIcon(level) {
+  if (level === "high") return "🔥バズ中";
+  if (level === "mid") return "🆕";
+  return "💤";
+}
