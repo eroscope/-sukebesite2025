@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const endIndex = startIndex + pageSize;
 
       const sliced = articles.slice(startIndex, endIndex);
-
       sliced.forEach(article => {
         const card = document.createElement("div");
         card.className = "card";
@@ -23,9 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
             <a href="${article.link}">${article.title}</a>
           </div>
           <div class="card-meta">
-            <span class="date">🕒 ${article.date}</span> |
-            <span class="category">#${article.category}</span> |
-            <span class="buzz">🔥 ${article.buzz}</span>
+            <span class="category">#${article.category || "GIF"}</span> |
+            <span class="date">${article.date || "2025-06-11"}</span> |
+            <span class="buzz">🔥 ${article.buzz || "ZZZ"}</span>
           </div>
           <div class="comment">
             1: 名無しさんのギガリすと<br>${article.comment}
@@ -34,37 +33,37 @@ document.addEventListener("DOMContentLoaded", function () {
         container.appendChild(card);
       });
 
-      // ページネーション
       const pagination = document.getElementById("pagination");
+      if (!pagination) return;
+
+      pagination.innerHTML = "";
+
       const totalPages = Math.ceil(articles.length / pageSize);
-      if (pagination) {
-        pagination.innerHTML = "";
+      if (totalPages <= 1) return;
 
-        if (page > 1) {
-          const prev = document.createElement("a");
-          prev.href = `#${page - 1}`;
-          prev.textContent = "« 前へ";
-          pagination.appendChild(prev);
-        }
+      if (page > 1) {
+        const prev = document.createElement("a");
+        prev.href = `#${page - 1}`;
+        prev.textContent = "« 前へ";
+        pagination.appendChild(prev);
+      }
 
-        for (let i = 1; i <= totalPages; i++) {
-          const pageLink = document.createElement("a");
-          pageLink.href = `#${i}`;
-          pageLink.textContent = i;
-          if (i === page) pageLink.style.fontWeight = "bold";
-          pagination.appendChild(pageLink);
-        }
+      for (let i = 1; i <= totalPages; i++) {
+        const link = document.createElement("a");
+        link.href = `#${i}`;
+        link.textContent = i;
+        if (i === page) link.style.fontWeight = "bold";
+        pagination.appendChild(link);
+      }
 
-        if (page < totalPages) {
-          const next = document.createElement("a");
-          next.href = `#${page + 1}`;
-          next.textContent = "次へ »";
-          pagination.appendChild(next);
-        }
+      if (page < totalPages) {
+        const next = document.createElement("a");
+        next.href = `#${page + 1}`;
+        next.textContent = "次へ »";
+        pagination.appendChild(next);
       }
     })
     .catch(err => console.error("記事の読み込み失敗", err));
 });
 
-// ハッシュ変更時に再読み込み
 window.addEventListener("hashchange", () => location.reload());
