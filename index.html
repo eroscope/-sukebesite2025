@@ -4,148 +4,29 @@
   <meta charset="UTF-8" />
   <title>スケベな日常 | トップページ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="バズるエロまとめが満載の『スケベな日常』！GIF・コスプレ・素人など多彩なカテゴリで毎日更新！">
-  <meta property="og:title" content="スケベな日常 | トップページ">
-  <meta property="og:description" content="毎日バズる！GIF・コスプレ・素人系まで完全網羅のエロまとめ。">
-  <meta property="og:image" content="images/ogp.jpg">
-  <meta property="og:type" content="website">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "スケベな日常",
-    "url": "https://yourdomain.com"
-  }
-  </script>
   <style>
-    body {
-      font-family: sans-serif; margin: 0; color: #111;
-      background: #fff;
-      transition: background 0.3s, color 0.3s;
-    }
-    [data-theme="dark"] {
-      background: #111; color: #eee;
-    }
-    header {
-      background: #ffcc00; padding: 1em;
-      font-size: 1.8em; text-align: center;
-      font-weight: bold; position: sticky;
-      top: 0; z-index: 1000;
-    }
-    nav { background: #333; display: flex; justify-content: center; flex-wrap: wrap; padding: 0.5em; }
+    body { font-family: sans-serif; margin: 0; background: #fff; color: #111; }
+    header { background: #ffcc00; padding: 1em; font-size: 1.8em; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 1000; }
+    .news-ticker { background: #ff6666; color: white; padding: 0.5em; text-align: center; font-size: 0.9em; }
+    nav { background: #333; color: white; display: flex; flex-wrap: wrap; justify-content: center; padding: 0.5em; }
     nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
-
-    .news-ticker {
-      background: #ff6666; color: white;
-      text-align: center; font-size: 0.9em; padding: 0.5em;
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      0%, 50%, 100% { opacity: 1; }
-      25%, 75% { opacity: 0; }
-    }
-
-    .trending-tags {
-      text-align: center; background: #f0f0f0;
-      padding: 0.5em; font-size: 0.9em;
-    }
-    .trending-tags a {
-      margin: 0.3em; color: #0077cc;
-      text-decoration: none;
-    }
-
-    .main-layout {
-      display: flex; max-width: 1200px;
-      margin: auto; padding: 1em;
-    }
-    .sidebar {
-      width: 260px; margin-right: 1em;
-      position: sticky; top: 100px; height: fit-content;
-    }
-
-    .container {
-      flex: 1; display: flex;
-      flex-wrap: wrap; justify-content: center;
-    }
-
-    .card {
-      width: 280px; margin: 0.5em;
-      background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      border: 1px solid #ccc; position: relative;
-    }
-    .card img, .card video {
-      width: 100%; display: block;
-    }
-    .card .title {
-      padding: 0.5em; font-weight: bold; font-size: 1em;
-    }
-    .card .comment {
-      background: #f8f8f8; padding: 0.5em;
-      font-size: 0.85em; color: #333;
-      border-top: 1px solid #ddd;
-    }
-
-    .ad-space, .ad-inline {
-      background: #eee; padding: 1em;
-      text-align: center; margin-bottom: 1em;
-      border: 1px dashed #999;
-    }
-
-    .pagination {
-      text-align: center; margin: 2em 0;
-    }
-    .pagination a {
-      margin: 0 0.4em; text-decoration: none;
-      color: #0077cc; font-weight: bold;
-    }
-
-    .related-carousel {
-      background: #f4f4f4; padding: 1em;
-      margin-top: 2em;
-    }
-    .related-carousel h3 {
-      font-size: 1em;
-    }
-    .carousel-track a {
-      margin-right: 1em; color: #0077cc;
-      text-decoration: none;
-    }
-
-    footer {
-      text-align: center; background: #eee;
-      padding: 1em; font-size: 0.8em; color: #555;
-    }
-
-    .share-buttons {
-      text-align: center; margin-top: 1em;
-    }
-    .share-buttons a {
-      margin: 0 5px; font-size: 0.9em;
-      text-decoration: none;
-    }
-
-    #theme-toggle {
-      position: fixed; bottom: 10px;
-      right: 10px; background: #ccc;
-      padding: 0.5em 1em; cursor: pointer;
-      z-index: 1001;
-    }
-
-    .logo-animated {
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
+    .main-layout { display: flex; max-width: 1200px; margin: auto; padding: 1em; }
+    .sidebar { width: 260px; margin-right: 1em; position: sticky; top: 100px; height: fit-content; }
+    .ad-space, .ad-inline { background: #eee; padding: 1em; text-align: center; margin-bottom: 1em; border: 1px dashed #999; }
+    .container { flex: 1; display: flex; flex-wrap: wrap; justify-content: center; }
+    .card { width: 280px; margin: 0.5em; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #ccc; }
+    .card img, .card video { width: 100%; display: block; }
+    .card .title { padding: 0.5em; font-weight: bold; font-size: 1em; }
+    .card .comment { background: #f8f8f8; padding: 0.5em; font-size: 0.85em; color: #333; border-top: 1px solid #ddd; }
+    .pagination { text-align: center; margin: 2em 0; }
+    .pagination a { margin: 0 0.3em; text-decoration: none; color: #0077cc; }
+    footer { text-align: center; background: #eee; padding: 1em; font-size: 0.8em; color: #555; }
   </style>
 </head>
 <body>
 
-<header><span class="logo-animated">スケベな日常</span></header>
-<div class="news-ticker">🔥 今アクセスが集中しています！（21:00台）</div>
+<header>スケベな日常</header>
+<div class="news-ticker">🔥 最新更新: 本日も記事を大量追加中！</div>
 
 <nav>
   <a href="#">巨乳</a>
@@ -155,56 +36,26 @@
   <a href="#">素人</a>
 </nav>
 
-<div class="trending-tags" id="tag-list">
-  <!-- JSがランダム表示 -->
-</div>
-
 <div class="main-layout">
   <aside class="sidebar">
     <div class="ad-space">[広告スペース]</div>
     <div class="recommend">
       <h3>おすすめ記事</h3>
       <ul>
-        <li><a href="#">チャイナ服召喚術</a></li>
-        <li><a href="#">猫耳女子変身ｗ</a></li>
-        <li><a href="#">美尻GIFまとめ</a></li>
+        <li><a href="Article_001.html">チャイナ服で召喚術試してみた結果ｗｗｗ</a></li>
+        <li><a href="Article_002.html">猫耳フードで完全に化け猫女子ｗｗｗ</a></li>
+        <li><a href="Article_003.html">GIFで見る美尻の神作画ｗｗｗ</a></li>
       </ul>
-    </div>
-    <div class="tags">
-      <h3>タグ</h3>
-      <p>#異世界転生 #猫耳 #召喚術 #チャイナ服</p>
-    </div>
-    <div class="archive">
-      <h3>アーカイブ</h3>
-      <ul><li><a href="#">2025年6月</a></li></ul>
     </div>
   </aside>
 
-  <div class="container" id="card-container">
-    <!-- JSが記事を挿入 -->
-  </div>
+  <div class="container" id="card-container"></div>
 </div>
 
 <div class="pagination" id="pagination"></div>
 <div class="ad-inline">[インライン広告枠]</div>
 
-<div class="related-carousel">
-  <h3>🔁 関連記事</h3>
-  <div class="carousel-track">
-    <a href="#">▶ 新着：GIFまとめ</a>
-    <a href="#">▶ 人気：コスプレ特集</a>
-    <a href="#">▶ 編集部おすすめ</a>
-  </div>
-</div>
-
-<div class="share-buttons">
-  <a href="#" id="share-twitter">Twitterで共有</a>
-  <a href="#" id="share-line">LINEで送る</a>
-</div>
-
-<div id="theme-toggle">🌙</div>
-
-<footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
+<footer>© 2025 スケベな日常</footer>
 <script src="js/articleLoader.js"></script>
 </body>
 </html>
