@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>スケベな日常 | トップページ</title>
   <meta name="description" content="バズるエロまとめが満載の『スケベな日常』！GIF・コスプレ・素人など多彩なカテゴリで毎日更新！">
   <meta property="og:title" content="スケベな日常 | トップページ">
@@ -23,13 +23,14 @@
     .sidebar { width: 260px; margin-right: 1em; position: sticky; top: 100px; height: fit-content; }
     .ad-space, .ad-inline { background: #eee; padding: 1em; text-align: center; margin-bottom: 1em; border: 1px dashed #999; }
 
-    .recommend { background: #f9f9f9; padding: 1em; border: 1px solid #ccc; }
-    .recommend h3 { margin-top: 0; font-size: 1em; }
-    .recommend ul { list-style: none; padding: 0; }
-    .recommend li { margin-bottom: 0.5em; }
+    .recommend, .ranking, .tags, .latest, .archive {
+      background: #f9f9f9; padding: 1em; border: 1px solid #ccc; margin-bottom: 1em;
+    }
+    .recommend h3, .ranking h3, .tags h3, .latest h3, .archive h3 { margin-top: 0; font-size: 1em; }
+    .recommend ul, .ranking ul, .latest ul, .archive ul { list-style: none; padding: 0; font-size: 0.9em; }
+    .recommend li, .ranking li, .latest li, .archive li { margin-bottom: 0.4em; }
 
-    .archive h3, .newest h3 { font-size: 1em; margin: 1em 0 0.3em; }
-    .archive ul, .newest ul { list-style: none; padding: 0; font-size: 0.9em; }
+    .tags p { font-size: 0.85em; color: #555; }
 
     .container { flex: 1; display: flex; flex-wrap: wrap; justify-content: center; }
     .card { width: 280px; margin: 0.5em; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #ccc; }
@@ -38,9 +39,7 @@
     .card .comment { background: #f8f8f8; padding: 0.5em; font-size: 0.85em; color: #333; border-top: 1px solid #ddd; }
 
     .pagination { text-align: center; margin: 2em 0; }
-    .pagination a { margin: 0 0.3em; text-decoration: none; color: #0077cc; }
-
-    .featured-section { background: #f9f9f9; padding: 1em; text-align: center; margin: 2em auto; border: 1px solid #ccc; max-width: 900px; }
+    .pagination a { margin: 0 0.4em; text-decoration: none; color: #0077cc; font-weight: bold; }
 
     .related-carousel { background: #f4f4f4; padding: 1em; margin-top: 2em; }
     .related-carousel h3 { font-size: 1em; }
@@ -73,6 +72,7 @@
 <div class="main-layout">
   <aside class="sidebar">
     <div class="ad-space">[広告スペース]</div>
+
     <div class="recommend">
       <h3>おすすめ記事</h3>
       <ul>
@@ -82,8 +82,22 @@
       </ul>
     </div>
 
-    <div class="newest">
-      <h3>🆕 新着記事</h3>
+    <div class="ranking">
+      <h3>人気記事</h3>
+      <ul>
+        <li><a href="#">[GIF] 止まらないギガリすと</a></li>
+        <li><a href="#">【コスプレ】この完成度ｗｗｗ</a></li>
+        <li><a href="#">【素人】え、これ本物？</a></li>
+      </ul>
+    </div>
+
+    <div class="tags">
+      <h3>タグ一覧</h3>
+      <p>#美尻 #変身 #アングル<br>#ギャル #照明 #もふもふ</p>
+    </div>
+
+    <div class="latest">
+      <h3>新着記事</h3>
       <ul>
         <li><a href="#">（速報）新カテゴリが追加された件ｗｗｗ</a></li>
         <li><a href="#">（必見）今日の人気GIFまとめ</a></li>
@@ -91,7 +105,7 @@
     </div>
 
     <div class="archive">
-      <h3>📅 月別アーカイブ</h3>
+      <h3>月別アーカイブ</h3>
       <ul>
         <li><a href="#">2025年6月</a></li>
         <li><a href="#">2025年5月</a></li>
@@ -104,17 +118,18 @@
   </div>
 </div>
 
-<!-- ページネーションを記事下に表示 -->
+<!-- ページネーションを記事直下に移動 -->
 <div class="pagination" id="pagination"></div>
+  <a href="#" id="prev-page">« 前へ</a>
+  <!-- ページ番号リンクはJSで追加 -->
+  <a href="#" id="next-page">次へ »</a>
+</div>
 
-<!-- インライン広告 -->
 <div class="ad-inline">[インライン広告枠]</div>
-
-<!-- 記事下の装飾で余白を埋める -->
-<div class="featured-section">
-  <h3>📌 注目のまとめ解説</h3>
-  <p>GIF・トレンド・バズネタをまとめてチェック！</p>
-  <a href="trending.html">▶ バズまとめ一覧を見る</a>
+<div class="featured-section" style="background:#f9f9f9; padding:1em; text-align:center; border-top:1px solid #ccc; margin-top:1em;">
+  <h3>📌 注目のまとめ記事</h3>
+  <p>話題のGIF・トレンドネタを一気に見たい方はこちら！</p>
+  <a href="trending.html">▶ バズまとめを見る</a>
 </div>
 
 <div class="related-carousel">
