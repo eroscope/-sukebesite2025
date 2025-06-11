@@ -9,40 +9,114 @@
   <meta property="og:image" content="images/ogp.jpg">
   <meta property="og:type" content="website">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <style>
-    body { font-family: sans-serif; margin: 0; background: #fff; color: #111; }
-    header { background: #ffcc00; padding: 1em; font-size: 1.8em; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 1000; }
-    .news-ticker { background: #ff6666; color: white; padding: 0.5em; text-align: center; font-size: 0.9em; }
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: #fff;
+      color: #111;
+    }
 
-    nav { background: #333; color: white; display: flex; flex-wrap: wrap; justify-content: center; padding: 0.5em; }
-    nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
+    header {
+      background: #ffcc00;
+      padding: 1em;
+      font-size: 1.8em;
+      text-align: center;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-    .trending-tags { text-align: center; background: #f0f0f0; padding: 0.5em; font-size: 0.9em; }
-    .trending-tags a { margin: 0.3em; color: #0077cc; text-decoration: none; }
+    .news-ticker {
+      background: #ff6666;
+      color: white;
+      padding: 0.5em;
+      text-align: center;
+      font-size: 0.9em;
+    }
 
-    .main-layout { display: flex; max-width: 1200px; margin: auto; padding: 1em; align-items: flex-start; }
-    .sidebar { width: 260px; margin-right: 1em; position: sticky; top: 100px; height: fit-content; flex-shrink: 0; }
+    nav {
+      background: #333;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0.5em;
+    }
 
-    .ad-space, .ad-inline { background: #eee; padding: 1em; text-align: center; margin-bottom: 1em; border: 1px dashed #999; }
+    nav a {
+      color: white;
+      margin: 0.5em;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .trending-tags {
+      text-align: center;
+      background: #f0f0f0;
+      padding: 0.5em;
+      font-size: 0.9em;
+    }
+
+    .trending-tags a {
+      margin: 0.3em;
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    .main-layout {
+      display: flex;
+      max-width: 1200px;
+      margin: auto;
+      padding: 1em;
+      align-items: flex-start;
+    }
+
+    .sidebar {
+      width: 260px;
+      margin-right: 1em;
+      position: sticky;
+      top: 100px;
+      max-height: 90vh;
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
+
+    .ad-space {
+      background: #eee;
+      padding: 1em;
+      text-align: center;
+      margin-bottom: 1em;
+      border: 1px dashed #999;
+    }
 
     .recommend, .ranking, .tags, .latest, .archive {
-      background: #f9f9f9; padding: 1em; border: 1px solid #ccc; margin-bottom: 1em;
+      background: #f9f9f9;
+      padding: 1em;
+      border: 1px solid #ccc;
+      margin-bottom: 1em;
     }
 
     .recommend h3, .ranking h3, .tags h3, .latest h3, .archive h3 {
-      margin-top: 0; font-size: 1em;
+      margin-top: 0;
+      font-size: 1em;
     }
 
     .recommend ul, .ranking ul, .latest ul, .archive ul {
-      list-style: none; padding: 0; font-size: 0.9em;
+      list-style: none;
+      padding: 0;
+      font-size: 0.9em;
     }
 
     .recommend li, .ranking li, .latest li, .archive li {
       margin-bottom: 0.4em;
     }
 
-    .tags p { font-size: 0.85em; color: #555; }
+    .tags p {
+      font-size: 0.85em;
+      color: #555;
+    }
 
     .container {
       flex: 1;
@@ -53,13 +127,14 @@
 
     .card {
       width: calc(50% - 1em);
+      margin: 0.5em;
       background: white;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       border: 1px solid #ccc;
-      margin: 0.5em;
+      box-sizing: border-box;
     }
 
-    .card img, .card video {
+    .card img {
       width: 100%;
       display: block;
     }
@@ -90,22 +165,6 @@
       font-weight: bold;
     }
 
-    .related-carousel {
-      background: #f4f4f4;
-      padding: 1em;
-      margin-top: 2em;
-    }
-
-    .related-carousel h3 {
-      font-size: 1em;
-    }
-
-    .carousel-track a {
-      margin-right: 1em;
-      color: #0077cc;
-      text-decoration: none;
-    }
-
     footer {
       text-align: center;
       background: #eee;
@@ -113,23 +172,12 @@
       font-size: 0.8em;
       color: #555;
     }
-
-    @media screen and (max-width: 768px) {
-      .card {
-        width: calc(50% - 1em);
-      }
-
-      .sidebar {
-        position: relative;
-        top: auto;
-      }
-    }
   </style>
 </head>
 <body>
 
 <header>スケベな日常</header>
-<div class="news-ticker">🔥 最新更新: [2025/06/11] 本日も記事を大量追加中！</div>
+<div class="news-ticker">🔥 最新更新: 本日も記事を大量追加中！</div>
 
 <nav>
   <a href="#">巨乳</a>
@@ -149,8 +197,7 @@
 
 <div class="main-layout">
   <aside class="sidebar">
-    <div class="ad-space">[広告スペース①]</div>
-
+    <div class="ad-space">[広告スペース]</div>
     <div class="recommend">
       <h3>おすすめ記事</h3>
       <ul>
@@ -159,7 +206,6 @@
         <li><a href="#">美尻GIFまとめ</a></li>
       </ul>
     </div>
-
     <div class="ranking">
       <h3>人気記事</h3>
       <ul>
@@ -167,12 +213,10 @@
         <li><a href="#">照明の力で2割増</a></li>
       </ul>
     </div>
-
     <div class="tags">
       <h3>タグ一覧</h3>
       <p>#美尻 #ギャル #もふもふ #異世界</p>
     </div>
-
     <div class="latest">
       <h3>新着記事</h3>
       <ul>
@@ -180,7 +224,6 @@
         <li><a href="#">編集部が選ぶ注目記事</a></li>
       </ul>
     </div>
-
     <div class="archive">
       <h3>月別アーカイブ</h3>
       <ul>
@@ -191,22 +234,11 @@
   </aside>
 
   <div class="container" id="card-container">
-    <!-- JSがここに記事を挿入します -->
+    <!-- JSでカードが描画されます -->
   </div>
 </div>
 
 <div class="pagination" id="pagination"></div>
-
-<div class="ad-inline">[インライン広告枠]</div>
-
-<div class="related-carousel">
-  <h3>🔁 次に読むべき記事</h3>
-  <div class="carousel-track">
-    <a href="#">▶ 新着：GIFまとめ</a>
-    <a href="#">▶ 人気：コスプレ特集</a>
-    <a href="#">▶ 編集部おすすめ</a>
-  </div>
-</div>
 
 <footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
 <script src="js/articleLoader.js"></script>
