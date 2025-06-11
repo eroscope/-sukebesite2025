@@ -45,6 +45,3 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch(err => console.error("記事の読み込み失敗", err));
 });
-window.addEventListener("hashchange", () => {
-  location.reload();
-});
