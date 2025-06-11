@@ -43,11 +43,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         for (let i = 1; i <= totalPages; i++) {
-          const pageLink = document.createElement("a");
-          pageLink.href = `#${i}`;
-          pageLink.textContent = i;
-          if (i === page) pageLink.style.fontWeight = "bold";
-          pagination.appendChild(pageLink);
+          const link = document.createElement("a");
+          link.href = `#${i}`;
+          link.textContent = i;
+          if (i === page) link.style.fontWeight = "bold";
+          pagination.appendChild(link);
         }
 
         if (page < totalPages) {
