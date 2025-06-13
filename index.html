@@ -1,94 +1,182 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <title>スケベな日常 | トップページ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>スケベな日常</title>
   <style>
-    body { margin: 0; font-family: sans-serif; }
-    header { background: #ffcc00; padding: 1em; text-align: center; font-weight: bold; }
-    .news-ticker { background: #f66; color: white; text-align: center; padding: 0.5em; }
-    nav { background: #333; color: white; display: flex; justify-content: center; gap: 1em; padding: 0.5em; }
+    body { margin: 0; font-family: sans-serif; background: #fff; color: #111; }
+    header { background: #ffcc00; padding: 1em; font-size: 1.8em; text-align: center; font-weight: bold; }
+
+    .news-ticker { background: #ff6666; color: #fff; padding: 0.5em; text-align: center; }
+
+    nav { background: #333; color: white; display: flex; justify-content: center; flex-wrap: wrap; }
+    nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
+
+    .trending-tags { background: #f0f0f0; padding: 0.5em; text-align: center; font-size: 0.9em; }
+    .trending-tags a { margin: 0.3em; color: #0077cc; text-decoration: none; }
+
     .main-layout {
       display: flex;
       max-width: 1200px;
       margin: auto;
+      padding: 1em;
       gap: 1em;
     }
+
     .sidebar {
-      flex: 1;
+      width: 33.3%;
       min-width: 200px;
+      max-width: 300px;
+      position: sticky;
+      top: 100px;
+      height: fit-content;
     }
+
+    .ad-space, .recommend, .ranking, .tags, .latest, .archive {
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 1em;
+      margin-bottom: 1em;
+    }
+
+    .recommend h3, .ranking h3, .tags h3, .latest h3, .archive h3 {
+      font-size: 1em;
+      margin-top: 0;
+    }
+
+    .recommend ul, .ranking ul, .latest ul, .archive ul {
+      list-style: none;
+      padding: 0;
+      font-size: 0.9em;
+    }
+
+    .recommend li, .ranking li, .latest li, .archive li {
+      margin-bottom: 0.5em;
+    }
+
+    .tags p { font-size: 0.85em; }
+
     .container {
       flex: 2;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1em;
     }
+
     .card {
-      width: calc(50% - 1em);
-      margin-bottom: 1em;
-      background: #fff;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: white;
     }
-    .card img { width: 100%; }
+
+    .card img, .card video {
+      width: 100%;
+      display: block;
+    }
+
+    .card .title {
+      font-weight: bold;
+      padding: 0.5em;
+    }
+
+    .card .comment {
+      background: #f8f8f8;
+      font-size: 0.85em;
+      padding: 0.5em;
+    }
+
     .pagination {
       text-align: center;
-      margin: 1em;
+      margin: 2em 0;
     }
-    @media (max-width: 768px) {
-      .main-layout { flex-direction: row; flex-wrap: nowrap; }
-      .container {
+
+    .pagination a {
+      margin: 0 0.4em;
+      color: #0077cc;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      background: #eee;
+      padding: 1em;
+      font-size: 0.8em;
+    }
+
+    @media screen and (max-width: 768px) {
+      .main-layout {
+        display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
       }
-      .card {
-        width: calc(50% - 0.5em);
+
+      .sidebar {
+        width: 33.3%;
+        min-width: 180px;
       }
+
+      .container {
+        width: 66.6%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+      }
+
+      .card { font-size: 0.95em; }
     }
   </style>
 </head>
 <body>
   <header>スケベな日常</header>
   <div class="news-ticker">🔥 最新更新: 本日も記事を大量追加中！</div>
+
   <nav>
-    <div>巨乳</div>
-    <div>美尻</div>
-    <div>GIF</div>
-    <div>コスプレ</div>
-    <div>素人</div>
+    <a href="#">巨乳</a><a href="#">美尻</a><a href="#">GIF</a><a href="#">コスプレ</a><a href="#">素人</a>
   </nav>
+
+  <div class="trending-tags">
+    🔥 トレンドタグ:
+    <a href="#">#異世界転生</a><a href="#">#猫耳</a><a href="#">#召喚術</a><a href="#">#チャイナ服</a>
+  </div>
+
   <div class="main-layout">
     <aside class="sidebar">
-      <div>[広告スペース]</div>
-      <div>
+      <div class="ad-space">[広告スペース]</div>
+
+      <div class="recommend">
         <h3>おすすめ記事</h3>
         <ul>
           <li><a href="#">チャイナ服で召喚術試してみた結果ｗｗｗ</a></li>
-          <li><a href="#">猫耳フードで完全に化け猫女子ｗｗｗ</a></li>
-          <li><a href="#">GIFで見る美尻の神作画ｗｗｗ</a></li>
+          <li><a href="#">猫耳で変身</a></li>
+          <li><a href="#">美尻GIFまとめ</a></li>
         </ul>
       </div>
-      <div>
+
+      <div class="ranking">
         <h3>人気記事</h3>
         <ul>
-          <li><a href="#">【GIF】止まらないギガリすと</a></li>
+          <li><a href="#">[GIF] 止まらないギガリすと</a></li>
           <li><a href="#">【コスプレ】この完成度ｗｗｗ</a></li>
           <li><a href="#">【素人】え、これ本物？</a></li>
         </ul>
       </div>
-      <div>
+
+      <div class="tags">
         <h3>タグ一覧</h3>
         <p>#美尻 #ギャル #もふもふ #異世界</p>
       </div>
-      <div>
+
+      <div class="latest">
         <h3>新着記事</h3>
         <ul>
           <li><a href="#">（速報）新カテゴリが追加された件ｗｗｗ</a></li>
           <li><a href="#">（必見）今日の人気GIFまとめ</a></li>
         </ul>
       </div>
-      <div>
+
+      <div class="archive">
         <h3>月別アーカイブ</h3>
         <ul>
           <li><a href="#">2025年6月</a></li>
@@ -96,9 +184,20 @@
         </ul>
       </div>
     </aside>
-    <div class="container" id="card-container"></div>
+
+    <div class="container" id="card-container">
+      <!-- 記事カードがここに表示されます -->
+    </div>
   </div>
-  <div class="pagination" id="pagination"></div>
+
+  <div class="pagination" id="pagination">
+    <a href="#" id="prev-page">« 前へ</a>
+    <!-- JSでページ番号を挿入 -->
+    <a href="#" id="next-page">次へ »</a>
+  </div>
+
+  <footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
+
   <script src="js/articleLoader.js"></script>
 </body>
 </html>
