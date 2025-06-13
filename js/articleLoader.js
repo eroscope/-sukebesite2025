@@ -2,13 +2,15 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("data/articles.json")
     .then(res => res.json())
     .then(articles => {
-      const container = document.querySelector(".container");
+      const container = document.getElementById("card-container");
       if (!container) return;
 
       const page = Number(location.hash.replace("#", "")) || 1;
       const pageSize = 20;
       const startIndex = (page - 1) * pageSize;
       const endIndex = startIndex + pageSize;
+      const totalPages = Math.ceil(articles.length / pageSize);
+
       const sliced = articles.slice(startIndex, endIndex);
 
       sliced.forEach(article => {
@@ -28,9 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         container.appendChild(card);
       });
 
-      // ページネーション
       const pagination = document.getElementById("pagination");
-      const totalPages = Math.ceil(articles.length / pageSize);
       if (pagination) {
         pagination.innerHTML = "";
 
@@ -60,5 +60,4 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(err => console.error("記事の読み込み失敗", err));
 });
 
-// ハッシュ変更時に再読み込み
 window.addEventListener("hashchange", () => location.reload());
