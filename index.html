@@ -15,7 +15,7 @@
     .trending-tags { text-align: center; background: #f0f0f0; padding: 0.5em; font-size: 0.9em; }
     .trending-tags a { margin: 0.3em; color: #0077cc; text-decoration: none; }
 
-    .main-layout { display: flex; max-width: 1200px; margin: auto; padding: 1em; gap: 1em; }
+    .main-layout { display: flex; flex-wrap: wrap; max-width: 1200px; margin: auto; padding: 1em; gap: 1em; }
 
     .sidebar {
       width: 33%;
@@ -30,6 +30,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 1em;
+      padding-bottom: 2em;
     }
 
     .card {
@@ -68,7 +69,12 @@
       margin-bottom: 0.4em;
     }
 
-    .pagination { text-align: center; margin: 2em 0; }
+    .pagination {
+      text-align: center;
+      margin: 2em 0;
+      width: 100%;
+    }
+
     .pagination a {
       margin: 0 0.4em;
       text-decoration: none;
@@ -79,7 +85,8 @@
     .related-carousel {
       background: #f4f4f4;
       padding: 1em;
-      margin-top: 2em;
+      margin: 2em auto;
+      width: 100%;
     }
 
     .carousel-track a {
@@ -112,6 +119,7 @@
         width: 66.66%;
         flex-direction: row;
         flex-wrap: wrap;
+        padding-bottom: 2em;
       }
 
       .card {
@@ -123,7 +131,7 @@
 <body>
 
 <header>スケベな日常</header>
-<div class="news-ticker">🔥 最新更新: 本日もバズ記事追加中！</div>
+<div class="news-ticker">🔥 最新更新: 本日も記事を大量追加中！</div>
 
 <nav>
   <a href="#">巨乳</a>
@@ -147,21 +155,21 @@
     <div class="recommend">
       <h3>おすすめ記事</h3>
       <ul>
-        <li><a href="#">記事リンク1</a></li>
-        <li><a href="#">記事リンク2</a></li>
-        <li><a href="#">記事リンク3</a></li>
+        <li><a href="#">チャイナ服で召喚術</a></li>
+        <li><a href="#">猫耳で変身</a></li>
+        <li><a href="#">美尻GIFまとめ</a></li>
       </ul>
     </div>
     <div class="ranking">
       <h3>人気記事</h3>
       <ul>
-        <li><a href="#">人気1</a></li>
-        <li><a href="#">人気2</a></li>
+        <li><a href="#">[GIF] ギガリすと</a></li>
+        <li><a href="#">【コスプレ】この完成度ｗｗ</a></li>
       </ul>
     </div>
     <div class="tags">
       <h3>タグ一覧</h3>
-      <p>#美尻 #猫耳 #ギャル</p>
+      <p>#美尻 #ギャル #もふもふ #異世界</p>
     </div>
     <div class="latest">
       <h3>新着記事</h3>
@@ -180,7 +188,7 @@
   </aside>
 
   <div class="container" id="card-container">
-    <!-- JSで記事が挿入 -->
+    <!-- JSで記事が挿入されます -->
   </div>
 </div>
 
@@ -189,7 +197,7 @@
 <div class="ad-inline">[インライン広告]</div>
 
 <div class="related-carousel">
-  <h3>次に読むべき記事</h3>
+  <h3>🔁 次に読むべき記事</h3>
   <div class="carousel-track">
     <a href="#">▶ 新着：GIFまとめ</a>
     <a href="#">▶ 人気：コスプレ特集</a>
@@ -197,7 +205,7 @@
   </div>
 </div>
 
-<footer>© 2025 スケベな日常</footer>
+<footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
 <script src="js/articleLoader.js"></script>
 </body>
 </html>
