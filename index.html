@@ -3,180 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <title>スケベな日常 | トップページ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="バズるエロまとめが満載の『スケベな日常』！GIF・コスプレ・素人など多彩なカテゴリで毎日更新！">
+  <meta property="og:title" content="スケベな日常 | トップページ">
+  <meta property="og:description" content="毎日バズる！GIF・コスプレ・素人系まで完全網羅のエロまとめ。">
+  <meta property="og:image" content="images/ogp.jpg">
+  <meta property="og:type" content="website">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #fff;
-      color: #111;
-    }
+    body { font-family: sans-serif; margin: 0; background: #fff; color: #111; }
 
-    header {
-      background: #ffcc00;
-      padding: 1em;
-      font-size: 1.8em;
-      font-weight: bold;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+    header { background: #ffcc00; padding: 1em; font-size: 1.8em; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 1000; }
 
-    .news-ticker {
-      background: #ff6666;
-      color: white;
-      padding: 0.5em;
-      text-align: center;
-      font-size: 0.9em;
-    }
+    .news-ticker { background: #ff6666; color: white; padding: 0.5em; text-align: center; font-size: 0.9em; }
 
-    nav {
-      background: #333;
-      color: white;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 0.5em;
-    }
+    nav { background: #333; color: white; display: flex; flex-wrap: wrap; justify-content: center; padding: 0.5em; }
+    nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
 
-    nav a {
-      color: white;
-      margin: 0.5em;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    .trending-tags { text-align: center; background: #f0f0f0; padding: 0.5em; font-size: 0.9em; }
+    .trending-tags a { margin: 0.3em; color: #0077cc; text-decoration: none; }
 
-    .trending-tags {
-      text-align: center;
-      background: #f0f0f0;
-      padding: 0.5em;
-      font-size: 0.9em;
-    }
+    .main-layout { display: flex; max-width: 1200px; margin: auto; padding: 1em; }
 
-    .trending-tags a {
-      margin: 0.3em;
-      color: #0077cc;
-      text-decoration: none;
-    }
+    .sidebar { width: 33.333%; margin-right: 1em; position: sticky; top: 100px; height: fit-content; }
 
-    .main-layout {
-      display: flex;
-      max-width: 1200px;
-      margin: auto;
-      padding: 1em;
-    }
-
-    .sidebar {
-      width: 33%;
-      margin-right: 1em;
-      position: sticky;
-      top: 100px;
-      height: fit-content;
-    }
-
-    .box {
-      background: #f9f9f9;
-      padding: 1em;
-      border: 1px solid #ccc;
-      margin-bottom: 1em;
-      border-radius: 4px;
-    }
-
-    .box h3 {
-      margin-top: 0;
-      font-size: 1em;
-    }
-
-    .box ul {
-      list-style: none;
-      padding: 0;
-      font-size: 0.9em;
-    }
-
-    .box li {
-      margin-bottom: 0.4em;
-    }
+    .box { background: #f9f9f9; padding: 1em; border: 1px solid #ccc; margin-bottom: 1em; }
+    .box h3 { margin-top: 0; font-size: 1em; }
+    .box ul { list-style: none; padding: 0; font-size: 0.9em; }
+    .box li { margin-bottom: 0.4em; }
 
     .container {
-      width: 66%;
+      width: 66.666%;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1em;
     }
 
-    .card {
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      border: 1px solid #ccc;
-    }
+    .card { background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #ccc; }
+    .card img, .card video { width: 100%; display: block; }
+    .card .title { padding: 0.5em; font-weight: bold; font-size: 1em; }
+    .card .comment { background: #f8f8f8; padding: 0.5em; font-size: 0.85em; color: #333; border-top: 1px solid #ddd; }
 
-    .card img {
-      width: 100%;
-      display: block;
-    }
+    .pagination { text-align: center; margin: 2em 0; }
+    .pagination a { margin: 0 0.4em; text-decoration: none; color: #0077cc; font-weight: bold; }
 
-    .card .title {
-      padding: 0.5em;
-      font-weight: bold;
-      font-size: 1em;
-    }
+    .ad-inline { background: #eee; padding: 1em; text-align: center; margin: 1em auto; border: 1px dashed #999; }
 
-    .card .comment {
-      background: #f8f8f8;
-      padding: 0.5em;
-      font-size: 0.85em;
-      color: #333;
-      border-top: 1px solid #ddd;
-    }
+    .related-carousel { background: #f4f4f4; padding: 1em; margin-top: 2em; }
+    .related-carousel h3 { font-size: 1em; }
+    .carousel-track a { margin-right: 1em; color: #0077cc; text-decoration: none; }
 
-    .pagination {
-      text-align: center;
-      margin: 2em 0 1em;
-    }
-
-    .pagination a {
-      margin: 0 0.3em;
-      text-decoration: none;
-      color: #0077cc;
-      font-weight: bold;
-    }
-
-    .ad-inline {
-      background: #eee;
-      padding: 1em;
-      text-align: center;
-      margin: 2em 0;
-      border: 1px dashed #999;
-    }
-
-    .featured-section {
-      background: #f9f9f9;
-      padding: 1em;
-      text-align: center;
-      border-top: 1px solid #ccc;
-      margin-top: 1em;
-    }
-
-    .related-carousel {
-      background: #f4f4f4;
-      padding: 1em;
-      margin-top: 2em;
-    }
-
-    .carousel-track a {
-      margin-right: 1em;
-      color: #0077cc;
-      text-decoration: none;
-    }
-
-    footer {
-      text-align: center;
-      background: #eee;
-      padding: 1em;
-      font-size: 0.8em;
-      color: #555;
-    }
+    footer { text-align: center; background: #eee; padding: 1em; font-size: 0.8em; color: #555; }
 
     @media (max-width: 768px) {
       .main-layout {
@@ -186,9 +62,9 @@
 
       .sidebar {
         width: 100%;
-        margin: 0 0 1em 0;
-        position: relative;
-        top: auto;
+        margin-bottom: 1em;
+        transform: scale(0.9);
+        transform-origin: top left;
       }
 
       .container {
@@ -196,17 +72,16 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .card {
-        font-size: 0.9em;
-      }
+      .box { font-size: 0.85em; }
+      .box h3 { font-size: 0.95em; }
+      .box ul li { font-size: 0.85em; }
 
-      body {
-        font-size: 90%;
-      }
+      body { font-size: 90%; }
     }
   </style>
 </head>
 <body>
+
 <header>スケベな日常</header>
 <div class="news-ticker">🔥 最新更新: [2025/06/11] 本日も記事を大量追加中！</div>
 
@@ -272,19 +147,13 @@
   </aside>
 
   <div class="container" id="card-container">
-    <!-- JSで記事を表示 -->
+    <!-- JSがここに記事カードを挿入 -->
   </div>
 </div>
 
 <div class="pagination" id="pagination"></div>
 
 <div class="ad-inline">[インライン広告枠]</div>
-
-<div class="featured-section">
-  <h3>📌 注目のまとめ記事</h3>
-  <p>話題のGIF・トレンドネタを一気に見たい方はこちら！</p>
-  <a href="#">▶ バズまとめを見る</a>
-</div>
 
 <div class="related-carousel">
   <h3>🔁 次に読むべき記事</h3>
