@@ -10,12 +10,10 @@
   <meta property="og:type" content="website">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    html {
-      font-size: 16px;
-    }
-    body {
-      font-family: sans-serif;
+    html, body {
       margin: 0;
+      padding: 0;
+      font-family: sans-serif;
       background: #fff;
       color: #111;
     }
@@ -68,71 +66,68 @@
       margin: auto;
       padding: 1em;
     }
-
     .sidebar {
       width: 33.33%;
-      max-width: 300px;
-      margin-right: 1em;
+      box-sizing: border-box;
+      padding-right: 1em;
       position: sticky;
       top: 100px;
-      align-self: flex-start;
+      height: fit-content;
+    }
+    .ad-space, .ad-inline {
+      background: #eee;
+      padding: 1em;
+      text-align: center;
+      margin-bottom: 1em;
+      border: 1px dashed #999;
     }
 
-    .sidebar > div {
+    .recommend, .ranking, .tags, .latest, .archive {
       background: #f9f9f9;
       padding: 1em;
       border: 1px solid #ccc;
       margin-bottom: 1em;
-      box-sizing: border-box;
     }
-
-    .sidebar h3 {
+    .recommend h3, .ranking h3, .tags h3, .latest h3, .archive h3 {
       margin-top: 0;
       font-size: 1em;
     }
-
-    .sidebar ul {
+    .recommend ul, .ranking ul, .latest ul, .archive ul {
       list-style: none;
       padding: 0;
       font-size: 0.9em;
     }
-
-    .sidebar li {
+    .recommend li, .ranking li, .latest li, .archive li {
       margin-bottom: 0.4em;
     }
-
     .tags p {
       font-size: 0.85em;
       color: #555;
     }
 
     .container {
-      flex: 1;
+      width: 66.66%;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1em;
+      box-sizing: border-box;
     }
-
     .card {
-      width: calc(50% - 1em);
+      width: 45%;
+      margin: 1%;
       background: white;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       border: 1px solid #ccc;
-      box-sizing: border-box;
     }
-
     .card img, .card video {
       width: 100%;
       display: block;
     }
-
     .card .title {
       padding: 0.5em;
       font-weight: bold;
       font-size: 1em;
     }
-
     .card .comment {
       background: #f8f8f8;
       padding: 0.5em;
@@ -145,7 +140,6 @@
       text-align: center;
       margin: 2em 0;
     }
-
     .pagination a {
       margin: 0 0.4em;
       text-decoration: none;
@@ -153,19 +147,26 @@
       font-weight: bold;
     }
 
-    .ad-inline, .related-carousel {
-      max-width: 1200px;
-      margin: 1em auto;
+    .related-carousel {
+      background: #f4f4f4;
       padding: 1em;
-      background: #f9f9f9;
-      text-align: center;
-      border: 1px solid #ccc;
+      margin-top: 2em;
+    }
+    .related-carousel h3 {
+      font-size: 1em;
+    }
+    .carousel-track a {
+      margin-right: 1em;
+      color: #0077cc;
+      text-decoration: none;
     }
 
-    .related-carousel .carousel-track a {
-      margin: 0.5em;
-      display: inline-block;
-      color: #0077cc;
+    .featured-section {
+      background:#f9f9f9;
+      padding:1em;
+      text-align:center;
+      border-top:1px solid #ccc;
+      margin-top:1em;
     }
 
     footer {
@@ -176,28 +177,22 @@
       color: #555;
     }
 
-    @media (max-width: 768px) {
-      html {
-        font-size: 14px;
-      }
+    @media screen and (max-width: 768px) {
       .main-layout {
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
       }
-
       .sidebar {
         width: 33.33%;
+        padding: 0.5em;
       }
-
       .container {
         width: 66.66%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5em;
       }
-
       .card {
-        width: 48%;
+        width: 95%;
+        margin: 2%;
+        font-size: 0.9em;
       }
     }
   </style>
@@ -229,20 +224,29 @@
     <div class="recommend">
       <h3>おすすめ記事</h3>
       <ul>
-        <li><a href="#">チャイナ服で召喚術試してみた結果ｗｗｗ</a></li>
-        <li><a href="#">猫耳フードで完全に化け猫女子ｗｗｗ</a></li>
+        <li><a href="Article_001.html">チャイナ服で召喚術試してみた結果ｗｗｗ</a></li>
+        <li><a href="Article_002.html">猫耳フードで完全に化け猫女子ｗｗｗ</a></li>
+        <li><a href="Article_003.html">GIFで見る美尻の神作画ｗｗｗ</a></li>
       </ul>
     </div>
     <div class="ranking">
       <h3>人気記事</h3>
       <ul>
-        <li><a href="#">バズGIFまとめ</a></li>
-        <li><a href="#">えちえちコスプレ</a></li>
+        <li><a href="#">[GIF] 止まらないギガリすと</a></li>
+        <li><a href="#">【コスプレ】この完成度ｗｗｗ</a></li>
+        <li><a href="#">【素人】え、これ本物？</a></li>
       </ul>
     </div>
     <div class="tags">
       <h3>タグ一覧</h3>
-      <p>#美尻 #変身 #アングル #ギャル</p>
+      <p>#美尻 #変身 #アングル<br>#ギャル #照明 #もふもふ</p>
+    </div>
+    <div class="latest">
+      <h3>新着記事</h3>
+      <ul>
+        <li><a href="#">（速報）新カテゴリが追加された件ｗｗｗ</a></li>
+        <li><a href="#">（必見）今日の人気GIFまとめ</a></li>
+      </ul>
     </div>
     <div class="archive">
       <h3>月別アーカイブ</h3>
@@ -254,7 +258,7 @@
   </aside>
 
   <div class="container" id="card-container">
-    <!-- JSで出力 -->
+    <!-- JSがここに記事カードを挿入します -->
   </div>
 </div>
 
@@ -262,12 +266,18 @@
 
 <div class="ad-inline">[インライン広告枠]</div>
 
+<div class="featured-section">
+  <h3>📌 注目のまとめ記事</h3>
+  <p>話題のGIF・トレンドネタを一気に見たい方はこちら！</p>
+  <a href="trending.html">▶ バズまとめを見る</a>
+</div>
+
 <div class="related-carousel">
   <h3>🔁 次に読むべき記事</h3>
   <div class="carousel-track">
-    <a href="#">▶ 新着：GIFまとめ</a>
-    <a href="#">▶ 人気：コスプレ特集</a>
-    <a href="#">▶ 編集部おすすめ</a>
+    <a href="Article_004.html">▶ 新着：GIFまとめ</a>
+    <a href="Article_005.html">▶ 人気：コスプレ特集</a>
+    <a href="Article_006.html">▶ 編集部おすすめ</a>
   </div>
 </div>
 
