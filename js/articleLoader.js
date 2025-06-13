@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const pageSize = 20;
       const startIndex = (page - 1) * pageSize;
       const endIndex = startIndex + pageSize;
-
       const sliced = articles.slice(startIndex, endIndex);
 
       sliced.forEach(article => {
@@ -27,6 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         `;
         container.appendChild(card);
+
+        // 履歴に保存
+        const history = JSON.parse(localStorage.getItem("history") || "[]");
+        history.push(article.title);
+        localStorage.setItem("history", JSON.stringify(history.slice(-10)));
       });
 
       // ページネーション
@@ -34,14 +38,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const totalPages = Math.ceil(articles.length / pageSize);
       if (pagination) {
         pagination.innerHTML = "";
-
         if (page > 1) {
           const prev = document.createElement("a");
           prev.href = `#${page - 1}`;
           prev.textContent = "« 前へ";
           pagination.appendChild(prev);
         }
-
         for (let i = 1; i <= totalPages; i++) {
           const pageLink = document.createElement("a");
           pageLink.href = `#${i}`;
@@ -49,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
           if (i === page) pageLink.style.fontWeight = "bold";
           pagination.appendChild(pageLink);
         }
-
         if (page < totalPages) {
           const next = document.createElement("a");
           next.href = `#${page + 1}`;
