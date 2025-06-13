@@ -2,14 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("data/articles.json")
     .then(res => res.json())
     .then(articles => {
-      const container = document.querySelector(".container");
+      const container = document.querySelector("#card-container");
       if (!container) return;
 
       const page = Number(location.hash.replace("#", "")) || 1;
       const pageSize = 20;
       const startIndex = (page - 1) * pageSize;
       const endIndex = startIndex + pageSize;
-
       const sliced = articles.slice(startIndex, endIndex);
 
       sliced.forEach(article => {
@@ -29,17 +28,16 @@ document.addEventListener("DOMContentLoaded", function () {
         container.appendChild(card);
       });
 
-      // ページネーション
       const pagination = document.getElementById("pagination");
       const totalPages = Math.ceil(articles.length / pageSize);
       if (pagination) {
         pagination.innerHTML = "";
 
         if (page > 1) {
-          const prev = document.createElement("a");
-          prev.href = `#${page - 1}`;
-          prev.textContent = "« 前へ";
-          pagination.appendChild(prev);
+          const prevLink = document.createElement("a");
+          prevLink.href = `#${page - 1}`;
+          prevLink.textContent = "« 前へ";
+          pagination.appendChild(prevLink);
         }
 
         for (let i = 1; i <= totalPages; i++) {
@@ -51,15 +49,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (page < totalPages) {
-          const next = document.createElement("a");
-          next.href = `#${page + 1}`;
-          next.textContent = "次へ »";
-          pagination.appendChild(next);
+          const nextLink = document.createElement("a");
+          nextLink.href = `#${page + 1}`;
+          nextLink.textContent = "次へ »";
+          pagination.appendChild(nextLink);
         }
       }
     })
     .catch(err => console.error("記事の読み込み失敗", err));
 });
 
-// ハッシュ変更時に再読み込み
 window.addEventListener("hashchange", () => location.reload());
