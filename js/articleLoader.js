@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("data/articles.json")
     .then(res => res.json())
     .then(articles => {
-      const container = document.querySelector(".container");
+      const container = document.querySelector("#card-container");
       if (!container) return;
 
       const page = Number(location.hash.replace("#", "")) || 1;
@@ -26,11 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         `;
         container.appendChild(card);
-
-        // 履歴に保存
-        const history = JSON.parse(localStorage.getItem("history") || "[]");
-        history.push(article.title);
-        localStorage.setItem("history", JSON.stringify(history.slice(-10)));
       });
 
       // ページネーション
@@ -38,12 +33,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const totalPages = Math.ceil(articles.length / pageSize);
       if (pagination) {
         pagination.innerHTML = "";
+
         if (page > 1) {
           const prev = document.createElement("a");
           prev.href = `#${page - 1}`;
           prev.textContent = "« 前へ";
           pagination.appendChild(prev);
         }
+
         for (let i = 1; i <= totalPages; i++) {
           const pageLink = document.createElement("a");
           pageLink.href = `#${i}`;
@@ -51,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (i === page) pageLink.style.fontWeight = "bold";
           pagination.appendChild(pageLink);
         }
+
         if (page < totalPages) {
           const next = document.createElement("a");
           next.href = `#${page + 1}`;
@@ -62,5 +60,4 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(err => console.error("記事の読み込み失敗", err));
 });
 
-// ハッシュ変更時に再読み込み
 window.addEventListener("hashchange", () => location.reload());
