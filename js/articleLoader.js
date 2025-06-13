@@ -2,16 +2,14 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("data/articles.json")
     .then(res => res.json())
     .then(articles => {
-      const container = document.getElementById("card-container");
-      const pagination = document.getElementById("pagination");
-      if (!container || !pagination) return;
+      const container = document.querySelector(".container");
+      if (!container) return;
 
       const page = Number(location.hash.replace("#", "")) || 1;
       const pageSize = 20;
       const startIndex = (page - 1) * pageSize;
       const endIndex = startIndex + pageSize;
       const sliced = articles.slice(startIndex, endIndex);
-      container.innerHTML = "";
 
       sliced.forEach(article => {
         const card = document.createElement("div");
@@ -30,31 +28,33 @@ document.addEventListener("DOMContentLoaded", function () {
         container.appendChild(card);
       });
 
-      // ページネーション生成
-      pagination.innerHTML = "";
-
+      // ページネーション
+      const pagination = document.getElementById("pagination");
       const totalPages = Math.ceil(articles.length / pageSize);
+      if (pagination) {
+        pagination.innerHTML = "";
 
-      if (page > 1) {
-        const prev = document.createElement("a");
-        prev.href = `#${page - 1}`;
-        prev.textContent = "« 前へ";
-        pagination.appendChild(prev);
-      }
+        if (page > 1) {
+          const prevLink = document.createElement("a");
+          prevLink.href = `#${page - 1}`;
+          prevLink.textContent = "« 前へ";
+          pagination.appendChild(prevLink);
+        }
 
-      for (let i = 1; i <= totalPages; i++) {
-        const link = document.createElement("a");
-        link.href = `#${i}`;
-        link.textContent = i;
-        if (i === page) link.style.fontWeight = "bold";
-        pagination.appendChild(link);
-      }
+        for (let i = 1; i <= totalPages; i++) {
+          const pageLink = document.createElement("a");
+          pageLink.href = `#${i}`;
+          pageLink.textContent = i;
+          if (i === page) pageLink.style.fontWeight = "bold";
+          pagination.appendChild(pageLink);
+        }
 
-      if (page < totalPages) {
-        const next = document.createElement("a");
-        next.href = `#${page + 1}`;
-        next.textContent = "次へ »";
-        pagination.appendChild(next);
+        if (page < totalPages) {
+          const nextLink = document.createElement("a");
+          nextLink.href = `#${page + 1}`;
+          nextLink.textContent = "次へ »";
+          pagination.appendChild(nextLink);
+        }
       }
     })
     .catch(err => console.error("記事の読み込み失敗", err));
