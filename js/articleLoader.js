@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("data/articles.json")
     .then(res => res.json())
     .then(articles => {
-      const container = document.querySelector(".container");
+      const container = document.getElementById("card-container");
       if (!container) return;
 
       const page = Number(location.hash.replace("#", "")) || 1;
@@ -35,10 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
         pagination.innerHTML = "";
 
         if (page > 1) {
-          const prevLink = document.createElement("a");
-          prevLink.href = `#${page - 1}`;
-          prevLink.textContent = "« 前へ";
-          pagination.appendChild(prevLink);
+          const prev = document.createElement("a");
+          prev.href = `#${page - 1}`;
+          prev.textContent = "« 前へ";
+          pagination.appendChild(prev);
         }
 
         for (let i = 1; i <= totalPages; i++) {
@@ -50,10 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (page < totalPages) {
-          const nextLink = document.createElement("a");
-          nextLink.href = `#${page + 1}`;
-          nextLink.textContent = "次へ »";
-          pagination.appendChild(nextLink);
+          const next = document.createElement("a");
+          next.href = `#${page + 1}`;
+          next.textContent = "次へ »";
+          pagination.appendChild(next);
         }
       }
     })
