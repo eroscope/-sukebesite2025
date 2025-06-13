@@ -62,17 +62,19 @@
 
     .main-layout {
       display: flex;
-      flex-wrap: nowrap;
       max-width: 1200px;
       margin: auto;
       padding: 1em;
       gap: 1em;
+      box-sizing: border-box;
     }
 
     .sidebar {
       flex: 1;
       max-width: 30%;
-      min-width: 220px;
+      position: sticky;
+      top: 100px;
+      align-self: flex-start;
       background: #fafafa;
       padding: 0.5em;
       box-sizing: border-box;
@@ -88,7 +90,7 @@
     .card {
       background: white;
       border: 1px solid #ccc;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       padding: 0.5em;
     }
 
@@ -174,7 +176,8 @@
       }
 
       .sidebar {
-        width: 30%;
+        width: 33.3%;
+        min-width: 120px;
       }
 
       .container {
@@ -182,12 +185,12 @@
       }
 
       .card {
-        font-size: 0.85em;
+        font-size: 0.9em;
       }
 
       .recommend, .ranking, .tags, .latest, .archive {
-        font-size: 0.8em;
-        padding: 0.5em;
+        font-size: 0.85em;
+        padding: 0.4em;
       }
 
       .title a {
