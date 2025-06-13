@@ -19,6 +19,7 @@
 
     .main-layout {
       display: flex;
+      flex-wrap: nowrap;
       max-width: 1200px;
       margin: auto;
       padding: 1em;
@@ -65,12 +66,13 @@
       width: 66.66%;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: space-between;
     }
 
     .card {
       width: 48%;
-      margin: 1%;
+      min-width: 160px;
+      margin-bottom: 1em;
       background: white;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       border: 1px solid #ccc;
@@ -101,26 +103,27 @@
     @media (max-width: 768px) {
       .main-layout {
         flex-direction: row;
-        flex-wrap: wrap;
-        padding: 0.5em;
+        flex-wrap: nowrap;
       }
 
       .sidebar {
-        width: 100%;
-        max-width: 100%;
-        position: static;
-        order: 1;
+        width: 33.33%;
+        max-width: 33.33%;
+        margin-right: 1em;
+        position: sticky;
+        top: 80px;
+        z-index: 100;
       }
 
       .container {
-        width: 100%;
-        justify-content: center;
-        order: 2;
+        width: 66.66%;
+        flex-wrap: wrap;
+        justify-content: space-between;
       }
 
       .card {
         width: 48%;
-        margin: 1%;
+        margin-bottom: 1em;
       }
     }
 
@@ -199,7 +202,7 @@
   </aside>
 
   <div class="container" id="card-container">
-    <!-- JSで記事が出力されます -->
+    <!-- JSで記事カードが表示 -->
   </div>
 </div>
 
