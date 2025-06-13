@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>スケベな日常 | トップページ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: sans-serif;
       margin: 0;
-      padding: 0;
       background: #fff;
       color: #111;
-      overflow-x: hidden;
     }
 
     header {
       background: #ffcc00;
       padding: 1em;
       font-size: 1.8em;
-      font-weight: bold;
       text-align: center;
+      font-weight: bold;
     }
 
     .news-ticker {
@@ -27,68 +29,69 @@
       color: white;
       padding: 0.5em;
       text-align: center;
-      font-size: 0.9em;
     }
 
     nav {
       background: #333;
-      color: white;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       padding: 0.5em;
+      flex-wrap: wrap;
     }
 
     nav a {
       color: white;
       margin: 0.5em;
-      text-decoration: none;
       font-weight: bold;
+      text-decoration: none;
     }
 
     .trending-tags {
-      text-align: center;
       background: #f0f0f0;
       padding: 0.5em;
-      font-size: 0.9em;
+      text-align: center;
     }
 
     .trending-tags a {
-      margin: 0.3em;
       color: #0077cc;
       text-decoration: none;
+      margin: 0 0.3em;
     }
 
     .main-layout {
       display: flex;
-      flex-direction: row;
-      width: 100%;
       max-width: 1200px;
       margin: auto;
+      padding: 1em;
+      align-items: flex-start;
     }
 
-    .sidebar {
-      flex-basis: 33.33%;
-      min-width: 240px;
+    aside.sidebar {
+      width: 33.33%;
+      padding-right: 1em;
+      position: sticky;
+      top: 100px;
+      align-self: flex-start;
+    }
+
+    .sidebar > div {
+      margin-bottom: 1em;
+      background: #f9f9f9;
       padding: 1em;
-      box-sizing: border-box;
+      border: 1px solid #ccc;
     }
 
     .container {
-      flex-basis: 66.66%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      padding: 1em;
-      box-sizing: border-box;
+      width: 66.66%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1em;
     }
 
     .card {
-      width: 48%;
-      margin: 1%;
-      background: #fff;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
       border: 1px solid #ccc;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: white;
     }
 
     .card img {
@@ -96,18 +99,8 @@
       display: block;
     }
 
-    .card .title {
+    .title, .comment {
       padding: 0.5em;
-      font-weight: bold;
-      font-size: 1em;
-    }
-
-    .card .comment {
-      background: #f8f8f8;
-      padding: 0.5em;
-      font-size: 0.85em;
-      color: #333;
-      border-top: 1px solid #ddd;
     }
 
     .pagination {
@@ -116,7 +109,7 @@
     }
 
     .pagination a {
-      margin: 0 0.4em;
+      margin: 0 0.5em;
       text-decoration: none;
       color: #0077cc;
       font-weight: bold;
@@ -124,131 +117,97 @@
 
     footer {
       text-align: center;
-      background: #eee;
       padding: 1em;
+      background: #eee;
       font-size: 0.8em;
       color: #555;
     }
 
-    .recommend, .ranking, .tags, .latest, .archive {
-      background: #f9f9f9;
-      padding: 1em;
-      border: 1px solid #ccc;
-      margin-bottom: 1em;
-    }
-
-    .recommend h3, .ranking h3, .tags h3, .latest h3, .archive h3 {
-      margin-top: 0;
-      font-size: 1em;
-    }
-
-    .recommend ul, .ranking ul, .latest ul, .archive ul {
-      list-style: none;
-      padding: 0;
-      font-size: 0.9em;
-    }
-
-    .recommend li, .ranking li, .latest li, .archive li {
-      margin-bottom: 0.4em;
-    }
-
-    @media screen and (max-width: 768px) {
+    @media (max-width: 768px) {
       .main-layout {
         flex-direction: row;
         flex-wrap: nowrap;
       }
 
-      .sidebar {
-        flex-basis: 33.33%;
+      aside.sidebar {
+        width: 33%;
         min-width: 33%;
       }
 
       .container {
-        flex-basis: 66.66%;
-        min-width: 66%;
+        width: 67%;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .main-layout {
+        flex-direction: column;
       }
 
-      .card {
-        width: 48%;
+      aside.sidebar, .container {
+        width: 100%;
+      }
+
+      .container {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
 </head>
 <body>
-
-<header>スケベな日常</header>
-<div class="news-ticker">🔥 最新更新: 本日も記事を大量追加中！</div>
-
-<nav>
-  <a href="#">巨乳</a>
-  <a href="#">美尻</a>
-  <a href="#">GIF</a>
-  <a href="#">コスプレ</a>
-  <a href="#">素人</a>
-</nav>
-
-<div class="trending-tags">
-  <strong>🔥 トレンドタグ:</strong>
-  <a href="#">#異世界転生</a>
-  <a href="#">#猫耳</a>
-  <a href="#">#召喚術</a>
-  <a href="#">#チャイナ服</a>
-</div>
-
-<div class="main-layout">
-  <aside class="sidebar">
-    <div class="ad-space">[広告スペース]</div>
-
-    <div class="recommend">
-      <h3>おすすめ記事</h3>
-      <ul>
-        <li><a href="#">チャイナ服で召喚術</a></li>
-        <li><a href="#">猫耳で変身</a></li>
-        <li><a href="#">美尻GIFまとめ</a></li>
-      </ul>
-    </div>
-
-    <div class="ranking">
-      <h3>人気記事</h3>
-      <ul>
-        <li><a href="#">[GIF] 止まらないギガリすと</a></li>
-        <li><a href="#">【コスプレ】完成度ｗｗｗ</a></li>
-        <li><a href="#">【素人】これ本物？</a></li>
-      </ul>
-    </div>
-
-    <div class="tags">
-      <h3>タグ一覧</h3>
-      <p>#美尻 #ギャル #もふもふ #異世界</p>
-    </div>
-
-    <div class="latest">
-      <h3>新着記事</h3>
-      <ul>
-        <li><a href="#">（速報）カテゴリ追加ｗｗｗ</a></li>
-        <li><a href="#">（必見）本日の人気GIFまとめ</a></li>
-      </ul>
-    </div>
-
-    <div class="archive">
-      <h3>月別アーカイブ</h3>
-      <ul>
-        <li><a href="#">2025年6月</a></li>
-        <li><a href="#">2025年5月</a></li>
-      </ul>
-    </div>
-  </aside>
-
-  <div class="container" id="card-container">
-    <!-- JSで記事が挿入される -->
+  <header>スケベな日常</header>
+  <div class="news-ticker">🔥 最新更新: 本日も記事を大量追加中！</div>
+  <nav>
+    <a href="#">巨乳</a><a href="#">美尻</a><a href="#">GIF</a><a href="#">コスプレ</a><a href="#">素人</a>
+  </nav>
+  <div class="trending-tags">
+    🔥トレンドタグ:
+    <a href="#">#異世界転生</a>
+    <a href="#">#猫耳</a>
+    <a href="#">#召喚術</a>
+    <a href="#">#チャイナ服</a>
   </div>
-</div>
 
-<div class="pagination" id="pagination">
-  <!-- JSにより動的生成 -->
-</div>
+  <div class="main-layout">
+    <aside class="sidebar">
+      <div class="ad-space">[広告スペース]</div>
+      <div class="recommend">
+        <h3>おすすめ記事</h3>
+        <ul>
+          <li><a href="#">チャイナ服で召喚術試してみた結果ｗｗｗ</a></li>
+          <li><a href="#">猫耳で変身</a></li>
+          <li><a href="#">美尻GIFまとめ</a></li>
+        </ul>
+      </div>
+      <div class="ranking">
+        <h3>人気記事</h3>
+        <ul>
+          <li><a href="#">[GIF] 止まらないギガリすと</a></li>
+          <li><a href="#">【コスプレ】この完成度ｗｗｗ</a></li>
+        </ul>
+      </div>
+      <div class="tags">
+        <h3>タグ一覧</h3>
+        <p>#美尻 #ギャル #もふもふ #異世界</p>
+      </div>
+      <div class="archive">
+        <h3>月別アーカイブ</h3>
+        <ul>
+          <li><a href="#">2025年6月</a></li>
+          <li><a href="#">2025年5月</a></li>
+        </ul>
+      </div>
+    </aside>
 
-<footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
-<script src="js/articleLoader.js"></script>
+    <div class="container" id="card-container">
+      <!-- JSで記事がここに挿入されます -->
+    </div>
+  </div>
+
+  <div class="pagination" id="pagination"></div>
+
+  <footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
+  <script src="js/articleLoader.js"></script>
 </body>
 </html>
