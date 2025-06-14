@@ -1,307 +1,61 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <title>スケベな日常 | トップページ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {
-      box-sizing: border-box;
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("card-container");
+  const pagination = document.getElementById("pagination");
+  const articlesPerPage = 20;
+  let currentPage = parseInt(location.hash.replace("#page=", "")) || 1;
+
+  fetch("data/articles.json")
+    .then(response => response.json())
+    .then(data => {
+      const totalPages = Math.ceil(data.length / articlesPerPage);
+      renderArticles(data, currentPage);
+      renderPagination(totalPages);
+    });
+
+  function renderArticles(data, page) {
+    container.innerHTML = "";
+    const start = (page - 1) * articlesPerPage;
+    const end = start + articlesPerPage;
+    const pageArticles = data.slice(start, end);
+
+    pageArticles.forEach(article => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <img src="${article.image}" alt="${article.title}">
+        <div class="card-content">
+          <h3>${article.title}</h3>
+          <p>${article.description}</p>
+        </div>`;
+      container.appendChild(card);
+    });
+  }
+
+  function renderPagination(totalPages) {
+    pagination.innerHTML = "";
+    const prevBtn = document.createElement("button");
+    prevBtn.textContent = "前へ";
+    prevBtn.disabled = currentPage === 1;
+    prevBtn.onclick = () => changePage(currentPage - 1);
+    pagination.appendChild(prevBtn);
+
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement("button");
+      btn.textContent = i;
+      btn.disabled = i === currentPage;
+      btn.onclick = () => changePage(i);
+      pagination.appendChild(btn);
     }
 
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      background: #fff;
-      color: #111;
-    }
+    const nextBtn = document.createElement("button");
+    nextBtn.textContent = "次へ";
+    nextBtn.disabled = currentPage === totalPages;
+    nextBtn.onclick = () => changePage(currentPage + 1);
+    pagination.appendChild(nextBtn);
+  }
 
-    header {
-      background: #ffcc00;
-      padding: 1em;
-      font-size: 1.8em;
-      text-align: center;
-      font-weight: bold;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .news-ticker {
-      background: #ff6666;
-      color: white;
-      padding: 0.5em;
-      text-align: center;
-      font-size: 0.9em;
-    }
-
-    nav {
-      background: #333;
-      color: white;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 0.5em;
-    }
-
-    nav a {
-      color: white;
-      margin: 0.5em;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .trending-tags {
-      text-align: center;
-      background: #f0f0f0;
-      padding: 0.5em;
-      font-size: 0.9em;
-    }
-
-    .trending-tags a {
-      margin: 0.3em;
-      color: #0077cc;
-      text-decoration: none;
-    }
-
-    .main-layout {
-      display: flex;
-      max-width: 1200px;
-      margin: auto;
-      padding: 1em;
-      gap: 1em;
-    }
-
-    .sidebar {
-      width: 33.33%;
-      position: sticky;
-      top: 100px;
-      height: fit-content;
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-    }
-
-    .sidebar > div {
-      background: #f9f9f9;
-      padding: 1em;
-      border: 1px solid #ccc;
-    }
-
-    .sidebar h3 {
-      margin-top: 0;
-      font-size: 1em;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-      font-size: 0.9em;
-    }
-
-    .sidebar li {
-      margin-bottom: 0.4em;
-    }
-
-    .container {
-      width: 66.66%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    .card {
-      width: 48%;
-      margin-bottom: 1em;
-      background: white;
-      border: 1px solid #ccc;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .card img, .card video {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      display: block;
-    }
-
-    .card .title {
-      padding: 0.5em;
-      font-weight: bold;
-      font-size: 1em;
-    }
-
-    .card .comment {
-      background: #f8f8f8;
-      padding: 0.5em;
-      font-size: 0.85em;
-      color: #333;
-      border-top: 1px solid #ddd;
-    }
-
-    .pagination {
-      text-align: center;
-      margin: 2em 0 1em;
-    }
-
-    .pagination a {
-      margin: 0 0.4em;
-      text-decoration: none;
-      color: #0077cc;
-      font-weight: bold;
-    }
-
-    .ad-inline {
-      background: #eee;
-      padding: 1em;
-      text-align: center;
-      margin: 1em auto;
-      border: 1px dashed #999;
-      max-width: 1200px;
-    }
-
-    .featured-section {
-      background: #f9f9f9;
-      padding: 1em;
-      text-align: center;
-      border-top: 1px solid #ccc;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .related-carousel {
-      background: #f4f4f4;
-      padding: 1em;
-      margin-top: 2em;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .carousel-track a {
-      margin-right: 1em;
-      color: #0077cc;
-      text-decoration: none;
-    }
-
-    footer {
-      text-align: center;
-      background: #eee;
-      padding: 1em;
-      font-size: 0.8em;
-      color: #555;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        font-size: 0.9em;
-      }
-
-      .main-layout {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-
-      .sidebar {
-        width: 33.33%;
-      }
-
-      .container {
-        width: 66.66%;
-      }
-
-      .card {
-        width: 48%;
-      }
-    }
-  </style>
-</head>
-<body>
-
-<header>スケベな日常</header>
-<div class="news-ticker">🔥 最新更新: [2025/06/11] 本日も記事を大量追加中！</div>
-
-<nav>
-  <a href="#">巨乳</a>
-  <a href="#">美尻</a>
-  <a href="#">GIF</a>
-  <a href="#">コスプレ</a>
-  <a href="#">素人</a>
-</nav>
-
-<div class="trending-tags">
-  <strong>🔥 トレンドタグ:</strong>
-  <a href="#">#異世界転生</a>
-  <a href="#">#猫耳</a>
-  <a href="#">#召喚術</a>
-  <a href="#">#チャイナ服</a>
-</div>
-
-<div class="main-layout">
-  <aside class="sidebar">
-    <div class="ad-space">[広告スペース]</div>
-
-    <div>
-      <h3>おすすめ記事</h3>
-      <ul>
-        <li><a href="#">チャイナ服で召喚術試してみた結果ｗｗｗ</a></li>
-        <li><a href="#">猫耳フードで完全に化け猫女子ｗｗｗ</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h3>人気記事</h3>
-      <ul>
-        <li><a href="#">[GIF] 止まらないギガリすと</a></li>
-        <li><a href="#">【コスプレ】この完成度ｗｗｗ</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h3>タグ一覧</h3>
-      <p>#美尻 #変身 #アングル<br>#ギャル #照明 #もふもふ</p>
-    </div>
-
-    <div>
-      <h3>新着記事</h3>
-      <ul>
-        <li><a href="#">（速報）新カテゴリが追加された件ｗｗｗ</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h3>月別アーカイブ</h3>
-      <ul>
-        <li><a href="#">2025年6月</a></li>
-      </ul>
-    </div>
-  </aside>
-
-  <div class="container" id="card-container">
-    <!-- JSで記事がここに出力されます -->
-  </div>
-</div>
-
-<div class="pagination" id="pagination"></div>
-
-<div class="ad-inline">[インライン広告枠]</div>
-
-<div class="featured-section">
-  <h3>📌 注目のまとめ記事</h3>
-  <p>話題のGIF・トレンドネタを一気に見たい方はこちら！</p>
-  <a href="#">▶ バズまとめを見る</a>
-</div>
-
-<div class="related-carousel">
-  <h3>🔁 次に読むべき記事</h3>
-  <div class="carousel-track">
-    <a href="#">▶ 新着：GIFまとめ</a>
-    <a href="#">▶ 人気：コスプレ特集</a>
-    <a href="#">▶ 編集部おすすめ</a>
-  </div>
-</div>
-
-<footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
-<script src="js/articleLoader.js"></script>
-</body>
-</html>
+  function changePage(page) {
+    location.hash = `#page=${page}`;
+    location.reload();
+  }
+});
