@@ -19,11 +19,12 @@
       margin: 0 auto;
       padding: 1rem;
       gap: 1rem;
+      overflow-x: auto;
     }
     .sidebar {
-      flex: 1;
-      max-width: 33.3333%;
-      min-width: 200px;
+      flex: 0 0 33.3333%;
+      min-width: 250px;
+      max-width: 400px;
       position: sticky;
       top: 0;
       height: fit-content;
@@ -36,10 +37,11 @@
       border-radius: 8px;
     }
     .content {
-      flex: 2;
+      flex: 0 0 66.6666%;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(140px, 1fr));
       gap: 1rem;
+      min-width: 300px;
     }
     .card {
       background: #fff;
@@ -67,18 +69,12 @@
     @media (max-width: 768px) {
       .main-container {
         flex-wrap: nowrap;
-        overflow-x: auto;
-        transform: scale(0.95);
-        transform-origin: top left;
       }
       .sidebar {
         min-width: 33.3333%;
-        flex-shrink: 0;
       }
       .content {
-        min-width: 66.6666%;
-        flex-shrink: 0;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
       }
     }
   </style>
@@ -112,7 +108,7 @@
   </aside>
 
   <main class="content" id="card-container">
-    <!-- 記事カードがJSでここに挿入される -->
+    <!-- JSで記事がここに挿入される -->
   </main>
 </div>
 
