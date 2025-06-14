@@ -82,21 +82,34 @@
     .card {
       border: 1px solid #ccc;
       background: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
     .card img {
       width: 100%;
       display: block;
+      transition: transform 0.2s;
+    }
+    .card img:hover {
+      transform: scale(1.02);
     }
     .card .title {
+      background: #fffbe6;
       padding: 0.5em;
       font-weight: bold;
       font-size: 0.9em;
+      border-bottom: 1px solid #eee;
     }
     .card .comment {
-      background: #f8f8f8;
+      background: #fdfdfd;
       padding: 0.5em;
       font-size: 0.85em;
+      border-left: 3px solid #ffcc00;
     }
     #pagination {
       text-align: center;
