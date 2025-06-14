@@ -22,11 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
-        <img src="${article.image}" alt="${article.title}">
-        <div class="card-content">
-          <h3>${article.title}</h3>
-          <p>${article.description}</p>
-        </div>`;
+        <a href="${article.url}" style="text-decoration: none; color: inherit;">
+          <img src="${article.image}" alt="${article.title}">
+          <div class="card-content">
+            <h3>${article.title}</h3>
+            <p>${article.description}</p>
+          </div>
+        </a>`;
       container.appendChild(card);
     });
   }
