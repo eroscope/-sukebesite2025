@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
-        <a href="${article.url}" style="text-decoration: none; color: inherit;">
+        <a href="${article.url}">
           <img src="${article.image}" alt="${article.title}">
           <div class="card-content">
             <h3>${article.title}</h3>
