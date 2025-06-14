@@ -4,56 +4,19 @@
   <meta charset="UTF-8" />
   <title>スケベな日常 | トップページ</title>
   <meta name="description" content="バズるエロまとめが満載の『スケベな日常』！GIF・コスプレ・素人など多彩なカテゴリで毎日更新！">
+  <meta property="og:title" content="スケベな日常 | トップページ">
+  <meta property="og:description" content="毎日バズる！GIF・コスプレ・素人系まで完全網羅のエロまとめ。">
+  <meta property="og:image" content="images/ogp.jpg">
+  <meta property="og:type" content="website">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #fff;
-      color: #111;
-    }
-    header {
-      background: #ffcc00;
-      padding: 1em;
-      font-size: 1.8em;
-      text-align: center;
-      font-weight: bold;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .news-ticker {
-      background: #ff6666;
-      color: white;
-      padding: 0.5em;
-      text-align: center;
-      font-size: 0.9em;
-    }
-    nav {
-      background: #333;
-      color: white;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 0.5em;
-    }
-    nav a {
-      color: white;
-      margin: 0.5em;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .trending-tags {
-      text-align: center;
-      background: #f0f0f0;
-      padding: 0.5em;
-      font-size: 0.9em;
-    }
-    .trending-tags a {
-      margin: 0.3em;
-      color: #0077cc;
-      text-decoration: none;
-    }
+    body { font-family: sans-serif; margin: 0; background: #fff; color: #111; }
+    header { background: #ffcc00; padding: 1em; font-size: 1.8em; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 1000; }
+    .news-ticker { background: #ff6666; color: white; padding: 0.5em; text-align: center; font-size: 0.9em; }
+    nav { background: #333; color: white; display: flex; flex-wrap: wrap; justify-content: center; padding: 0.5em; }
+    nav a { color: white; margin: 0.5em; text-decoration: none; font-weight: bold; }
+    .trending-tags { text-align: center; background: #f0f0f0; padding: 0.5em; font-size: 0.9em; }
+    .trending-tags a { margin: 0.3em; color: #0077cc; text-decoration: none; }
 
     .main-layout {
       display: flex;
@@ -63,58 +26,60 @@
     }
 
     .sidebar {
-      width: 30%;
-      max-width: 300px;
+      width: 33.33%;
       margin-right: 1em;
       position: sticky;
       top: 100px;
       height: fit-content;
-    }
-
-    .sidebar-section {
-      background: #f9f9f9;
-      border: 1px solid #ccc;
-      margin-bottom: 1em;
-      padding: 0.5em;
       box-sizing: border-box;
     }
 
-    .sidebar-section h3 {
-      margin-top: 0;
-      font-size: 1em;
-      display: flex;
-      align-items: center;
-      gap: 0.3em;
+    .ad-space, .ad-inline {
+      background: #eee;
+      padding: 1em;
+      text-align: center;
+      margin-bottom: 1em;
+      border: 1px dashed #999;
     }
 
-    .sidebar-section ul {
+    .recommend, .ranking, .tags, .latest, .archive {
+      background: #f9f9f9;
+      padding: 1em;
+      border: 1px solid #ccc;
+      margin-bottom: 1em;
+    }
+
+    .recommend h3, .ranking h3, .tags h3, .latest h3, .archive h3 {
+      margin-top: 0;
+      font-size: 1em;
+    }
+
+    .recommend ul, .ranking ul, .latest ul, .archive ul {
       list-style: none;
       padding: 0;
       font-size: 0.9em;
     }
 
-    .sidebar-section li {
+    .recommend li, .ranking li, .latest li, .archive li {
       margin-bottom: 0.4em;
     }
 
-    .sidebar-section .tags span {
-      display: inline-block;
-      background: #eee;
-      padding: 0.2em 0.5em;
-      margin: 0.2em;
-      border-radius: 5px;
+    .tags p {
       font-size: 0.85em;
+      color: #555;
     }
 
     .container {
-      flex: 1;
+      flex: 66.66%;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-around;
+      box-sizing: border-box;
     }
 
     .card {
-      width: 280px;
+      width: calc(50% - 1em);
+      min-width: 250px;
       margin: 0.5em;
       background: white;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -143,7 +108,7 @@
 
     .pagination {
       text-align: center;
-      margin: 2em 0 1em 0;
+      margin: 2em 0;
     }
 
     .pagination a {
@@ -153,20 +118,10 @@
       font-weight: bold;
     }
 
-    .ad-inline {
-      background: #eee;
-      padding: 1em;
-      text-align: center;
-      margin: 2em auto;
-      max-width: 800px;
-      border: 1px dashed #999;
-    }
-
     .related-carousel {
       background: #f4f4f4;
       padding: 1em;
-      margin: 2em auto;
-      max-width: 1200px;
+      margin-top: 2em;
     }
 
     .related-carousel h3 {
@@ -177,6 +132,14 @@
       margin-right: 1em;
       color: #0077cc;
       text-decoration: none;
+    }
+
+    .featured-section {
+      background: #f9f9f9;
+      padding: 1em;
+      text-align: center;
+      border-top: 1px solid #ccc;
+      margin-top: 1em;
     }
 
     footer {
@@ -190,21 +153,17 @@
     @media (max-width: 768px) {
       .main-layout {
         flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-      }
-      .sidebar {
-        width: 33.333%;
-        position: sticky;
-        top: 100px;
-      }
-      .container {
-        width: 66.666%;
-        display: flex;
         flex-wrap: wrap;
       }
+      .sidebar {
+        width: 33.33%;
+      }
+      .container {
+        flex: 66.66%;
+        justify-content: space-around;
+      }
       .card {
-        width: 48%;
+        width: calc(50% - 1em);
       }
     }
   </style>
@@ -232,19 +191,19 @@
 
 <div class="main-layout">
   <aside class="sidebar">
-    <div class="sidebar-section">[広告スペース]</div>
+    <div class="ad-space">[広告スペース]</div>
 
-    <div class="sidebar-section">
-      <h3>📌 おすすめ記事</h3>
+    <div class="recommend">
+      <h3>おすすめ記事</h3>
       <ul>
-        <li><a href="#">チャイナ服で召喚術してみた結果ｗｗｗ</a></li>
-        <li><a href="#">猫耳フードで変身</a></li>
-        <li><a href="#">美尻GIFまとめ</a></li>
+        <li><a href="Article_001.html">チャイナ服で召喚術試してみた結果ｗｗｗ</a></li>
+        <li><a href="Article_002.html">猫耳フードで完全に化け猫女子ｗｗｗ</a></li>
+        <li><a href="Article_003.html">GIFで見る美尻の神作画ｗｗｗ</a></li>
       </ul>
     </div>
 
-    <div class="sidebar-section">
-      <h3>🔥 人気記事</h3>
+    <div class="ranking">
+      <h3>人気記事</h3>
       <ul>
         <li><a href="#">[GIF] 止まらないギガリすと</a></li>
         <li><a href="#">【コスプレ】この完成度ｗｗｗ</a></li>
@@ -252,72 +211,49 @@
       </ul>
     </div>
 
-    <div class="sidebar-section tags">
-      <h3>📌 タグ一覧</h3>
-      <div>
-        <span>#美尻</span><span>#変身</span><span>#アングル</span>
-        <span>#ギャル</span><span>#照明</span><span>#もふもふ</span>
-      </div>
+    <div class="tags">
+      <h3>タグ一覧</h3>
+      <p>#美尻 #変身 #アングル<br>#ギャル #照明 #もふもふ</p>
     </div>
 
-    <div class="sidebar-section">
-      <h3>🆕 新着記事</h3>
+    <div class="latest">
+      <h3>新着記事</h3>
       <ul>
-        <li><a href="#">今日の話題GIF</a></li>
-        <li><a href="#">編集部おすすめ</a></li>
+        <li><a href="#">（速報）新カテゴリが追加された件ｗｗｗ</a></li>
+        <li><a href="#">（必見）今日の人気GIFまとめ</a></li>
       </ul>
     </div>
 
-    <div class="sidebar-section">
-      <h3>📅 月別アーカイブ</h3>
+    <div class="archive">
+      <h3>月別アーカイブ</h3>
       <ul>
         <li><a href="#">2025年6月</a></li>
         <li><a href="#">2025年5月</a></li>
       </ul>
     </div>
-
-    <div class="sidebar-section">
-      <h3>🏆 今週の人気GIF</h3>
-      <ul>
-        <li><a href="#">1位：[画像] 美尻GIF集</a></li>
-        <li><a href="#">2位：[動画] 召喚成功の瞬間</a></li>
-        <li><a href="#">3位：[GIF] 笑える猫耳ジャンプ</a></li>
-      </ul>
-    </div>
-
-    <div class="sidebar-section">
-      <h3>🧠 名言コメント集</h3>
-      <ul>
-        <li>「このGIF、5回見てやっと気づいた」</li>
-        <li>「召喚術はGIFで覚えた」</li>
-      </ul>
-    </div>
-
-    <div class="sidebar-section">
-      <h3>✨ 今日のGIF語録</h3>
-      <p>「GIFは一日一笑」</p>
-    </div>
-
-    <div class="sidebar-section">
-      <h3>🎁 限定GIFキャンペーン</h3>
-      <p><a href="#">▶ エントリーはこちら！</a></p>
-    </div>
   </aside>
 
   <div class="container" id="card-container">
-    <!-- JSでカード表示 -->
+    <!-- JSで記事が挿入されます -->
   </div>
 </div>
 
 <div class="pagination" id="pagination"></div>
-<div class="ad-inline">[インライン広告]</div>
+
+<div class="ad-inline">[インライン広告枠]</div>
+
+<div class="featured-section">
+  <h3>📌 注目のまとめ記事</h3>
+  <p>話題のGIF・トレンドネタを一気に見たい方はこちら！</p>
+  <a href="trending.html">▶ バズまとめを見る</a>
+</div>
 
 <div class="related-carousel">
-  <h3>▶ 次に読むべき記事</h3>
+  <h3>🔁 次に読むべき記事</h3>
   <div class="carousel-track">
-    <a href="#">▶ 新着：GIFまとめ</a>
-    <a href="#">▶ 人気：コスプレ特集</a>
-    <a href="#">▶ 編集部おすすめ</a>
+    <a href="Article_004.html">▶ 新着：GIFまとめ</a>
+    <a href="Article_005.html">▶ 人気：コスプレ特集</a>
+    <a href="Article_006.html">▶ 編集部おすすめ</a>
   </div>
 </div>
 
