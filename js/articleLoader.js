@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("data/articles.json")
     .then(res => res.json())
     .then(articles => {
-      const container = document.getElementById("card-container");
+      const container = document.querySelector("#card-container");
       if (!container) return;
 
       const page = Number(location.hash.replace("#", "")) || 1;
@@ -29,32 +29,36 @@ document.addEventListener("DOMContentLoaded", function () {
         container.appendChild(card);
       });
 
+      // ページネーション
       const pagination = document.getElementById("pagination");
+      const totalPages = Math.ceil(articles.length / pageSize);
       if (pagination) {
         pagination.innerHTML = "";
-        const totalPages = Math.ceil(articles.length / pageSize);
+
         if (page > 1) {
           const prev = document.createElement("a");
           prev.href = `#${page - 1}`;
-          prev.textContent = "前へ";
+          prev.textContent = "« 前へ";
           pagination.appendChild(prev);
         }
+
         for (let i = 1; i <= totalPages; i++) {
-          const a = document.createElement("a");
-          a.href = `#${i}`;
-          a.textContent = i;
-          if (i === page) a.style.fontWeight = "bold";
-          pagination.appendChild(a);
+          const pageLink = document.createElement("a");
+          pageLink.href = `#${i}`;
+          pageLink.textContent = i;
+          if (i === page) pageLink.style.fontWeight = "bold";
+          pagination.appendChild(pageLink);
         }
+
         if (page < totalPages) {
           const next = document.createElement("a");
           next.href = `#${page + 1}`;
-          next.textContent = "次へ";
+          next.textContent = "次へ »";
           pagination.appendChild(next);
         }
       }
     })
-    .catch(err => console.error("記事読み込みエラー", err));
+    .catch(err => console.error("記事の読み込み失敗", err));
 });
 
 window.addEventListener("hashchange", () => location.reload());
