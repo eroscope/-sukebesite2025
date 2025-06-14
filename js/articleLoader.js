@@ -1,63 +1,58 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("card-container");
-  const pagination = document.getElementById("pagination");
-  const articlesPerPage = 20;
-  let currentPage = parseInt(location.hash.replace("#page=", "")) || 1;
-
+document.addEventListener("DOMContentLoaded", function () {
   fetch("data/articles.json")
-    .then(response => response.json())
-    .then(data => {
-      const totalPages = Math.ceil(data.length / articlesPerPage);
-      renderArticles(data, currentPage);
-      renderPagination(totalPages);
-    });
+    .then(res => res.json())
+    .then(articles => {
+      const container = document.getElementById("card-container");
+      const pagination = document.getElementById("pagination");
+      const page = Number(location.hash.replace("#", "")) || 1;
+      const pageSize = 20;
+      const startIndex = (page - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
+      const sliced = articles.slice(startIndex, endIndex);
 
-  function renderArticles(data, page) {
-    container.innerHTML = "";
-    const start = (page - 1) * articlesPerPage;
-    const end = start + articlesPerPage;
-    const pageArticles = data.slice(start, end);
-
-    pageArticles.forEach(article => {
-      const card = document.createElement("div");
-      card.className = "card";
-      card.innerHTML = `
-        <a href="${article.url}">
-          <img src="${article.image}" alt="${article.title}">
-          <div class="card-content">
-            <h3>${article.title}</h3>
-            <p>${article.description}</p>
+      sliced.forEach(article => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <a href="${article.link}">
+            <img src="${article.image}" alt="${article.title}">
+          </a>
+          <div class="title">
+            <a href="${article.link}">${article.title}</a>
           </div>
-        </a>`;
-      container.appendChild(card);
-    });
-  }
+          <div class="comment">
+            1: 名無しさんのギガリすと<br>${article.comment}
+          </div>`;
+        container.appendChild(card);
+      });
 
-  function renderPagination(totalPages) {
-    pagination.innerHTML = "";
-    const prevBtn = document.createElement("button");
-    prevBtn.textContent = "前へ";
-    prevBtn.disabled = currentPage === 1;
-    prevBtn.onclick = () => changePage(currentPage - 1);
-    pagination.appendChild(prevBtn);
+      const totalPages = Math.ceil(articles.length / pageSize);
+      if (pagination) {
+        pagination.innerHTML = "";
+        if (page > 1) {
+          const prev = document.createElement("a");
+          prev.href = `#${page - 1}`;
+          prev.textContent = "前へ";
+          pagination.appendChild(prev);
+        }
 
-    for (let i = 1; i <= totalPages; i++) {
-      const btn = document.createElement("button");
-      btn.textContent = i;
-      btn.disabled = i === currentPage;
-      btn.onclick = () => changePage(i);
-      pagination.appendChild(btn);
-    }
+        for (let i = 1; i <= totalPages; i++) {
+          const link = document.createElement("a");
+          link.href = `#${i}`;
+          link.textContent = i;
+          if (i === page) link.style.fontWeight = "bold";
+          pagination.appendChild(link);
+        }
 
-    const nextBtn = document.createElement("button");
-    nextBtn.textContent = "次へ";
-    nextBtn.disabled = currentPage === totalPages;
-    nextBtn.onclick = () => changePage(currentPage + 1);
-    pagination.appendChild(nextBtn);
-  }
-
-  function changePage(page) {
-    location.hash = `#page=${page}`;
-    location.reload();
-  }
+        if (page < totalPages) {
+          const next = document.createElement("a");
+          next.href = `#${page + 1}`;
+          next.textContent = "次へ";
+          pagination.appendChild(next);
+        }
+      }
+    })
+    .catch(err => console.error("記事読み込み失敗", err));
 });
+
+window.addEventListener("hashchange", () => location.reload());
