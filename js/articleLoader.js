@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("data/articles.json")
     .then(res => res.json())
     .then(articles => {
-      const container = document.getElementById("card-container");
+      const container = document.querySelector(".container");
       if (!container) return;
 
       const page = Number(location.hash.replace("#", "")) || 1;
@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const pagination = document.getElementById("pagination");
       const totalPages = Math.ceil(articles.length / pageSize);
+
       if (pagination) {
         pagination.innerHTML = "";
 
