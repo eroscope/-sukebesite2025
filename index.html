@@ -59,6 +59,7 @@
       margin: auto;
       padding: 1em;
       box-sizing: border-box;
+      align-items: flex-start;
     }
     .sidebar {
       width: 33.33%;
@@ -66,8 +67,7 @@
       box-sizing: border-box;
       position: sticky;
       top: 100px;
-      overflow-y: auto;
-      max-height: 90vh;
+      align-self: flex-start;
     }
     .sidebar section {
       background: #f9f9f9;
@@ -128,6 +128,7 @@
       color: #666;
       padding: 1em;
     }
+
     @media screen and (max-width: 900px) {
       .layout {
         flex-direction: row;
@@ -186,38 +187,55 @@
 <div class="layout">
   <aside class="sidebar">
     <section><div>[広告スペース]</div></section>
-    <section><h3>おすすめ記事</h3><ul><li><a href="#">チャイナ服で召喚術</a></li><li><a href="#">猫耳で変身</a></li><li><a href="#">GIFで見る神作画</a></li></ul></section>
-    <section><h3>人気記事</h3><ul><li><a href="#">【GIF】止まらないギガリすと</a></li><li><a href="#">【コスプレ】この完成度</a></li></ul></section>
-    <section><h3>タグ一覧</h3><p>#美尻 #ギャル #変身 #もふもふ</p></section>
-    <section><h3>新着記事</h3><ul><li><a href="#">編集部おすすめ</a></li><li><a href="#">GIF爆増特集</a></li></ul></section>
-    <section><h3>月別アーカイブ</h3><ul><li><a href="#">2025年6月</a></li><li><a href="#">2025年5月</a></li></ul></section>
-
-    <section><h3>🧠 スケベな豆知識</h3><p>チャイナ服にスリットが入ってる理由、知ってますか？</p></section>
-    <section><h3>🗳️ 人気投票：今週のテーマ</h3><p>猫耳 vs 角 あなたはどっち派？<br><button>猫耳派</button> <button>角派</button></p></section>
-    <section><h3>🐱 ねこ耳派の名言集</h3><p>「正義は猫耳に宿る」<br>「人生、猫耳次第」</p></section>
-    <section><h3>🕵️ 変身系キャラ図鑑</h3><ul><li>もふりちゃん：変身時に毛玉を飛ばす</li><li>ムーン嬢：月光で人間化</li></ul></section>
-    <section><h3>🔎 みんな検索してるワード</h3><ul><li>チャイナ服 コスプレ</li><li>変身 ギャル</li></ul></section>
-    <section><h3>🧩 カテゴリ別早見表</h3><ul><li>💥アクション</li><li>💋ラブコメ</li><li>🎭変身</li></ul></section>
-    <section><h3>🎯 今日の注目ワード</h3><p>#変身美女 #チャイナDay</p></section>
-    <section><h3>📊 月間アーカイブPV</h3><p>5月：12,300PV<br>6月：14,210PV</p></section>
-    <section><h3>🎁 プレゼント・キャンペーン</h3><p>コメント投稿で抽選100名様にAmazonギフト！</p></section>
-    <section><h3>📡 速報：注目トレンド</h3><p>「異世界×猫耳」が今熱い！</p></section>
-    <section><h3>🎙️ ファンの声（コメント特集）</h3><p>「猫耳の破壊力よ…」<br>「GIFが止まらねぇ！」</p></section>
-    <section><h3>📚 世界観の設定集</h3><p>このサイトの舞台は、ギガリス界隈と呼ばれる幻想領域である。</p></section>
-    <section><h3>📸 コスプレ写真館</h3><ul><li>新作：狐耳メイド</li><li>人気：黒チャイナ服</li></ul></section>
-    <section><h3>🛠️ 開発ログ（サイト裏話）</h3><p>2025/06/14：左カラム爆増完了しました。</p></section>
-    <section><h3>🌟 今日の推し記事PickUp</h3><p><a href="#">【特集】チャイナ美女の裏側</a></p></section>
-    <section><h3>🧪 性癖研究所より</h3><p>「異世界転生と性癖の相関について」近日発表</p></section>
-    <!-- オリジナルセクション＋さらに10個追加：後ほど続き出力します -->
+    <section>
+      <h3>おすすめ記事</h3>
+      <ul>
+        <li><a href="#">チャイナ服で召喚術</a></li>
+        <li><a href="#">猫耳で変身</a></li>
+        <li><a href="#">GIFで見る神作画</a></li>
+      </ul>
+    </section>
+    <section>
+      <h3>人気記事</h3>
+      <ul>
+        <li><a href="#">【GIF】止まらないギガリすと</a></li>
+        <li><a href="#">【コスプレ】この完成度</a></li>
+      </ul>
+    </section>
+    <section>
+      <h3>タグ一覧</h3>
+      <p>#美尻 #ギャル #変身 #もふもふ</p>
+    </section>
+    <section>
+      <h3>新着記事</h3>
+      <ul>
+        <li><a href="#">編集部おすすめ</a></li>
+        <li><a href="#">GIF爆増特集</a></li>
+      </ul>
+    </section>
+    <section>
+      <h3>月別アーカイブ</h3>
+      <ul>
+        <li><a href="#">2025年6月</a></li>
+        <li><a href="#">2025年5月</a></li>
+      </ul>
+    </section>
   </aside>
-  <div class="container" id="card-container"></div>
+
+  <div class="container" id="card-container">
+    <!-- JSがここに記事を挿入 -->
+  </div>
 </div>
+
 <div id="pagination"></div>
+
 <div class="ad-inline">[インライン広告]</div>
+
 <div class="related">
   <h3>🔁 次に読むべき記事</h3>
   <p><a href="#">▶ GIFまとめ</a> | <a href="#">▶ 人気：コスプレ</a></p>
 </div>
+
 <footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
 <script src="js/articleLoader.js"></script>
 </body>
