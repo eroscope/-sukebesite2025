@@ -310,18 +310,14 @@ header {
   max-width: 800px;
 }
 
-    .ad-space {
-      background: #444;
-      aspect-ratio: 4 / 3;
-      margin-bottom: 1em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 0.9em;
-      min-height: 150px;
-    }
 
+
+/* 左側のスクロールをやめ、通常の位置からスクロールに合わせて動かし、最下部に来たら固定 */
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: auto;
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&amp;display=swap" rel="stylesheet"/></head>
 <body>
@@ -343,13 +339,6 @@ header {
 </div>
 <div class="layout">
 <aside class="sidebar">
-
-<section class="ad-space"><div class="ad-box">[広告 1]</div></section>
-<section class="ad-space"><div class="ad-box">[広告 2]</div></section>
-<section class="ad-space"><div class="ad-box">[広告 3]</div></section>
-<section class="ad-space"><div class="ad-box">[広告 4]</div></section>
-<section class="ad-space"><div class="ad-box">[広告 5]</div></section>
-
 <section class="ad"><div>[広告スペース①]</div></section>
 <section>
 <img alt="サムネイル" src="images/thumb_sample.jpg"/><h3>おすすめ記事</h3>
