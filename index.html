@@ -309,6 +309,34 @@ header {
   margin: 2em auto;
   max-width: 800px;
 }
+
+.card img, .sidebar img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.ad-space {
+  aspect-ratio: 4 / 3;
+}
+
+.mini-card {
+  background: #2a2a2a;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #444;
+}
+.mini-card img {
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+.mini-card a {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3em;
+}
+.mini-card p {
+  font-size: 0.8em;
+  color: #ccc;
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&amp;display=swap" rel="stylesheet"/></head>
 <body>
@@ -329,24 +357,17 @@ header {
 <a href="#">#チャイナ服</a>
 </div>
 <div class="layout">
-<aside class="sidebar">
+<aside class="sidebar"><section class="ad-space"></section><section class="ad-space"></section><section class="ad-space"></section><section class="ad-space"></section><section class="ad-space"></section>
 <section class="ad"><div>[広告スペース①]</div></section>
 <section>
 <img alt="サムネイル" src="images/thumb_sample.jpg"/><h3>おすすめ記事</h3>
-<ul>
-<li><a href="#">チャイナ服で召喚術</a></li>
-<li><a href="#">猫耳で変身</a></li>
-<li><a href="#">GIFで見る神作画</a></li>
-</ul>
-</section>
+
+<div class="mini-card"><img alt="記事画像" src="images/thumb1.jpg"/><a href="#">記事タイトル 1</a><p>サンプルコメントがここに入ります。</p></div><div class="mini-card"><img alt="記事画像" src="images/thumb2.jpg"/><a href="#">記事タイトル 2</a><p>サンプルコメントがここに入ります。</p></div></section>
 <section class="ad"><div>[広告スペース②]</div></section>
 <section>
 <img alt="サムネイル" src="images/thumb_sample.jpg"/><h3>人気記事</h3>
-<ul>
-<li><a href="#">【GIF】止まらないギガリすと</a></li>
-<li><a href="#">【コスプレ】この完成度</a></li>
-</ul>
-</section>
+
+<div class="mini-card"><img alt="記事画像" src="images/thumb1.jpg"/><a href="#">記事タイトル 1</a><p>サンプルコメントがここに入ります。</p></div><div class="mini-card"><img alt="記事画像" src="images/thumb2.jpg"/><a href="#">記事タイトル 2</a><p>サンプルコメントがここに入ります。</p></div></section>
 <section>
 <h3>タグ一覧</h3>
 <p>#美尻 #ギャル #変身 #もふもふ</p>
