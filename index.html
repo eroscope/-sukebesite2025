@@ -234,6 +234,50 @@ header {
 a:hover {
   color: #FF6600;
 }
+
+/* 背景と全体ベースカラー調整 */
+body {
+  background-color: #202020;
+  color: #f2f2f2;
+}
+header {
+  background-color: #e05500; /* 落ち着いたオレンジ */
+  color: #000;
+}
+
+/* サイドバー見やすく */
+.sidebar section {
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+}
+.sidebar h3, .sidebar ul li, .sidebar p {
+  color: #f2f2f2;
+}
+
+/* リンク表示調整 */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #ff9900; /* ソフトオレンジ */
+}
+
+/* 記事カードも明度調整 */
+.card {
+  background: #2c2c2c;
+  color: #fff;
+}
+.card .title, .card .comment {
+  color: #f2f2f2;
+}
+
+/* ページネーションも白寄りに */
+#pagination a {
+  color: #ff9900;
+}
 </style>
 </head>
 <body>
