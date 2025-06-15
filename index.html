@@ -310,9 +310,13 @@ header {
   max-width: 800px;
 }
 
+
+
+/* 左側のスクロールをやめ、通常の位置からスクロールに合わせて動かし、最下部に来たら固定 */
 .sidebar {
-  height: calc(100vh - 100px);
-  overflow-y: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: auto;
 }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&amp;display=swap" rel="stylesheet"/></head>
