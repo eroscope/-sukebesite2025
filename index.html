@@ -162,6 +162,41 @@
   border: 1px solid #99c;
   font-size: 0.9em;
 }
+
+.sidebar section.ad {
+  background: #ffe;
+  border: 2px dashed #ff9900;
+  font-weight: bold;
+  text-align: center;
+  padding: 1.5em;
+  font-size: 1.1em;
+}
+
+.triple-row {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 2em auto;
+  max-width: 1000px;
+}
+.triple-row .box {
+  flex: 1 1 calc(33.3% - 1em);
+  background: #fafafa;
+  border: 1px solid #ccc;
+  padding: 1em;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.feature-banner {
+  margin: 2em auto;
+  background: #222;
+  color: #fff;
+  padding: 2em;
+  text-align: center;
+  font-size: 1.1em;
+  border-top: 3px solid gold;
+}
 </style>
 </head>
 <body>
@@ -238,6 +273,23 @@
 </div>
 <div id="pagination"></div>
 <div class="ad-inline">[インライン広告]</div>
+<div class="triple-row">
+<div class="box">🔥 今週の人気タグ<br/>#GIF #美尻 #チャイナ服</div>
+<div class="box">📈 ランキング上昇中<br/>【コスプレ】注目の作品</div>
+<div class="box">💬 コメントが熱い<br/>GIFで止まらないやつ</div>
+</div>
+<div class="feature-banner">
+<strong>混沌まとめとは…？</strong><br/>
+  面白いネタ・GIF・チャイナ・2ch話題を凝縮してお届け！<br/>
+  すべての暇つぶしに革命を。
+</div>
+
+<div class="triple-row">
+<div class="box">🔥 今週の人気タグ<br/>#GIF #美尻 #チャイナ服</div>
+<div class="box">📈 ランキング上昇中<br/>【コスプレ】注目の作品</div>
+<div class="box">💬 コメントが熱い<br/>GIFで止まらないやつ</div>
+</div>
+
 <div class="below-inline">
 <h3>💡 編集部の注目ポイント</h3>
 <ul>
@@ -246,7 +298,6 @@
 <li>過去記事にも神回あり</li>
 </ul>
 </div>
-
 <div class="related">
 <h3>🔁 次に読むべき記事</h3>
 <p><a href="#">▶ GIFまとめ</a> | <a href="#">▶ 人気：コスプレ</a></p>
