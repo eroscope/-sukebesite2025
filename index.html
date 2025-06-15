@@ -59,7 +59,6 @@
       margin: auto;
       padding: 1em;
       box-sizing: border-box;
-      align-items: flex-start;
     }
     .sidebar {
       width: 33.33%;
@@ -128,46 +127,11 @@
       color: #666;
       padding: 1em;
     }
-
-    @media screen and (max-width: 900px) {
-      .layout {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        overflow: hidden;
-      }
-      .sidebar {
-        width: 33.33%;
-        font-size: 0.8em;
-      }
-      .container {
-        width: 66.66%;
-        grid-template-columns: 1fr 1fr;
-        font-size: 0.9em;
-      }
-    }
-    @media screen and (max-width: 600px) {
-      .layout {
-        flex-direction: row;
-      }
-      .sidebar {
-        width: 33.33%;
-        font-size: 0.7em;
-      }
-      .container {
-        width: 66.66%;
-        grid-template-columns: 1fr 1fr;
-      }
-      .card .comment {
-        font-size: 0.75em;
-      }
-    }
   </style>
 </head>
 <body>
-
 <header>スケベな日常</header>
 <div class="news-ticker">🔥 最新更新: [2025/06/11] 本日も記事を大量追加中！</div>
-
 <nav>
   <a href="#">巨乳</a>
   <a href="#">美尻</a>
@@ -175,7 +139,6 @@
   <a href="#">コスプレ</a>
   <a href="#">素人</a>
 </nav>
-
 <div class="trending-tags">
   <strong>🔥 トレンドタグ:</strong>
   <a href="#">#異世界転生</a>
@@ -183,59 +146,23 @@
   <a href="#">#召喚術</a>
   <a href="#">#チャイナ服</a>
 </div>
-
 <div class="layout">
   <aside class="sidebar">
     <section><div>[広告スペース]</div></section>
-    <section>
-      <h3>おすすめ記事</h3>
-      <ul>
-        <li><a href="#">チャイナ服で召喚術</a></li>
-        <li><a href="#">猫耳で変身</a></li>
-        <li><a href="#">GIFで見る神作画</a></li>
-      </ul>
-    </section>
-    <section>
-      <h3>人気記事</h3>
-      <ul>
-        <li><a href="#">【GIF】止まらないギガリすと</a></li>
-        <li><a href="#">【コスプレ】この完成度</a></li>
-      </ul>
-    </section>
-    <section>
-      <h3>タグ一覧</h3>
-      <p>#美尻 #ギャル #変身 #もふもふ</p>
-    </section>
-    <section>
-      <h3>新着記事</h3>
-      <ul>
-        <li><a href="#">編集部おすすめ</a></li>
-        <li><a href="#">GIF爆増特集</a></li>
-      </ul>
-    </section>
-    <section>
-      <h3>月別アーカイブ</h3>
-      <ul>
-        <li><a href="#">2025年6月</a></li>
-        <li><a href="#">2025年5月</a></li>
-      </ul>
-    </section>
+    <section><h3>おすすめ記事</h3><ul><li><a href="#">チャイナ服で召喚術</a></li><li><a href="#">猫耳で変身</a></li><li><a href="#">GIFで見る神作画</a></li></ul></section>
+    <section><h3>人気記事</h3><ul><li><a href="#">【GIF】止まらないギガリすと</a></li><li><a href="#">【コスプレ】この完成度</a></li></ul></section>
+    <section><h3>タグ一覧</h3><p>#美尻 #ギャル #変身 #もふもふ</p></section>
+    <section><h3>新着記事</h3><ul><li><a href="#">編集部おすすめ</a></li><li><a href="#">GIF爆増特集</a></li></ul></section>
+    <section><h3>月別アーカイブ</h3><ul><li><a href="#">2025年6月</a></li><li><a href="#">2025年5月</a></li></ul></section>
   </aside>
-
-  <div class="container" id="card-container">
-    <!-- JSがここに記事を挿入 -->
-  </div>
+  <div class="container" id="card-container"></div>
 </div>
-
 <div id="pagination"></div>
-
 <div class="ad-inline">[インライン広告]</div>
-
 <div class="related">
   <h3>🔁 次に読むべき記事</h3>
   <p><a href="#">▶ GIFまとめ</a> | <a href="#">▶ 人気：コスプレ</a></p>
 </div>
-
 <footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
 <script src="js/articleLoader.js"></script>
 </body>
