@@ -9,54 +9,65 @@
     body {
       margin: 0;
       font-family: sans-serif;
-      background: #202840 url('images/bg_pattern.png') repeat;
-      background-size: cover;
-      color: #f2f2f2;
+      background: linear-gradient(135deg, #1e1e2f, #2e2e3f);
+      color: #eee;
     }
+
     header {
-      background: #0a1a30;
-      color: #ffcc00;
+      background: #1a1a2a;
+      color: #fff;
+      font-family: 'Kaisei Decol', serif;
+      text-align: center;
       padding: 1em;
       font-size: 1.8em;
-      text-align: center;
-      font-family: 'Kaisei Decol', serif;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
+
     header a {
-      color: inherit;
       text-decoration: none;
+      color: #fff;
     }
+
     .news-ticker {
-      background: #26466d;
+      background: #ff6666;
       color: white;
       text-align: center;
       padding: 0.3em;
       font-size: 0.9em;
     }
+
     nav {
-      background: #1a1a2e;
+      background: #333;
       color: white;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       padding: 0.5em;
     }
+
     nav a {
       color: white;
       margin: 0.5em;
       text-decoration: none;
       font-weight: bold;
     }
+
     .trending-tags {
       text-align: center;
-      background: #2b3b5a;
+      background: #2a2a3a;
       padding: 0.5em;
       font-size: 0.9em;
     }
+
     .trending-tags a {
       margin: 0.3em;
-      color: #88ccff;
+      color: #66ccff;
       text-decoration: none;
     }
+
     .layout {
       display: flex;
       max-width: 1200px;
@@ -64,97 +75,175 @@
       padding: 1em;
       box-sizing: border-box;
     }
+
     .sidebar {
       width: 33.33%;
       padding-right: 1em;
       box-sizing: border-box;
-      position: sticky;
-      top: 100px;
-      align-self: flex-start;
     }
+
     .sidebar section {
-      background: #2a2a3a;
+      background: #2f2f4a;
       color: #fff;
-      padding: 1em;
       border: 1px solid #444;
+      padding: 1em;
       margin-bottom: 1em;
+      border-radius: 12px;
     }
+
     .container {
       width: 66.66%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1em;
     }
+
     .card {
       background: #1a1a2a;
-      border: 1px solid #333;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      border: 1px solid #444;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     }
+
     .card img {
       width: 100%;
-      aspect-ratio: 4/3;
       display: block;
+      aspect-ratio: 4/3;
       object-fit: cover;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
     }
+
     .card img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      transform: scale(1.05);
     }
+
     .card .title {
       padding: 0.5em;
       font-weight: bold;
-      font-size: 0.9em;
-      color: #f2f2f2;
+      font-size: 1em;
+      color: #ffcc66;
     }
+
     .card .comment {
-      background: #2b2b3b;
+      background: #2a2a3a;
       padding: 0.5em;
-      font-size: 0.85em;
-      color: #ddd;
+      font-size: 0.9em;
+      color: #ccc;
     }
+
     #pagination {
       text-align: center;
       margin: 2em 0;
     }
+
     #pagination a {
       margin: 0 0.5em;
       text-decoration: none;
-      color: #88ccff;
+      color: #66ccff;
     }
+
     .ad-inline {
       text-align: center;
       padding: 1em;
       margin: 2em auto;
       border: 1px dashed #aaa;
-      width: 90%;
-      background: #2b2b2b;
+      background: #2e2e3f;
+      color: #ccc;
+      border-radius: 12px;
     }
+
+    .quote-block {
+      background: #444;
+      color: #ffcc66;
+      text-align: center;
+      padding: 1em;
+      font-style: italic;
+      margin: 2em auto;
+      max-width: 800px;
+      border-radius: 12px;
+    }
+
+    .triple-row {
+      display: flex;
+      gap: 1em;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 2em auto;
+      max-width: 1000px;
+    }
+
+    .triple-row .box {
+      flex: 1 1 calc(33.3% - 1em);
+      background: #2a2a3a;
+      border: 1px solid #444;
+      padding: 1em;
+      text-align: center;
+      border-radius: 12px;
+      color: #eee;
+    }
+
+    .feature-banner {
+      margin: 2em auto;
+      background: #111830;
+      color: #fff;
+      padding: 2em;
+      text-align: center;
+      font-size: 1.1em;
+      border-top: 3px solid gold;
+      border-radius: 12px;
+    }
+
+    .below-inline {
+      background: #2a2a3a;
+      margin: 2em auto;
+      padding: 1em;
+      max-width: 1000px;
+      border: 1px solid #666;
+      font-size: 0.9em;
+      color: #ddd;
+      border-radius: 12px;
+    }
+
     .related {
       padding: 1em;
       text-align: center;
-      background: #1f1f2f;
+      background: #222;
+      color: #fff;
+      border-radius: 12px;
     }
+
     footer {
       text-align: center;
       font-size: 0.8em;
-      color: #888;
+      color: #aaa;
       padding: 1em;
-      background: #111122;
+      background: #111;
+      margin-top: 2em;
     }
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #ff9900;
+
+    @media screen and (max-width: 768px) {
+      .layout {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .sidebar {
+        width: 100%;
+        margin-bottom: 1em;
+      }
+
+      .container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <header><a href="index.html">スケベな日常</a></header>
-  <div class="news-ticker">🔥 最新更新: [2025/06/15] 背景と配色をアップグレードしました！</div>
+  <div class="news-ticker">🔥 最新更新: [2025/06/15] 本日も記事を大量追加中！</div>
   <nav>
     <a href="#">巨乳</a>
     <a href="#">美尻</a>
@@ -175,28 +264,55 @@
       <section>
         <h3>おすすめ記事</h3>
         <ul>
-          <li><a href="#">GIFの真髄</a></li>
-          <li><a href="#">猫耳召喚術とは</a></li>
+          <li><a href="#">チャイナ服で召喚術</a></li>
+          <li><a href="#">猫耳で変身</a></li>
+          <li><a href="#">GIFで見る神作画</a></li>
         </ul>
       </section>
       <section class="ad">[広告スペース②]</section>
       <section>
         <h3>人気記事</h3>
         <ul>
-          <li><a href="#">異世界GIF傑作選</a></li>
-          <li><a href="#">チャイナ服まとめ</a></li>
+          <li><a href="#">【GIF】止まらないギガリすと</a></li>
+          <li><a href="#">【コスプレ】この完成度</a></li>
         </ul>
       </section>
     </aside>
+
     <div class="container" id="card-container">
-      <!-- JSによりカードがここに表示される -->
+      <!-- JSでカード表示 -->
     </div>
   </div>
+
   <div id="pagination"></div>
   <div class="ad-inline">[インライン広告]</div>
+  <div class="quote-block">💬 今日の一言：『GIFは芸術だ。』</div>
+  <div class="triple-row">
+    <div class="box">🔥 今週の人気タグ<br/>#GIF #美尻 #チャイナ服</div>
+    <div class="box">📈 ランキング上昇中<br/>【コスプレ】注目の作品</div>
+    <div class="box">💬 コメントが熱い<br/>GIFで止まらないやつ</div>
+  </div>
+  <div class="feature-banner">
+    <strong>混沌まとめとは…？</strong><br/>
+    面白いネタ・GIF・チャイナ・2ch話題を凝縮してお届け！<br/>
+    すべての暇つぶしに革命を。
+  </div>
+  <div class="triple-row">
+    <div class="box">🔥 今週の人気タグ<br/>#GIF #美尻 #チャイナ服</div>
+    <div class="box">📈 ランキング上昇中<br/>【コスプレ】注目の作品</div>
+    <div class="box">💬 コメントが熱い<br/>GIFで止まらないやつ</div>
+  </div>
+  <div class="below-inline">
+    <h3>💡 編集部の注目ポイント</h3>
+    <ul>
+      <li>GIF多用記事は保存推奨</li>
+      <li>月末ランキングは要チェック</li>
+      <li>過去記事にも神回あり</li>
+    </ul>
+  </div>
   <div class="related">
-    <h3>🔁 関連記事</h3>
-    <p><a href="#">▶ GIFまとめを見る</a> | <a href="#">▶ コスプレ特集</a></p>
+    <h3>🔁 次に読むべき記事</h3>
+    <p><a href="#">▶ GIFまとめ</a> | <a href="#">▶ 人気：コスプレ</a></p>
   </div>
   <footer>© 2025 スケベな日常 | powered by ChattyCMS</footer>
   <script src="js/articleLoader.js"></script>
