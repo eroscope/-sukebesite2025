@@ -1,14 +1,329 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
 <meta charset="utf-8"/>
 <title>スケベな日常</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&amp;display=swap" rel="stylesheet"/>
 <style>
-/* 省略せずすべて保存済みCSSがここに入る前提 */
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #fff;
+      color: #111;
+    }
+    header {
+      background: #ffcc00;
+      padding: 1em;
+      font-size: 1.8em;
+      text-align: center;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .news-ticker {
+      background: #ff6666;
+      color: white;
+      text-align: center;
+      padding: 0.3em;
+      font-size: 0.9em;
+    }
+    nav {
+      background: #333;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0.5em;
+    }
+    nav a {
+      color: white;
+      margin: 0.5em;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .trending-tags {
+      text-align: center;
+      background: #f0f0f0;
+      padding: 0.5em;
+      font-size: 0.9em;
+    }
+    .trending-tags a {
+      margin: 0.3em;
+      color: #0077cc;
+      text-decoration: none;
+    }
+    .layout {
+      display: flex;
+      max-width: 1200px;
+      margin: auto;
+      padding: 1em;
+      box-sizing: border-box;
+    }
+    .sidebar {
+      width: 33.33%;
+      padding-right: 1em;
+      box-sizing: border-box;
+      position: sticky;
+      top: 100px;
+      align-self: flex-start;
+    }
+    .sidebar section {
+      background: #f9f9f9;
+      padding: 1em;
+      border: 1px solid #ccc;
+      margin-bottom: 1em;
+    }
+    .container {
+      width: 66.66%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+    }
+    .card {
+      border: 1px solid #ccc;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      display: block;
+    }
+    .card .title {
+      padding: 0.5em;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+    .card .comment {
+      background: #f8f8f8;
+      padding: 0.5em;
+      font-size: 0.85em;
+    }
+    #pagination {
+      text-align: center;
+      margin: 2em 0;
+    }
+    #pagination a {
+      margin: 0 0.5em;
+      text-decoration: none;
+      color: #0077cc;
+    }
+    .ad-inline {
+      text-align: center;
+      padding: 1em;
+      margin: 2em auto;
+      border: 1px dashed #aaa;
+      width: 90%;
+      background: #f0f0f0;
+    }
+    .related {
+      padding: 1em;
+      text-align: center;
+      background: #f5f5f5;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.8em;
+      color: #666;
+      padding: 1em;
+    }
+  
+.sidebar section.ad {
+  background: #ffe;
+  border: 2px dashed #ff9900;
+  font-weight: bold;
+  text-align: center;
+}
+
+.below-inline {
+  background: #e6f2ff;
+  margin: 2em auto;
+  padding: 1em;
+  max-width: 1000px;
+  border: 1px solid #99c;
+  font-size: 0.9em;
+}
+
+.sidebar section.filler {
+  background: #fff0f0;
+  color: #888;
+  padding: 1em;
+  border: 1px dashed #faa;
+  font-size: 0.85em;
+  text-align: center;
+}
+
+.below-inline {
+  background: #e6f2ff;
+  margin: 2em auto;
+  padding: 1em;
+  max-width: 1000px;
+  border: 1px solid #99c;
+  font-size: 0.9em;
+}
+
+.sidebar section.ad {
+  background: #ffe;
+  border: 2px dashed #ff9900;
+  font-weight: bold;
+  text-align: center;
+  padding: 1.5em;
+  font-size: 1.1em;
+}
+
+.triple-row {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 2em auto;
+  max-width: 1000px;
+}
+.triple-row .box {
+  flex: 1 1 calc(33.3% - 1em);
+  background: #fafafa;
+  border: 1px solid #ccc;
+  padding: 1em;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.feature-banner {
+  margin: 2em auto;
+  background: #222;
+  color: #fff;
+  padding: 2em;
+  text-align: center;
+  font-size: 1.1em;
+  border-top: 3px solid gold;
+}
+
+.card img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #ff9900;
+}
+
+
+.sidebar section.ad-space {
+  aspect-ratio: 3 / 4;
+  height: auto;
+}
+
+
+body {
+  background-color: #202020;
+  color: #eeeeee;
+}
+header {
+  background-color: #FF6600;
+  color: #000;
+}
+a:hover {
+  color: #FF6600;
+}
+
+/* 背景と全体ベースカラー調整 */
+body {
+  background-color: #202020;
+  color: #f2f2f2;
+}
+header {
+  background-color: #e05500; /* 落ち着いたオレンジ */
+  color: #000;
+}
+
+/* サイドバー見やすく */
+.sidebar section {
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+}
+.sidebar h3, .sidebar ul li, .sidebar p {
+  color: #f2f2f2;
+}
+
+/* リンク表示調整 */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #ff9900; /* ソフトオレンジ */
+}
+
+/* 記事カードも明度調整 */
+.card {
+  background: #2c2c2c;
+  color: #fff;
+}
+.card .title, .card .comment {
+  color: #f2f2f2;
+}
+
+/* ページネーションも白寄りに */
+#pagination a {
+  color: #ff9900;
+}
+
+
+.card {
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+}
+.card .comment {
+  background-color: #2b2b2b;
+}
+
+
+header {
+  font-family: 'Kaisei Decol', serif;
+}
+
+.ad-space {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  background: #555;
+  margin: 1em 0;
+}
+
+.quote-block {
+  background: #444;
+  color: #ffcc66;
+  text-align: center;
+  padding: 1em;
+  font-style: italic;
+  margin: 2em auto;
+  max-width: 800px;
+}
+
+    .ad-space {
+      background: #444;
+      aspect-ratio: 4 / 3;
+      margin-bottom: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.9em;
+      min-height: 150px;
+    }
+
 </style>
-</head>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&amp;display=swap" rel="stylesheet"/></head>
 <body>
 <header><a href="index.html">スケベな日常</a></header>
 <div class="news-ticker">🔥 最新更新: [2025/06/11] 本日も記事を大量追加中！</div>
@@ -26,10 +341,15 @@
 <a href="#">#召喚術</a>
 <a href="#">#チャイナ服</a>
 </div>
-<!-- サイドバーとメインエリア -->
 <div class="layout">
 <aside class="sidebar">
-<!-- 各広告セクションなどは省略 -->
+
+<section class="ad-space"><div class="ad-box">[広告 1]</div></section>
+<section class="ad-space"><div class="ad-box">[広告 2]</div></section>
+<section class="ad-space"><div class="ad-box">[広告 3]</div></section>
+<section class="ad-space"><div class="ad-box">[広告 4]</div></section>
+<section class="ad-space"><div class="ad-box">[広告 5]</div></section>
+
 <section class="ad"><div>[広告スペース①]</div></section>
 <section>
 <img alt="サムネイル" src="images/thumb_sample.jpg"/><h3>おすすめ記事</h3>
@@ -39,15 +359,52 @@
 <li><a href="#">GIFで見る神作画</a></li>
 </ul>
 </section>
-<!-- ... 中略 ... -->
-<section class="filler">[このスペースは読み込み中のPRや特集が追加されます]</section>
-</aside>
+<section class="ad"><div>[広告スペース②]</div></section>
+<section>
+<img alt="サムネイル" src="images/thumb_sample.jpg"/><h3>人気記事</h3>
+<ul>
+<li><a href="#">【GIF】止まらないギガリすと</a></li>
+<li><a href="#">【コスプレ】この完成度</a></li>
+</ul>
+</section>
+<section>
+<h3>タグ一覧</h3>
+<p>#美尻 #ギャル #変身 #もふもふ</p>
+</section>
+<section class="ad"><div>[広告スペース③]</div></section>
+<section>
+<h3>新着記事</h3>
+<ul>
+<li><a href="#">編集部おすすめ</a></li>
+<li><a href="#">GIF爆増特集</a></li>
+</ul>
+</section>
+<section>
+<h3>月別アーカイブ</h3>
+<ul>
+<li><a href="#">2025年6月</a></li>
+<li><a href="#">2025年5月</a></li>
+</ul>
+</section>
+<section>
+<h3>PR: 注目まとめ</h3>
+<ul>
+<li><a href="#">▶ 推しGIF爆発まとめ</a></li>
+<li><a href="#">▶ 伝説のチャイナ回</a></li>
+</ul>
+</section>
+<section>
+<h3>PR: 編集部激推し</h3>
+<ul>
+<li><a href="#">▶ 神回セレクション</a></li>
+<li><a href="#">▶ 話題の異世界編</a></li>
+</ul>
+</section>
+<section class="filler">[このスペースは読み込み中のPRや特集が追加されます]</section></aside>
 <div class="container" id="card-container"></div>
 </div>
-<!-- 以下の全要素も含む -->
 <div id="pagination"></div>
-<div class="ad-inline">[インライン広告]</div>
-<div class="quote-block">💬 今日の一言：『GIFは芸術だ。』</div>
+<div class="ad-inline">[インライン広告]</div><div class="quote-block">💬 今日の一言：『GIFは芸術だ。』</div>
 <div class="triple-row">
 <div class="box">🔥 今週の人気タグ<br/>#GIF #美尻 #チャイナ服</div>
 <div class="box">📈 ランキング上昇中<br/>【コスプレ】注目の作品</div>
